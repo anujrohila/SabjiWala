@@ -1,0 +1,1351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OrderManagmentModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="OrderManagmentModelStoreContainer">
+          <EntitySet Name="TblAddressMaster" EntityType="OrderManagmentModel.Store.TblAddressMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblAdminLoginMaster" EntityType="OrderManagmentModel.Store.TblAdminLoginMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblBillMaster" EntityType="OrderManagmentModel.Store.TblBillMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblCategoryMaster" EntityType="OrderManagmentModel.Store.TblCategoryMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblCustomerCreditMaster" EntityType="OrderManagmentModel.Store.TblCustomerCreditMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblCustomerDeviceMaster" EntityType="OrderManagmentModel.Store.TblCustomerDeviceMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblCustomerMaster" EntityType="OrderManagmentModel.Store.TblCustomerMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblCustomerPaymentDetailMaster" EntityType="OrderManagmentModel.Store.TblCustomerPaymentDetailMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblCustomerStatusMaster" EntityType="OrderManagmentModel.Store.TblCustomerStatusMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblDeviceTypeMaster" EntityType="OrderManagmentModel.Store.TblDeviceTypeMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblEmployeeMaster" EntityType="OrderManagmentModel.Store.TblEmployeeMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblEmployeeTypeMaster" EntityType="OrderManagmentModel.Store.TblEmployeeTypeMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblLanguageMaster" EntityType="OrderManagmentModel.Store.TblLanguageMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblOrderItemDetailMaster" EntityType="OrderManagmentModel.Store.TblOrderItemDetailMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblOrderMaster" EntityType="OrderManagmentModel.Store.TblOrderMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblOrderStatusMaster" EntityType="OrderManagmentModel.Store.TblOrderStatusMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblProductMaster" EntityType="OrderManagmentModel.Store.TblProductMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblProductStatusMaster" EntityType="OrderManagmentModel.Store.TblProductStatusMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblSubCategoryMaster" EntityType="OrderManagmentModel.Store.TblSubCategoryMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblSupplierDeviceMaster" EntityType="OrderManagmentModel.Store.TblSupplierDeviceMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblSupplierMaster" EntityType="OrderManagmentModel.Store.TblSupplierMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblTerm&amp;ConditionMaster" EntityType="OrderManagmentModel.Store.TblTerm&amp;ConditionMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblTypeMaster" EntityType="OrderManagmentModel.Store.TblTypeMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblUserLoginMaster" EntityType="OrderManagmentModel.Store.TblUserLoginMaster" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TblUserLogMaster" EntityType="OrderManagmentModel.Store.TblUserLogMaster" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_TblSupplierMaster_TblLanguageMaster" Association="OrderManagmentModel.Store.FK_TblSupplierMaster_TblLanguageMaster">
+            <End Role="TblLanguageMaster" EntitySet="TblLanguageMaster" />
+            <End Role="TblSupplierMaster" EntitySet="TblSupplierMaster" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TblAddressMaster">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="Longitude" Type="float" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblAdminLoginMaster">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AdminName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="50" />
+          <Property Name="EmailID" Type="varchar" MaxLength="50" />
+          <Property Name="AdminProfile" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblBillMaster">
+          <Key>
+            <PropertyRef Name="BillID" />
+          </Key>
+          <Property Name="BillID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="AddressID" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblCategoryMaster">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" />
+          <Property Name="CategoryImage" Type="varchar" MaxLength="50" />
+          <Property Name="LanguageID" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblCustomerCreditMaster">
+          <Key>
+            <PropertyRef Name="CustomerCreditID" />
+          </Key>
+          <Property Name="CustomerCreditID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FinalAmount" Type="int" />
+          <Property Name="OrderAmount" Type="int" />
+          <Property Name="CreditAmount" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblCustomerDeviceMaster">
+          <Key>
+            <PropertyRef Name="CustomerDeviceID" />
+          </Key>
+          <Property Name="CustomerDeviceID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="DeviceTypeID" Type="int" />
+          <Property Name="DeviceToken" Type="varchar" MaxLength="50" />
+          <Property Name="DeviceKey" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblCustomerMaster">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="DisplayName" Type="varchar" MaxLength="10" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="EmailId" Type="varchar" MaxLength="50" />
+          <Property Name="LanguageID" Type="int" />
+          <Property Name="ConformationCode" Type="int" />
+          <Property Name="CustomerDeviceID" Type="int" />
+          <Property Name="CustomerStatusID" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblCustomerPaymentDetailMaster">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="CreditDateTime" Type="datetime" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="ReceivedPersonName" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblCustomerStatusMaster">
+          <Key>
+            <PropertyRef Name="CustomerStatusID" />
+          </Key>
+          <Property Name="CustomerStatusID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerStatus" Type="varchar" MaxLength="50" />
+          <Property Name="StatusDescription" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblDeviceTypeMaster">
+          <Key>
+            <PropertyRef Name="DeviceTypeID" />
+          </Key>
+          <Property Name="DeviceTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DeviceName" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblEmployeeMaster">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeTypeID" Type="int" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="EmailId" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblEmployeeTypeMaster">
+          <Key>
+            <PropertyRef Name="EmployeeTypeID" />
+          </Key>
+          <Property Name="EmployeeTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeType" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblLanguageMaster">
+          <Key>
+            <PropertyRef Name="LanguageID" />
+          </Key>
+          <Property Name="LanguageID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Language" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblOrderItemDetailMaster">
+          <Key>
+            <PropertyRef Name="OrderItemID" />
+          </Key>
+          <Property Name="OrderItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="Quantity" Type="float" />
+          <Property Name="Price" Type="float" />
+          <Property Name="Discount" Type="float" />
+          <Property Name="TotalAmount" Type="float" />
+          <Property Name="ProductStatusID" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblOrderMaster">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="AddressID" Type="int" />
+          <Property Name="OrderStatusID" Type="int" />
+          <Property Name="OrderDateTime" Type="datetime" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblOrderStatusMaster">
+          <Key>
+            <PropertyRef Name="OrderStatusID" />
+          </Key>
+          <Property Name="OrderStatusID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderStatus" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblProductMaster">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SubCategoryID" Type="int" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="ProductName" Type="varchar" MaxLength="50" />
+          <Property Name="ProductImage" Type="varchar" MaxLength="50" />
+          <Property Name="ProductPrice" Type="float" />
+          <Property Name="ProductDiscount" Type="float" />
+          <Property Name="LanguageID" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblProductStatusMaster">
+          <Key>
+            <PropertyRef Name="ProductStatusID" />
+          </Key>
+          <Property Name="ProductStatusID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductStatus" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblSubCategoryMaster">
+          <Key>
+            <PropertyRef Name="SubCategoryID" />
+          </Key>
+          <Property Name="SubCategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SubCategoryName" Type="varchar" MaxLength="50" />
+          <Property Name="SubCategoryImage" Type="varchar" MaxLength="50" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="LanguageID" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblSupplierDeviceMaster">
+          <Key>
+            <PropertyRef Name="SupplierDeviceID" />
+          </Key>
+          <Property Name="SupplierDeviceID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierID" Type="int" />
+          <Property Name="DeviceTypeID" Type="int" />
+          <Property Name="DeviceToken" Type="varchar" MaxLength="50" />
+          <Property Name="DeviceKey" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblSupplierMaster">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="OrganizationName" Type="varchar" MaxLength="50" />
+          <Property Name="LanguageID" Type="int" />
+          <Property Name="EmailID" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="Longitude" Type="float" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="SupplierDeviceID" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblTerm&amp;ConditionMaster">
+          <Key>
+            <PropertyRef Name="ConditionID" />
+          </Key>
+          <Property Name="ConditionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ConditionSubject" Type="varchar" MaxLength="50" />
+          <Property Name="ConditionDetail" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblTypeMaster">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblUserLoginMaster">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="TypeID" Type="int" />
+          <Property Name="ConformationCode" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="TblUserLogMaster">
+          <Key>
+            <PropertyRef Name="UserLogID" />
+          </Key>
+          <Property Name="UserLogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IPAddress" Type="int" />
+          <Property Name="LoginTimeDate" Type="datetime" />
+          <Property Name="LogoutTimeDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDateTime" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDateTime" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <Association Name="FK_TblSupplierMaster_TblLanguageMaster">
+          <End Role="TblLanguageMaster" Type="OrderManagmentModel.Store.TblLanguageMaster" Multiplicity="0..1" />
+          <End Role="TblSupplierMaster" Type="OrderManagmentModel.Store.TblSupplierMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblLanguageMaster">
+              <PropertyRef Name="LanguageID" />
+            </Principal>
+            <Dependent Role="TblSupplierMaster">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OrderManagmentModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="OrderManagmentEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="TblAddressMasters" EntityType="OrderManagmentModel.TblAddressMaster" />
+          <EntitySet Name="TblAdminLoginMasters" EntityType="OrderManagmentModel.TblAdminLoginMaster" />
+          <EntitySet Name="TblBillMasters" EntityType="OrderManagmentModel.TblBillMaster" />
+          <EntitySet Name="TblCategoryMasters" EntityType="OrderManagmentModel.TblCategoryMaster" />
+          <EntitySet Name="TblCustomerCreditMasters" EntityType="OrderManagmentModel.TblCustomerCreditMaster" />
+          <EntitySet Name="TblCustomerDeviceMasters" EntityType="OrderManagmentModel.TblCustomerDeviceMaster" />
+          <EntitySet Name="TblCustomerMasters" EntityType="OrderManagmentModel.TblCustomerMaster" />
+          <EntitySet Name="TblCustomerPaymentDetailMasters" EntityType="OrderManagmentModel.TblCustomerPaymentDetailMaster" />
+          <EntitySet Name="TblCustomerStatusMasters" EntityType="OrderManagmentModel.TblCustomerStatusMaster" />
+          <EntitySet Name="TblDeviceTypeMasters" EntityType="OrderManagmentModel.TblDeviceTypeMaster" />
+          <EntitySet Name="TblEmployeeMasters" EntityType="OrderManagmentModel.TblEmployeeMaster" />
+          <EntitySet Name="TblEmployeeTypeMasters" EntityType="OrderManagmentModel.TblEmployeeTypeMaster" />
+          <EntitySet Name="TblLanguageMasters" EntityType="OrderManagmentModel.TblLanguageMaster" />
+          <EntitySet Name="TblOrderItemDetailMasters" EntityType="OrderManagmentModel.TblOrderItemDetailMaster" />
+          <EntitySet Name="TblOrderMasters" EntityType="OrderManagmentModel.TblOrderMaster" />
+          <EntitySet Name="TblOrderStatusMasters" EntityType="OrderManagmentModel.TblOrderStatusMaster" />
+          <EntitySet Name="TblProductMasters" EntityType="OrderManagmentModel.TblProductMaster" />
+          <EntitySet Name="TblProductStatusMasters" EntityType="OrderManagmentModel.TblProductStatusMaster" />
+          <EntitySet Name="TblSubCategoryMasters" EntityType="OrderManagmentModel.TblSubCategoryMaster" />
+          <EntitySet Name="TblSupplierDeviceMasters" EntityType="OrderManagmentModel.TblSupplierDeviceMaster" />
+          <EntitySet Name="TblSupplierMasters" EntityType="OrderManagmentModel.TblSupplierMaster" />
+          <EntitySet Name="TblTerm_ConditionMaster" EntityType="OrderManagmentModel.TblTerm_ConditionMaster" />
+          <EntitySet Name="TblTypeMasters" EntityType="OrderManagmentModel.TblTypeMaster" />
+          <EntitySet Name="TblUserLoginMasters" EntityType="OrderManagmentModel.TblUserLoginMaster" />
+          <EntitySet Name="TblUserLogMasters" EntityType="OrderManagmentModel.TblUserLogMaster" />
+          <AssociationSet Name="FK_TblSupplierMaster_TblLanguageMaster" Association="OrderManagmentModel.FK_TblSupplierMaster_TblLanguageMaster">
+            <End Role="TblLanguageMaster" EntitySet="TblLanguageMasters" />
+            <End Role="TblSupplierMaster" EntitySet="TblSupplierMasters" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="TblAddressMaster">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Address" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="Longitude" Type="Double" />
+          <Property Name="Latitude" Type="Double" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblAdminLoginMaster">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DisplayName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EmailID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="AdminProfile" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblBillMaster">
+          <Key>
+            <PropertyRef Name="BillID" />
+          </Key>
+          <Property Name="BillID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="AddressID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblCategoryMaster">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CategoryImage" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LanguageID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblCustomerCreditMaster">
+          <Key>
+            <PropertyRef Name="CustomerCreditID" />
+          </Key>
+          <Property Name="CustomerCreditID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FinalAmount" Type="Int32" />
+          <Property Name="OrderAmount" Type="Int32" />
+          <Property Name="CreditAmount" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblCustomerDeviceMaster">
+          <Key>
+            <PropertyRef Name="CustomerDeviceID" />
+          </Key>
+          <Property Name="CustomerDeviceID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="DeviceTypeID" Type="Int32" />
+          <Property Name="DeviceToken" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DeviceKey" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblCustomerMaster">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="DisplayName" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EmailId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LanguageID" Type="Int32" />
+          <Property Name="ConformationCode" Type="Int32" />
+          <Property Name="CustomerDeviceID" Type="Int32" />
+          <Property Name="CustomerStatusID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblCustomerPaymentDetailMaster">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="CreditDateTime" Type="DateTime" Precision="3" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="ReceivedPersonName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblCustomerStatusMaster">
+          <Key>
+            <PropertyRef Name="CustomerStatusID" />
+          </Key>
+          <Property Name="CustomerStatusID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerStatus" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="StatusDescription" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblDeviceTypeMaster">
+          <Key>
+            <PropertyRef Name="DeviceTypeID" />
+          </Key>
+          <Property Name="DeviceTypeID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="DeviceName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblEmployeeMaster">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EmployeeTypeID" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EmailId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblEmployeeTypeMaster">
+          <Key>
+            <PropertyRef Name="EmployeeTypeID" />
+          </Key>
+          <Property Name="EmployeeTypeID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeType" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblLanguageMaster">
+          <Key>
+            <PropertyRef Name="LanguageID" />
+          </Key>
+          <Property Name="LanguageID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Language" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="TblSupplierMasters" Relationship="OrderManagmentModel.FK_TblSupplierMaster_TblLanguageMaster" FromRole="TblLanguageMaster" ToRole="TblSupplierMaster" />
+        </EntityType>
+        <EntityType Name="TblOrderItemDetailMaster">
+          <Key>
+            <PropertyRef Name="OrderItemID" />
+          </Key>
+          <Property Name="OrderItemID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="Quantity" Type="Double" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="TotalAmount" Type="Double" />
+          <Property Name="ProductStatusID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblOrderMaster">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="AddressID" Type="Int32" />
+          <Property Name="OrderStatusID" Type="Int32" />
+          <Property Name="OrderDateTime" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblOrderStatusMaster">
+          <Key>
+            <PropertyRef Name="OrderStatusID" />
+          </Key>
+          <Property Name="OrderStatusID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderStatus" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblProductMaster">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="SubCategoryID" Type="Int32" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="ProductName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ProductImage" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ProductPrice" Type="Double" />
+          <Property Name="ProductDiscount" Type="Double" />
+          <Property Name="LanguageID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblProductStatusMaster">
+          <Key>
+            <PropertyRef Name="ProductStatusID" />
+          </Key>
+          <Property Name="ProductStatusID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductStatus" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblSubCategoryMaster">
+          <Key>
+            <PropertyRef Name="SubCategoryID" />
+          </Key>
+          <Property Name="SubCategoryID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="SubCategoryName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SubCategoryImage" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="LanguageID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblSupplierDeviceMaster">
+          <Key>
+            <PropertyRef Name="SupplierDeviceID" />
+          </Key>
+          <Property Name="SupplierDeviceID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierID" Type="Int32" />
+          <Property Name="DeviceTypeID" Type="Int32" />
+          <Property Name="DeviceToken" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="DeviceKey" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblSupplierMaster">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="FirstName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="OrganizationName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LanguageID" Type="Int32" />
+          <Property Name="EmailID" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Longitude" Type="Double" />
+          <Property Name="Latitude" Type="Double" />
+          <Property Name="SupplierDeviceID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="TblLanguageMaster" Relationship="OrderManagmentModel.FK_TblSupplierMaster_TblLanguageMaster" FromRole="TblSupplierMaster" ToRole="TblLanguageMaster" />
+        </EntityType>
+        <EntityType Name="TblTerm_ConditionMaster">
+          <Key>
+            <PropertyRef Name="ConditionID" />
+          </Key>
+          <Property Name="ConditionID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ConditionSubject" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ConditionDetail" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblTypeMaster">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TblUserLoginMaster">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="TypeID" Type="Int32" />
+          <Property Name="ConformationCode" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TblUserLogMaster">
+          <Key>
+            <PropertyRef Name="UserLogID" />
+          </Key>
+          <Property Name="UserLogID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="IPAddress" Type="Int32" />
+          <Property Name="LoginTimeDate" Type="DateTime" Precision="3" />
+          <Property Name="LogoutTimeDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_TblSupplierMaster_TblLanguageMaster">
+          <End Role="TblLanguageMaster" Type="OrderManagmentModel.TblLanguageMaster" Multiplicity="0..1" />
+          <End Role="TblSupplierMaster" Type="OrderManagmentModel.TblSupplierMaster" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblLanguageMaster">
+              <PropertyRef Name="LanguageID" />
+            </Principal>
+            <Dependent Role="TblSupplierMaster">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OrderManagmentModelStoreContainer" CdmEntityContainer="OrderManagmentEntities">
+          <EntitySetMapping Name="TblAddressMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblAddressMaster">
+              <MappingFragment StoreEntitySet="TblAddressMaster">
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblAdminLoginMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblAdminLoginMaster">
+              <MappingFragment StoreEntitySet="TblAdminLoginMaster">
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="AdminProfile" ColumnName="AdminProfile" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblBillMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblBillMaster">
+              <MappingFragment StoreEntitySet="TblBillMaster">
+                <ScalarProperty Name="BillID" ColumnName="BillID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCategoryMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblCategoryMaster">
+              <MappingFragment StoreEntitySet="TblCategoryMaster">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryImage" ColumnName="CategoryImage" />
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCustomerCreditMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblCustomerCreditMaster">
+              <MappingFragment StoreEntitySet="TblCustomerCreditMaster">
+                <ScalarProperty Name="CustomerCreditID" ColumnName="CustomerCreditID" />
+                <ScalarProperty Name="FinalAmount" ColumnName="FinalAmount" />
+                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
+                <ScalarProperty Name="CreditAmount" ColumnName="CreditAmount" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCustomerDeviceMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblCustomerDeviceMaster">
+              <MappingFragment StoreEntitySet="TblCustomerDeviceMaster">
+                <ScalarProperty Name="CustomerDeviceID" ColumnName="CustomerDeviceID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="DeviceTypeID" ColumnName="DeviceTypeID" />
+                <ScalarProperty Name="DeviceToken" ColumnName="DeviceToken" />
+                <ScalarProperty Name="DeviceKey" ColumnName="DeviceKey" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCustomerMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblCustomerMaster">
+              <MappingFragment StoreEntitySet="TblCustomerMaster">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="ConformationCode" ColumnName="ConformationCode" />
+                <ScalarProperty Name="CustomerDeviceID" ColumnName="CustomerDeviceID" />
+                <ScalarProperty Name="CustomerStatusID" ColumnName="CustomerStatusID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCustomerPaymentDetailMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblCustomerPaymentDetailMaster">
+              <MappingFragment StoreEntitySet="TblCustomerPaymentDetailMaster">
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CreditDateTime" ColumnName="CreditDateTime" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ReceivedPersonName" ColumnName="ReceivedPersonName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCustomerStatusMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblCustomerStatusMaster">
+              <MappingFragment StoreEntitySet="TblCustomerStatusMaster">
+                <ScalarProperty Name="CustomerStatusID" ColumnName="CustomerStatusID" />
+                <ScalarProperty Name="CustomerStatus" ColumnName="CustomerStatus" />
+                <ScalarProperty Name="StatusDescription" ColumnName="StatusDescription" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblDeviceTypeMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblDeviceTypeMaster">
+              <MappingFragment StoreEntitySet="TblDeviceTypeMaster">
+                <ScalarProperty Name="DeviceTypeID" ColumnName="DeviceTypeID" />
+                <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblEmployeeMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblEmployeeMaster">
+              <MappingFragment StoreEntitySet="TblEmployeeMaster">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="EmployeeTypeID" ColumnName="EmployeeTypeID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblEmployeeTypeMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblEmployeeTypeMaster">
+              <MappingFragment StoreEntitySet="TblEmployeeTypeMaster">
+                <ScalarProperty Name="EmployeeTypeID" ColumnName="EmployeeTypeID" />
+                <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblLanguageMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblLanguageMaster">
+              <MappingFragment StoreEntitySet="TblLanguageMaster">
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblOrderItemDetailMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblOrderItemDetailMaster">
+              <MappingFragment StoreEntitySet="TblOrderItemDetailMaster">
+                <ScalarProperty Name="OrderItemID" ColumnName="OrderItemID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="ProductStatusID" ColumnName="ProductStatusID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblOrderMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblOrderMaster">
+              <MappingFragment StoreEntitySet="TblOrderMaster">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+                <ScalarProperty Name="OrderDateTime" ColumnName="OrderDateTime" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblOrderStatusMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblOrderStatusMaster">
+              <MappingFragment StoreEntitySet="TblOrderStatusMaster">
+                <ScalarProperty Name="OrderStatusID" ColumnName="OrderStatusID" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblProductMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblProductMaster">
+              <MappingFragment StoreEntitySet="TblProductMaster">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
+                <ScalarProperty Name="ProductPrice" ColumnName="ProductPrice" />
+                <ScalarProperty Name="ProductDiscount" ColumnName="ProductDiscount" />
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblProductStatusMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblProductStatusMaster">
+              <MappingFragment StoreEntitySet="TblProductStatusMaster">
+                <ScalarProperty Name="ProductStatusID" ColumnName="ProductStatusID" />
+                <ScalarProperty Name="ProductStatus" ColumnName="ProductStatus" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblSubCategoryMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblSubCategoryMaster">
+              <MappingFragment StoreEntitySet="TblSubCategoryMaster">
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+                <ScalarProperty Name="SubCategoryImage" ColumnName="SubCategoryImage" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblSupplierDeviceMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblSupplierDeviceMaster">
+              <MappingFragment StoreEntitySet="TblSupplierDeviceMaster">
+                <ScalarProperty Name="SupplierDeviceID" ColumnName="SupplierDeviceID" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="DeviceTypeID" ColumnName="DeviceTypeID" />
+                <ScalarProperty Name="DeviceToken" ColumnName="DeviceToken" />
+                <ScalarProperty Name="DeviceKey" ColumnName="DeviceKey" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblSupplierMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblSupplierMaster">
+              <MappingFragment StoreEntitySet="TblSupplierMaster">
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="SupplierDeviceID" ColumnName="SupplierDeviceID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblTerm_ConditionMaster">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblTerm_ConditionMaster">
+              <MappingFragment StoreEntitySet="TblTerm&amp;ConditionMaster">
+                <ScalarProperty Name="ConditionID" ColumnName="ConditionID" />
+                <ScalarProperty Name="ConditionSubject" ColumnName="ConditionSubject" />
+                <ScalarProperty Name="ConditionDetail" ColumnName="ConditionDetail" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblTypeMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblTypeMaster">
+              <MappingFragment StoreEntitySet="TblTypeMaster">
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblUserLoginMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblUserLoginMaster">
+              <MappingFragment StoreEntitySet="TblUserLoginMaster">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="ConformationCode" ColumnName="ConformationCode" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblUserLogMasters">
+            <EntityTypeMapping TypeName="OrderManagmentModel.TblUserLogMaster">
+              <MappingFragment StoreEntitySet="TblUserLogMaster">
+                <ScalarProperty Name="UserLogID" ColumnName="UserLogID" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="LoginTimeDate" ColumnName="LoginTimeDate" />
+                <ScalarProperty Name="LogoutTimeDate" ColumnName="LogoutTimeDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDateTime" ColumnName="UpdatedDateTime" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
