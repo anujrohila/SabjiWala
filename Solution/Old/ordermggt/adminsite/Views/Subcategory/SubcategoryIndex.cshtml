@@ -1,0 +1,71 @@
+﻿@model IEnumerable<adminsite.Models.DTO.subcategorydto>
+@{
+    ViewBag.Title = "SubcategoryIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div id="page-content">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Subcategory</h3>
+        </div>
+
+        <!--Data Table-->
+        <!--===================================================-->
+        <div class="panel-body">
+            <div class="pad-btm form-inline">
+                <!--Add new Category--->
+
+
+                @Html.ActionLink("Add New Subcategory", "createSubcategory", "Subcategory",null, new { @class = "btn btn-purple btn-labeled fa fa-plus" })
+
+
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>SubCategory Name</th>
+                             <th>Subcategory Image</th>
+                            <th colspan="3" style="text-align:center;">Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(model => item.cname)</td>
+                                <td>@Html.DisplayFor(model => item.sname)</td>
+                              
+                                <td><img src="http://localhost:2870/Images/Subcategory/@Html.DisplayFor(model => item.simage)" height="70" width="70"/></td>
+                               
+                                 <td class="pad-all text-center">
+                                @Html.ActionLink("View", "SubcategoryDetail", new { id = item.sid }, new { @class = " btn btn-mint btn-labeled fa fa-book" })
+                                @Html.ActionLink("Edit", "SubcategoryEdit", new { id = item.sid }, new { @class = " btn btn-success btn-labeled fa fa-pencil-square-o" })
+                                @Html.ActionLink("Delete", "SubcategoryDelete", new { id = item.sid }, new { @class = " btn btn-danger btn-labeled fa fa-trash-o" })
+                                 </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,131 @@
+﻿@model adminsite.Models.DTO.custdto
+@{
+    ViewBag.Title = "CustomerDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form class="form-horizontal">
+   
+    <div id="page-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Customer information</h3>
+                    </div>
+
+                    <div class="panel-body">
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Customer Name(Mobile No.)</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.custname, new { @class = "form-control", @ViewBag.Disabled })
+                            </div>
+                        </div>
+
+
+                      @*  <div class="form-group">
+                            <label class="col-sm-3 control-label">Password:</label>
+                            <div class="col-md-6 col-sm-6">
+                                <i>@Html.TextBoxFor(Model => Model.password, new { @class = "form-control", @ViewBag.Disabled })</i>
+                            </div>
+                        </div>*@
+
+
+                        @* <div class="row">
+                             <div class="col-sm-12">
+                            <div class="form-group">
+                            <label class="control-label">Confirm Password:</label>
+                            <i>@Html.PasswordFor(Model => Model.SupplierName, new { @class = "form-control" })</i>
+                              </div>
+                            </div>
+                        </div>*@
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Display Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.displayname, new { @class = "form-control", @ViewBag.Disabled })
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">First Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.fname, new { @class = "form-control", @ViewBag.Disabled })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Middle Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.mname, new { @class = "form-control", @ViewBag.Disabled })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Last Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.lname, new { @class = "form-control", @ViewBag.Disabled })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">EmailId</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.emailid, new { @class = "form-control", @ViewBag.Disabled })
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Language</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.language, new { @class = "form-control", @ViewBag.Disabled })
+                            </div>
+                        </div>
+
+
+
+
+
+                        @*<div class="row">
+                             <div class="col-sm-12">
+                            <div class="form-group">
+                            <label class="control-label">Device:</label>
+                            <i>@Html.DisplayFor(Model => Model.SupplierDeviceID, new { @class = "form-control" })</i>
+                              </div>
+                            </div>
+                        </div>*@
+
+
+
+
+                        
+                            <div class="row">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-6">
+
+                                    @Html.ActionLink("Back to List", "CustomerIndex", "supplier",null, new { @class = "btn btn-warning btn-labeled fa fa-undo" })
+                                </div>
+                            </div>
+                        </div>
+
+                    
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

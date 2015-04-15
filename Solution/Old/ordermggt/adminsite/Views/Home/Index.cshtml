@@ -1,0 +1,265 @@
+﻿@{
+    if (Session["AdminName"] != null)
+    {
+        //home page
+   // <h5 style="color: gray">Welcome:@Session["DisplayName"].ToString()</h5>
+  
+    }
+    else
+    {
+        //Login
+        Response.Redirect("~/login", false);
+    }
+}
+
+<div class="row">
+
+    <!--Large Tile - (Visit Today)-->
+    <!--===================================================-->
+    <div class="col-md-6 col-lg-3">
+        <div class="panel panel-success panel-colorful">
+            <i class="fa fa-bell fa-xlg" style="float:right;"><span class="badge badge-header badge-danger" id="SUPnotification" style="font-size:10px; text-align:right;"></span></i>
+            <div class="panel-body text-center">
+                
+                <script type="text/jscript">
+                    var url = "/Home/SUPnotification";
+                    $.get(url, null, function (data1) {
+                        $("#SUPnotification").html(data1);
+                    });
+                </script>
+              					
+                <p class="text-uppercase mar-btm text-sm">Supplier</p>
+                <script type="text/jscript">
+                    var url = "/Home/Supplier";
+                    $.get(url, null, function (data1) {
+                        $("#Supplier").html(data1);
+                    });
+                </script>
+                <i class="fa fa-users fa-5x"></i>
+                <hr>
+                <p class="h2 text-thin" id="Supplier"></p>
+                <small><span class="text-semibold">Total Supplier</span></small>
+            </div>
+        </div>
+    </div>
+    <!--===================================================-->
+    <!--End Large Tile - (Visit Today)-->
+
+    <!--Large Tile - (Comments)-->
+    <!--===================================================-->
+    <div class="col-md-6 col-lg-3">
+        <div class="panel panel-mint panel-colorful">
+            <i class="fa fa-bell fa-lg" style="float:right; "><span class="badge badge-header badge-danger" id="CUStnotification" style="font-size:10px; text-align:right;"></span></i>
+            <div class="panel-body text-center">
+                 <script type="text/jscript">
+                     var url = "/Home/CUStnotification";
+                     $.get(url, null, function (data1) {
+                         $("#CUStnotification").html(data1);
+                     });
+                </script>
+                <p class="text-uppercase mar-btm text-sm">Customer</p>
+                 <script type="text/jscript">
+                     var url = "/Home/Customer";
+                     $.get(url, null, function (data1) {
+                         $("#Customer").html(data1);
+                     });
+                </script>
+                <i class="fa fa-users fa-5x"></i>
+                <hr>
+                <p class="h2 text-thin" id="Customer"></p>
+                <small><span class="text-semibold">Total Customer</span></small>
+            </div>
+        </div>
+    </div>
+    <!--===================================================-->
+    <!--End Large Tile - (Comments)-->
+
+    <!--Large Tile - (New Orders)-->
+    <!--===================================================-->
+    <div class="col-md-6 col-lg-3">
+        <div class="panel panel-purple panel-colorful">
+             <i class="fa fa-bell fa-lg" style="float:right;"><span class="badge badge-header badge-danger" id="EMPtnotification" style="font-size:10px; text-align:right;"></span></i>
+            <div class="panel-body text-center">
+               <script type="text/jscript">
+                   var url = "/Home/EMPtnotification";
+                   $.get(url, null, function (data1) {
+                       $("#EMPtnotification").html(data1);
+                   });
+                </script>
+                <p class="text-uppercase mar-btm text-sm">Employee</p>
+                
+                 <script type="text/jscript">
+                     var url = "/Home/Employee";
+                     $.get(url, null, function (data1) {
+                         $("#Employee").html(data1);
+                     });
+                </script>
+                <i class="fa fa-users fa-5x"></i>
+                <hr>
+                <p class="h2 text-thin"  id="Employee"></p>
+                <small><span class="text-semibold">Total Employee</span></small>
+            </div>
+        </div>
+    </div>
+    <!--===================================================-->
+    <!--Large Tile - (New Orders)-->
+
+    <!--Large Tile - (Earning)-->
+    <!--===================================================-->
+    <div class="col-md-6 col-lg-3">
+        <div class="panel panel-pink panel-colorful">
+            <i class="fa fa-bell fa-lg" style="float:right;"><span class="badge badge-header badge-danger" id="CATEGORYtnotification" style="font-size:10px; text-align:right;"></span></i>
+            <div class="panel-body text-center">
+                <script type="text/jscript">
+                    var url = "/Home/CATEGORYtnotification";
+                    $.get(url, null, function (data1) {
+                        $("#CATEGORYtnotification").html(data1);
+                    });
+                </script>
+                <p class="text-uppercase mar-btm text-sm">Category</p>
+                 <script type="text/jscript">
+                     var url = "/Home/Category";
+                     $.get(url, null, function (data1) {
+                         $("#Category").html(data1);
+                     });
+                </script>
+                <i class="fa fa-shopping-cart fa-5x"></i>
+                <hr>
+                <p class="h2 text-thin" id="Category"></p>
+                <small><span class="text-semibold">Total Category</span></small>
+            </div>
+        </div>
+    </div>
+    <!--===================================================-->
+    <!--End Large Tile - (Earning)-->
+
+
+</div>
+<br>
+
+<div class="row">
+
+    <!--Large Tile - (Visit Today)-->
+    <!--===================================================-->
+    <div class="col-md-6 col-lg-3">
+        <div class="panel panel-danger panel-colorful">
+            <i class="fa fa-bell fa-lg" style="float:right;"><span class="badge badge-header badge-danger" id="SUbCATEGORYtnotification" style="font-size:10px; text-align:right;"></span></i>
+            <div class="panel-body text-center">
+                 <script type="text/jscript">
+                     var url = "/Home/SUbCATEGORYtnotification";
+                     $.get(url, null, function (data1) {
+                         $("#SUbCATEGORYtnotification").html(data1);
+                     });
+                </script>
+                <p class="text-uppercase mar-btm text-sm">Subcategory</p>
+                 <script type="text/jscript">
+                     var url = "/Home/Subcategory";
+                     $.get(url, null, function (data1) {
+                         $("#Subcategory").html(data1);
+                     });
+                </script> 
+                <i class="fa fa-shopping-cart fa-5x"></i>
+                <hr>
+                <p class="h2 text-thin" id="Subcategory"></p>
+                <small><span class="text-semibold">Total Subcategory</span></small>
+            </div>
+        </div>
+    </div>
+    <!--===================================================-->
+    <!--End Large Tile - (Visit Today)-->
+
+     <!--Large Tile - (Visit Today)-->
+    <!--===================================================-->
+    <div class="col-md-6 col-lg-3">
+        <div class="panel panel-info panel-colorful">
+             <i class="fa fa-bell fa-lg" style="float:right;"><span class="badge badge-header badge-danger" id="PRODUCTnotification" style="font-size:10px; text-align:right;"></span></i>
+            <div class="panel-body text-center">
+                 <script type="text/jscript">
+                     var url = "/Home/PRODUCTnotification";
+                     $.get(url, null, function (data1) {
+                         $("#PRODUCTnotification").html(data1);
+                     });
+                </script>
+                <p class="text-uppercase mar-btm text-sm">Product</p>
+                 <script type="text/jscript">
+                     var url = "/Home/Product";
+                     $.get(url, null, function (data1) {
+                         $("#Product").html(data1);
+                     });
+                </script>
+                <i class="fa fa-shopping-cart fa-5x"></i>
+                <hr>
+                <p class="h2 text-thin" id="Product"></p>
+                <small><span class="text-semibold">Total Product</span></small>
+            </div>
+        </div>
+    </div>
+    <!--===================================================-->
+    <!--End Large Tile - (Visit Today)-->
+
+  
+
+    <!--Large Tile - (New Orders)-->
+    <!--===================================================-->
+    <div class="col-md-6 col-lg-3">
+        <div class="panel panel-warning panel-colorful">
+        <i class="fa fa-bell fa-lg" style="float:right;"><span class="badge badge-header badge-danger" id="ORDERnotification" style="font-size:10px; text-align:right;"></span></i>
+            <div class="panel-body text-center">
+                 <script type="text/jscript">
+                     var url = "/Home/ORDERnotification";
+                     $.get(url, null, function (data1) {
+                         $("#ORDERnotification").html(data1);
+                     });
+                </script>
+                
+                <p class="text-uppercase mar-btm text-sm">New Orders</p>
+                 <script type="text/jscript">
+                     var url = "/Home/Order";
+                     $.get(url, null, function (data1) {
+                         $("#Order").html(data1);
+                     });
+                </script>
+                <i class="fa fa-shopping-cart fa-5x"></i>  
+                <hr>
+                <p class="h2 text-thin" id="Order"></p>
+                <small><span class="text-semibold" >Total Order</span></small>
+            </div>
+        </div>
+    </div>
+    <!--===================================================-->
+    <!--Large Tile - (New Orders)-->
+
+    <!--Large Tile - (Earning)-->
+    <!--===================================================-->
+    <div class="col-md-6 col-lg-3">
+        <div class="panel panel-primary panel-colorful">
+            <i class="fa fa-bell fa-lg" style="float:right;"><span class="badge badge-header badge-danger" id="USERnotification" style="font-size:10px; text-align:right;"></span></i>
+            <div class="panel-body text-center">
+                  <script type="text/jscript">
+                      var url = "/Home/USERnotification";
+                      $.get(url, null, function (data1) {
+                          $("#USERnotification").html(data1);
+                      });
+                </script>
+               
+                <p class="text-uppercase mar-btm text-sm">Registered User</p>
+                <script type="text/jscript">
+                    var url = "/Home/User";
+                    $.get(url, null, function (data1) {
+                        $("#User").html(data1);
+                    });
+                </script>
+                <i class="fa fa-user fa-5x"></i>
+                     <hr>
+                <p class="h2 text-thin" id="User"></p>
+          
+                
+                <small><span class="text-semibold">Total Registered User</span></small>
+            </div>
+        </div>
+    </div>
+    <!--===================================================-->
+    <!--End Large Tile - (Earning)-->
+
+
+</div>

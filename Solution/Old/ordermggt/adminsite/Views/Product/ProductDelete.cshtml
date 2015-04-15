@@ -1,0 +1,97 @@
+﻿@model adminsite.Models.DTO.productdto
+@{
+    ViewBag.Title = "ProductDelete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+ @using (Html.BeginForm("ProductDelete", "Product", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+
+<div id="page-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Product information</h3>
+                </div>
+
+                <div class="panel-body">
+
+
+                     <div class="form-group">
+                            <label class="col-sm-3 control-label">Category Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.cname, new { @class = "form-control" ,@ViewBag.Disabled })
+                            </div>
+                        </div>
+                    
+
+                    <div class="form-group">
+                            <label class="col-sm-3 control-label">Subcategory Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.sname, new { @class = "form-control" ,@ViewBag.Disabled })
+                            </div>
+                        </div>
+                  
+
+                   <div class="form-group">
+                            <label class="col-sm-3 control-label">Product Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.pname, new { @class = "form-control" ,@ViewBag.Disabled })
+                            </div>
+                        </div>
+              
+
+                     <div class="form-group">
+                            <label class="col-sm-3 control-label">Product Image</label>
+                            <div class="col-md-6 col-sm-6">
+                                 <img src="http://localhost:2870/images/Product/@Html.DisplayFor(Model => Model.pimage)" height="70" width="70"/>
+                            </div>
+                        </div>
+                   
+
+
+                   <div class="form-group">
+                            <label class="col-sm-3 control-label">Product Price</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.price, new { @class = "form-control" ,@ViewBag.Disabled })
+                            </div>
+                        </div>
+                
+
+                    <div class="form-group">
+                            <label class="col-sm-3 control-label">Product Discount(%)</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.discount,  new { @class = "form-control" ,@ViewBag.Disabled })
+                            </div>
+                        </div>
+                   
+
+
+
+
+
+
+                   
+                        
+                            <div class="row">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-6">
+                                    <button class="btn btn-danger btn-labeled fa fa-trash-o" type="submit">Delete</button>
+                                    @Html.ActionLink("Back to List", "ProductIndex", "Product",null, new { @class = "btn btn-warning btn-labeled fa fa-undo" })
+                                </div>
+                            </div>
+                       
+                   
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+}

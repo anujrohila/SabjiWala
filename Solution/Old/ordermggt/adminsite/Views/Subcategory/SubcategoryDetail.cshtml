@@ -1,0 +1,84 @@
+﻿@model adminsite.Models.DTO.subcategorydto
+@{
+    ViewBag.Title = "SubcategoryDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+
+    #img {
+        transition:ease-in-out 0.5s;
+    }
+
+    #img:hover {
+
+        height:500px;
+        width:500px;
+        transition:ease-in-out 0.6s;
+    }
+
+</style>
+
+
+<form class="form-horizontal">
+
+<div id="page-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Subcategory information</h3>
+                </div>
+
+                <div class="panel-body">
+                   
+
+                   <div class="form-group">
+                            <label class="col-sm-3 control-label">Category Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.cname, new { @class = "form-control" ,@ViewBag.Disabled })
+                            </div>
+                        </div>
+                  
+
+                     <div class="form-group">
+                            <label class="col-sm-3 control-label">Subcategory Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.sname, new { @class = "form-control" ,@ViewBag.Disabled })
+                            </div>
+                        </div>
+                   
+
+                     <div class="form-group">
+                            <label class="col-sm-3 control-label">Subcategory Image</label>
+                            <div class="col-md-6 col-sm-6">
+                               <img src="http://localhost:2870/images/Subcategory/@Html.DisplayFor(Model => Model.simage)" id="img" height="70" width="70"/>
+                                 
+                            </div>
+                        </div>
+                  
+
+
+                  
+                            <div class="row">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-6">
+
+                                @Html.ActionLink("Back to List", "SubcategoryIndex", "Subcategory",null, new { @class = "btn btn-warning btn-labeled fa fa-undo" })
+                            </div>
+                        </div>
+
+                   
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</form>
+

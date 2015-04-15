@@ -1,0 +1,251 @@
+﻿@model adminsite.Models.TblAdminLoginMaster
+@{
+    ViewBag.Title = "Logout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("Logout", "Logout"))
+{
+    <!DOCTYPE html>
+    <html lang="en">
+
+
+    <!-- Mirrored from www.themeon.net/nifty/v2.2/pages-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 04 Feb 2015 17:12:40 GMT -->
+    <!-- Added by HTTrack -->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <!-- /Added by HTTrack -->
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link href="~/img/logo11.png" rel="icon" type="image/x-icon" />
+       <title>Sabji Market</title>
+
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel="stylesheet">
+
+        <!--Bootstrap Stylesheet [ REQUIRED ]-->
+      
+        @Styles.Render("~/css/bootstrap.min.css")
+
+
+        
+        @Styles.Render("~/css/Fontsize.css")
+
+        <!--Nifty Stylesheet [ REQUIRED ]-->
+       
+        @Styles.Render("~/css/nifty.min.css")
+
+        <!--Font Awesome [ OPTIONAL ]-->
+        
+        @Styles.Render("~/plugins/font-awesome/css/font-awesome.min.css")
+
+        <!--Switchery [ OPTIONAL ]-->
+        
+        @Styles.Render("~/plugins/switchery/switchery.min.css")
+
+        <!--Bootstrap Select [ OPTIONAL ]-->
+        
+        @Styles.Render("~/plugins/bootstrap-select/bootstrap-select.min.css")
+
+        <!--Demo [ DEMONSTRATION ]-->
+      
+        @Styles.Render("~/css/demo/nifty-demo.min1.css")
+
+
+        
+        @Scripts.Render("~/js/jquery-2.1.1.min.js")
+
+
+       
+        @Styles.Render("~/css/bootstrap.min.css")
+
+
+        <!--Nifty Stylesheet [ REQUIRED ]-->
+        
+        @Styles.Render("~/css/nifty.min.css")
+
+
+        <!--Font Awesome [ OPTIONAL ]-->
+       
+        @Styles.Render("~/plugins/font-awesome/css/font-awesome.min.css")
+
+        <!--Demo [ DEMONSTRATION ]-->
+        
+        @Styles.Render("~/css/demo/nifty-demo.min1.css")
+
+
+
+        <!--SCRIPT-->
+        <!--=================================================-->
+
+        <!--Page Load Progress Bar [ OPTIONAL ]-->
+        
+        @Styles.Render("~/plugins/pace/pace.min.css")
+        @Scripts.Render("~/plugins/pace/pace.min.js")
+       
+
+
+        <!--jQuery [ REQUIRED ]-->
+      
+        @Scripts.Render("~/js/jquery-2.1.1.min.js")
+
+        <!--BootstrapJS [ RECOMMENDED ]-->
+       
+        @Scripts.Render("~/js/bootstrap.min.js")
+
+
+        <!--Fast Click [ OPTIONAL ]-->
+      
+        @Scripts.Render("~/plugins/fast-click/fastclick.min.js")
+
+
+
+
+        <!--Nifty Admin [ RECOMMENDED ]-->
+      
+        @Scripts.Render("~/js/nifty.min.js")
+
+
+
+        <!--Switchery [ OPTIONAL ]-->
+      
+        @Scripts.Render("~/plugins/switchery/switchery.min.js")
+
+
+
+        <!--Bootstrap Select [ OPTIONAL ]-->
+        
+        @Scripts.Render("~/plugins/bootstrap-select/bootstrap-select.min.js")
+
+
+
+        <!--Demo script [ DEMONSTRATION ]-->
+        
+        @Scripts.Render("~/js/demo/nifty-demo.min.js")
+
+
+        <!--JAVASCRIPT-->
+        <!--=================================================-->
+
+        <!--jQuery [ REQUIRED ]-->
+        
+        @Scripts.Render("~/js/jquery-2.1.1.min.js")
+
+        <!--BootstrapJS [ RECOMMENDED ]-->
+       
+        @Scripts.Render("~/js/bootstrap.min.js")
+
+
+        <!--Fast Click [ OPTIONAL ]-->
+       
+        @Scripts.Render("~/plugins/fast-click/fastclick.min.js")
+
+
+        <!--Nifty Admin [ RECOMMENDED ]-->
+        
+        @Scripts.Render("~/js/nifty.min.js")
+
+
+        <!--Background Image [ DEMONSTRATION ]-->
+       
+        @Scripts.Render("~/js/demo/bg-images.js")
+
+
+
+
+
+
+
+
+    </head>
+
+    <!--TIPS-->
+    <!--You may remove all ID or Class names which contain "demo-", they are only used for demonstration. -->
+
+    @*<body style="background-color:pink; ">*@
+
+    <body style="background-image: url(~/Images/flower.jpg)">
+
+        <div id="container" class="cls-container" style="background-image: url(~/Images/flower.jpg)">
+
+            <!-- BACKGROUND IMAGE -->
+            <!--===================================================-->
+            <div id="bg-overlay" class="bg-img img-balloon" style="background-color: pink;"></div>
+
+            @*<div style="background-image:url(../~/Images/flower.jpg)" /></div>*@
+            <!-- HEADER -->
+            <!--===================================================-->
+            <div class="cls-header cls-header-lg">
+                <div class="cls-brand">
+                    <a class="box-inline" href="index.html">
+                        <!-- <img alt="Nifty Admin" src="~/img/logo.png" class="brand-icon"> -->
+                        <span class="brand-title"><span class="text-thin">Sabji Market</span></span>
+                    </a>
+                </div>
+            </div>
+            <!--===================================================-->
+
+
+            <!-- LOGIN FORM -->
+            <!--===================================================-->
+            <div class="cls-content">
+                <div class="cls-content-sm panel">
+                    <div class="panel-body">
+                        
+                        <p class="pad-btm" style="font-size:20px; color:#1a6c25;">Admin</p>
+                        <p>Sign In your Account</p>
+                        <form action="http://www.themeon.net/nifty/v2.2/index.html">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                    @Html.TextBoxFor(a => a.AdminName, new { @class = "form-control", @placeholder = "User name" , @maxlength="10" , @minlength="10", autocomplete = "off"})
+                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                                     @Html.PasswordFor(a => a.Password, new { @class = "form-control", @placeholder = "password" , @maxlength="10" , @minlength="3"})
+                                </div>
+                            </div>
+                           
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group ">
+                                        <button class="btn btn-success  fa fa-sign-in  btn-labeled text-uppercase" type="submit">Sign In</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="color:red;">
+                                @if (TempData["error"] != null)
+                                {
+                                    @TempData["error"].ToString(); 
+                                }
+                            </div>
+                           
+                        </form>
+                    </div>
+                </div>
+
+                <div class="pad-ver ">
+                    <a href="@Url.Action("forgotpassword", "Login")" class="btn-link mar-rgt" style="color:white;">Forgot password ?</a>
+                </div>
+            </div>
+           
+
+
+
+
+
+        </div>
+      
+
+
+
+    </body>
+
+
+    </html>
+}
+
+

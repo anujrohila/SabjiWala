@@ -1,0 +1,104 @@
+﻿@model adminsite.Models.TblSubCategoryMaster
+@{
+    ViewBag.Title = "SubcategoryEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("SubcategoryEdit", "Subcategory", FormMethod.Post, new { id = "frmApproveFirm", @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+ 
+    <div id="page-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Category </h3>
+                    </div>
+
+
+                    
+                    <div class="panel-body">
+
+                        @*  @if(!Html.ValidationSummary().ToString().Contains("display:none"))
+                        {
+                            <div class="row">
+                            <div  class="col-sm-3"></div>
+                            <div class="col-sm-6 alert alert-danger">
+                                @Html.ValidationSummary()
+                            </div>
+                            </div>
+                        }*@
+
+
+                          @Html.HiddenFor(Model => Model.SubCategoryID, new { @class = "form-control" })
+
+                       <div class="form-group">
+                            <label class="col-sm-3 control-label">Category Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                    @Html.DropDownListFor(Model => Model.CategoryID, new SelectList(ViewBag.Cat, "CategoryID", "CategoryName"), "---Select Category ---", new { @class = "form-control" })
+                                     @Html.ValidationMessageFor(Model => Model.CategoryID)    
+                                </div>
+                            </div>
+                      
+
+
+
+                         <div class="form-group">
+                            <label class="col-sm-3 control-label">Subcategory Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                    @Html.TextBoxFor(Model => Model.SubCategoryName, new { @class = "form-control" , @maxlength="20" , @minlength="3",autocomplete = "off"})
+                                     @Html.ValidationMessageFor(Model => Model.SubCategoryName)
+                                 </div>
+                            </div>
+                       
+
+                         <div class="form-group">
+                            <label class="col-sm-3 control-label">Subcategory Image</label>
+                            <div class="col-md-6 col-sm-6">
+                                <input type="file" name="file" id="file" class="form-control">
+                                @Html.HiddenFor(Model => Model.SubCategoryImage)
+                                 @Html.ValidationMessageFor(Model => Model.SubCategoryImage)
+                            </div>
+                        </div>
+
+                     
+                       
+                            <div class="row">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-6">
+                                    <button class="btn btn-info btn-labeled fa fa-pencil-square-o" type="submit">Save</button>
+                                    @Html.ActionLink("Back to List", "SubcategoryIndex", "Subcategory",null, new { @class = "btn btn-warning btn-labeled fa fa-undo" })
+
+                                </div>
+                            </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+          
+   
+}
+
+
+<div class="row">
+    <div class="pad-ver">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            @if (ViewBag.actionmsg == "1")
+            {
+                <label class="control-label  btn btn-success btn-labeled  fa fa-thumbs-o-up">Well done! Your data is Successfully Inserted</label>
+            }
+            @if (ViewBag.actionmsg == "0")
+            { 
+                <label class="control-label btn btn-danger btn-labeled fa fa-thumbs-o-down">" @ViewBag.subcatNAME "  Name is already Exist.  .............</label>
+            }
+        </div>
+    </div>
+</div>

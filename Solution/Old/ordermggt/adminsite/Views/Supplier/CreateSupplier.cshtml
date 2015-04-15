@@ -1,0 +1,172 @@
+﻿@model adminsite.Models.TblSupplierMaster
+
+@{
+    ViewBag.Title = "CreateSupplier";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm("CreateSupplier", "Supplier", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+   
+    <div id="page-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        @* @if (!Html.ValidationSummary().ToString().Contains("display:none"))
+                        {
+                            <div class="row">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-6 alert alert-danger">
+                                    @Html.ValidationSummary()
+                                </div>
+                            </div>
+                        }*@
+
+                        <h3 class="panel-title">Add New Supplier</h3>
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">SupplierName (Mobile No.)</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Session["UserName"].ToString()
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Password</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Session["Password"].ToString()
+                            </div>
+                        </div>
+
+
+                        @*  <div class="form-group">
+                            <label class="col-sm-3 control-label">User Id:</label>
+                            <div class="col-md-6 col-sm-6">
+                               @Session["UserID"]
+                            </div>
+                        </div>*@
+
+
+                        @* <div class="form-group">
+                            <label class="col-sm-3 control-label">Password:</label>
+                            <div class="col-md-6 col-sm-6">
+                               @Html.PasswordFor(Model => Model.supplierData.Password, new { @class = "form-control", @placeholder = "Password" })
+                            </div>
+                        </div>*@
+
+
+
+
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">First Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.FirstName, new { @class = "form-control", @placeholder = "First Name", @maxlength = "10", @minlength = "3", autocomplete = "off" })
+                                @Html.ValidationMessageFor(Model => Model.FirstName)
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Middle Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.MiddleName, new { @class = "form-control", @placeholder = "Middle Name", @maxlength = "10", @minlength = "3", autocomplete = "off" })
+                                @Html.ValidationMessageFor(Model => Model.MiddleName)
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Last Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.LastName, new { @class = "form-control", @placeholder = "Last Name", @maxlength = "10", @minlength = "3", autocomplete = "off" })
+                                @Html.ValidationMessageFor(Model => Model.LastName)
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">EmailId</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.EmailID, new { @class = "form-control", @placeholder = "EmailID", @maxlength = "20", autocomplete = "off" })
+                                @Html.ValidationMessageFor(Model => Model.EmailID)
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Organization Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.OrganizationName, new { @class = "form-control", @placeholder = "Organization Name", @maxlength = "15", @minlength = "3", autocomplete = "off" })
+                                @Html.ValidationMessageFor(Model => Model.OrganizationName)
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Language</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.DropDownListFor(Model => Model.LanguageID, new SelectList(ViewBag.Lang, "LanguageID", "Language"), "---Select Language ---", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(Model => Model.LanguageID)
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Address</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextAreaFor(Model => Model.Address, new { @class = "form-control", @placeholder = "Address", @maxlength = "50", @minlength = "6", autocomplete = "off" })
+                                @Html.ValidationMessageFor(Model => Model.Address)
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-6">
+
+                                <button class="btn btn-info btn-labeled fa fa-thumbs-o-up" type="submit">Submit</button>
+                                @Html.ActionLink("Back to List", "Index", "supplier", null, new { @class = "btn btn-warning btn-labeled fa fa-undo" })
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+   
+}
+
+<div class="row">
+    <div class="pad-ver">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            @if (ViewBag.actionmsg == "1")
+            {
+                <label class="control-label  btn btn-success btn-labeled  fa fa-thumbs-o-up">Well done! Your data is Successfully Inserted</label>
+            }
+            @if (ViewBag.actionmsg == "0")
+            { 
+                <label class="control-label btn btn-danger btn-labeled fa fa-thumbs-o-down">sorry .... Data is already Exist.  .............</label>
+            }
+        </div>
+    </div>
+</div>

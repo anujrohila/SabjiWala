@@ -1,0 +1,68 @@
+﻿@model IEnumerable<adminsite.Models.DTO.employeedto>
+
+@{
+    ViewBag.Title = "EmpIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div id="page-content">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Employee</h3>
+        </div>
+
+        <!--Data Table-->
+        <!--===================================================-->
+        <div class="panel-body">
+            <div class="pad-btm form-inline">
+                <!--Add new Supplier--->
+
+
+                @Html.ActionLink("Add New Employee", "CreateEmployee", "Employee", null, new { @class = "btn btn-purple btn-labeled fa fa-plus" })
+
+
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Emloyee Name</th>
+                            <th>EmailId</th>
+                            <th>Employee Type </th>
+                            <th colspan="3" style="text-align:center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(model => item.empname)</td>
+                                <td>@Html.DisplayFor(model => item.fname)     @Html.DisplayFor(model => item.mname)    @Html.DisplayFor(model => item.lname)</td>
+                                <td>@Html.DisplayFor(model => item.emailid)</td>
+                                <td>@Html.DisplayFor(model => item.emptype)</td>
+                                                             
+                                <td class="pad-all text-center">
+                                @Html.ActionLink("View", "EmpDetail", new { id = item.empid }, new { @class = " btn btn-mint btn-labeled fa fa-book" })
+                                @Html.ActionLink("Edit", "EmpEdit", new { id = item.empid }, new { @class = " btn btn-success btn-labeled fa fa-pencil-square-o" })
+                                @Html.ActionLink("Delete", "EmpDelete", new { id = item.empid }, new { @class = " btn btn-danger btn-labeled fa fa-trash-o" })
+                                </td>
+                            </tr>
+                             
+                        }
+
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+

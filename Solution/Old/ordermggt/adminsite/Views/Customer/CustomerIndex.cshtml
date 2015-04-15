@@ -1,0 +1,156 @@
+﻿
+
+@*@model IEnumerable<adminsite.Models.TblCustomerMaster>*@
+@model PagedList.IPagedList<adminsite.Models.TblCustomerMaster>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "CustomerIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">Customer</h3>
+    </div>
+
+    <!--Data Table-->
+    <!--===================================================-->
+    <div class="panel-body">
+        <div class="pad-btm form-inline">
+            <div class="row">
+                <div class="col-sm-6 table-toolbar-left">
+                    @*<button id="demo-btn-addrow" class="btn btn-purple btn-labeled fa fa-plus">Add</button>*@
+                    @Html.ActionLink("Add New Customer", "UserReg", "UserLogin", null, new { @class = "btn btn-purple btn-labeled fa fa-plus" })
+                </div>
+                <div class="col-sm-6 table-toolbar-right">
+                    <div class="form-group">
+
+                        @*<input id="demo-input-search2" type="text" placeholder="Search" class="form-control" autocomplete="off">*@
+                        @using (Html.BeginForm("CustomerIndex", "Customer", FormMethod.Get))
+                        {
+                          
+                            <div class="input-group date">
+                                @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @class = "form-control ", @placeholder = "Search", autocomplete = "off" })
+                                <span class="input-group-addon" style="background-color: purple; color: white;"><i class="fa fa-search fa-lg"></i></span>
+                            </div>
+                                 
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>@Html.ActionLink("CustomerName", "CustomerIndex", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })</th>
+                        <th>EmailId</th>
+
+                        <th colspan="3" style="text-align: center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(model => item.CustomerName)</td>
+                            <td>@Html.DisplayFor(model => item.FirstName)     @Html.DisplayFor(model => item.MiddleName)    @Html.DisplayFor(model => item.LastName)</td>
+                            <td>@Html.DisplayFor(model => item.EmailId)</td>
+
+
+                            <td class="pad-all text-center">
+                                @Html.ActionLink("View", "CustomerDetail", new { id = item.CustomerID }, new { @class = " btn btn-mint btn-labeled fa fa-book" })
+                                @Html.ActionLink("Edit", "CustomerEdit", new { id = item.CustomerID }, new { @class = " btn btn-success btn-labeled fa fa-pencil-square-o" })
+                                @Html.ActionLink("Delete", "CustomerDelete", new { id = item.CustomerID }, new { @class = " btn btn-danger btn-labeled fa fa-trash-o" })
+                            </td>
+
+
+                        </tr>
+                             
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--===================================================-->
+    <!--End Data Table-->
+
+</div>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("CustomerIndex",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+
+
+@*@model IEnumerable<adminsite.Models.TblCustomerMaster>
+
+@{
+    ViewBag.Title = "CustomerIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="page-content">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Customer</h3>
+        </div>
+
+        <!--Data Table-->
+        <!--===================================================-->
+        <div class="panel-body">
+            <div class="pad-btm form-inline">
+                <!--Add new Supplier--->
+
+
+                @Html.ActionLink("Add New Customer", "CreateCustomer", "Customer", new { @class = "btn btn-purple btn-labeled fa fa-plus" })
+
+
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>User Name</th>
+                            <th>Customer Name</th>
+                            <th>EmailId</th>
+                            <th colspan="3" style="text-align:center;">Action</th>
+                       </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(model => item.CustomerName)</td>
+                                <td>@Html.DisplayFor(model => item.FirstName)     @Html.DisplayFor(model => item.MiddleName)    @Html.DisplayFor(model => item.LastName)</td>
+                                <td>@Html.DisplayFor(model => item.EmailId)</td>
+                              
+                                
+                                <td class="pad-all text-center">
+                                @Html.ActionLink("View", "CustomerDetail", new { id = item.CustomerID }, new { @class = " btn btn-mint btn-labeled fa fa-book" })
+                                @Html.ActionLink("Edit", "CustomerEdit", new { id = item.CustomerID }, new { @class = " btn btn-success btn-labeled fa fa-pencil-square-o" })
+                                @Html.ActionLink("Delete", "CustomerDelete", new { id = item.CustomerID }, new { @class = " btn btn-danger btn-labeled fa fa-trash-o" })
+                                </td>
+                            </tr>
+                             
+                        }
+
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+*@

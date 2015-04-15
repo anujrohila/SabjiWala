@@ -1,0 +1,113 @@
+﻿@model IEnumerable<adminsite.Models.DTO.orderItemDetaildto>
+@{
+    ViewBag.Title = "OrderItemDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row" id="detail">
+                    @Html.Action("OrderDetail","Order")
+                </div>
+
+
+<div id="page-content">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">OrderDetail</h3>
+        </div>
+
+        <!--Data Table-->
+        <!--===================================================-->
+        <div class="panel-body">
+            <div class="pad-btm form-inline">
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>OrderItem Id</th>
+                            <th>order Id</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Discount</th>
+                            <th>Total amount</th>
+                            <th>Product status</th>
+                            <th colspan="3" style="text-align: center;">Action</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{var count = 0;
+                          foreach (var item in Model)
+                          {
+                              count = count + 1;
+                            <tr>
+
+                                <td>@Html.Raw(count)</td>
+                                <td>@Html.DisplayFor(model => item.orderid)</td>
+                                <td>@Html.DisplayFor(model => item.product)</td>
+                                <td>@Html.DisplayFor(model => item.quantity)</td>
+                                <td>@Html.DisplayFor(model => item.price)</td>
+                                <td>@Html.DisplayFor(model => item.discount)</td>
+                                <td>@Html.DisplayFor(model => item.totalamount)</td>
+                                <td>@Html.DisplayFor(model => item.productstatus)</td>
+
+
+                                <td class="pad-all text-center">
+
+                                    @Html.ActionLink("Delete", "OrderitemDelete", new { id = item.orderitemid }, new { @class = " btn btn-danger btn-labeled fa fa-trash-o" , onclick = "return confirm('Are you sure you want to delete this order?');" })
+                                </td>
+                            </tr>
+                             
+                          }
+                         
+                        }
+
+                    </tbody>
+                    
+                    
+
+
+                </table>
+                
+               
+
+
+                <div class="pad-btm form-inline" style="text-align: center;">
+                    @Html.ActionLink("Back To List", "orderMaster", "Order",null, new { @class = "btn btn-purple btn-labeled fa fa-undo" })
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+     
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

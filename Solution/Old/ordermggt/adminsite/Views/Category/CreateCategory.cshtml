@@ -1,0 +1,108 @@
+﻿@model adminsite.Models.TblCategoryMaster
+@{
+    ViewBag.Title = "CreateCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("CreateCategory", "Category", FormMethod.Post, new { id = "frmApproveFirm", @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+   
+    <div id="page-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Add New Category </h3>
+                    </div>
+
+                    <div class="panel-body">
+
+                        @*  @if(!Html.ValidationSummary().ToString().Contains("display:none"))
+                        {
+                            <div class="row">
+                            <div  class="col-sm-3"></div>
+                            <div class="col-sm-6 alert alert-danger">
+                                @Html.ValidationSummary()
+                            </div>
+                            </div>
+                        }*@
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Category Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.CategoryName, new { @class = "form-control", @placeholder = "Category name", @maxlength = "20", @minlength = "5", autocomplete = "off" })
+                                @Html.ValidationMessageFor(Model => Model.CategoryName)
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Category Image</label>
+                            <div class="col-md-6 col-sm-6">
+                                <input type="file" name="file" id="file" class="form-control">
+                                @Html.ValidationMessageFor(Model => Model.CategoryImage)
+                            </div>
+                        </div>
+
+                        <!------------------------------------------>
+                        @*<div class="form-group">
+                            <label class="col-sm-3 control-label">Category Image:</label>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="input-group mar-btm">
+                                    <div class="input-group-btn">
+
+                                        <span class="pull-left btn btn-default btn-file">
+                                            Browse... <input type="file" name="file" id="file" class="form-control">
+                                       </span>
+
+                                    </div>
+                                    <input type="text" placeholder="Username" name="file" id="file" class="form-control">
+                                </div>
+                            </div>
+                        </div>*@
+
+
+                        <!------------------------------------------>
+                        @* <div class="panel-footer">*@
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-6">
+                                <button class="btn btn-info btn-labeled fa fa-thumbs-o-up" type="submit">Submit</button>
+                                @Html.ActionLink("Back to List", "CategoryIndex", "Category", null, new { @class = "btn btn-warning btn-labeled fa fa-undo" })
+                            </div>
+                        </div>
+                        @*</div>*@
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+    
+    
+    
+}
+
+<div class="row">
+    <div class="pad-ver">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            @if (ViewBag.actionmsg == "1")
+            {
+                <label class="control-label  btn btn-success btn-labeled  fa fa-thumbs-o-up">Well done! Your data is Successfully Inserted</label>
+            }
+            @if (ViewBag.actionmsg == "0")
+            { 
+                <label class="control-label btn btn-danger btn-labeled fa fa-thumbs-o-down">" @ViewBag.catNAME " Name is already Exist.  .............</label>
+            }
+        </div>
+    </div>
+</div>

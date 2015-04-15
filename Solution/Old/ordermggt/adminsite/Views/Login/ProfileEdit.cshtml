@@ -1,0 +1,106 @@
+﻿@model adminsite.Models.TblAdminLoginMaster
+@{
+    ViewBag.Title = "ProfileEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("ProfileEdit", "Login", FormMethod.Post, new { id = "frmApproveFirm", @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    // @Html.ValidationSummary(true)
+    
+   
+    <div id="page-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Admin </h3>
+                    </div>
+
+
+
+                    <div class="panel-body">
+
+                       
+                        
+                         
+                         @Html.HiddenFor(Model => Model.AdminID, new { @class = "form-control" })
+
+                                
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Admin Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.DisplayName, new { @class = "form-control" , @maxlength="10" , @minlength="10"})
+                              
+                            </div>
+                        </div>
+
+
+
+                       
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">EmailID</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.EmailID, new { @class = "form-control" , @maxlength="20" })
+                               
+                            </div>
+                        </div>
+
+
+                         <div class="form-group">
+                            <label class="col-sm-3 control-label">Mobile No</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.MobileNo, new { @class = "form-control" , @maxlength="10" , @minlength="10" })
+                              
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Address</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.Address, new { @class = "form-control" , @maxlength="50" , @minlength="10"})
+                              
+                               
+                            </div>
+                        </div>
+
+                         <div class="form-group">
+                            <label class="col-sm-3 control-label">Admin Profile</label>
+                            <div class="col-md-6 col-sm-6">
+                               <input type="file" name="file" id="file" class="form-control">
+                            </div>
+                        </div>
+
+                       
+
+
+
+
+                       
+                            <div class="row">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-6">
+                                    <button class="btn btn-info btn-labeled fa fa-pencil-square-o" type="submit">Save</button>
+                                     @Html.ActionLink("Back to List", "Profile1", "Login", new { @class = "btn btn-warning btn-labeled fa fa-undo" })
+                                </div>
+                            </div>
+                       
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+          
+   
+}
+
+

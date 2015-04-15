@@ -1,0 +1,107 @@
+﻿@model adminsite.Models.DTO.productdto
+@{
+    ViewBag.Title = "ProductDetail";
+     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style type="text/css">
+
+    #img {
+        transition:ease-in-out 0.5s;
+    }
+
+    #img:hover {
+
+        height:500px;
+        width:500px;
+        transition:ease-in-out 0.6s;
+    }
+
+</style>
+
+<form class="form-horizontal">
+
+<div id="page-content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Product Detail</h3>
+                </div>
+
+                <div class="panel-body">
+                   
+
+                    <div class="form-group">
+                            <label class="col-sm-3 control-label">Category Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                <i>@Html.TextBoxFor(Model => Model.cname, new { @class = "form-control" ,@ViewBag.Disabled })
+                            </div>
+                        </div>
+                    
+
+                      <div class="form-group">
+                            <label class="col-sm-3 control-label">Subcategory Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.sname, new { @class = "form-control" ,@ViewBag.Disabled })
+                            </div>
+                        </div>
+                    
+
+                    <div class="form-group">
+                            <label class="col-sm-3 control-label">Product Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.pname, new { @class = "form-control" ,@ViewBag.Disabled })
+                            </div>
+                        </div>
+                  
+
+                     <div class="form-group">
+                            <label class="col-sm-3 control-label">Product Image</label>
+                            <div class="col-md-6 col-sm-6">
+                                 <img src="http://localhost:2870/images/Product/@Html.DisplayFor(Model => Model.pimage)" id="img" height="70" width="70"/>
+                            </div>
+                        </div>
+                  
+
+
+                   <div class="form-group">
+                            <label class="col-sm-3 control-label">Product Price</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.price, new { @class = "form-control" ,@ViewBag.Disabled })
+                            </div>
+                        </div>
+                   
+
+                    <div class="form-group">
+                            <label class="col-sm-3 control-label">Product Discount(%)</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.discount,  new { @class = "form-control" ,@ViewBag.Disabled })
+                            </div>
+                        </div>
+                   
+
+
+                    
+                            <div class="row">
+                                <div class="col-sm-3"></div>
+                                <div class="col-sm-6">
+
+                                @Html.ActionLink("Back to List", "ProductIndex", "Product",null, new { @class = "btn btn-warning btn-labeled fa fa-undo" })
+                            </div>
+                        </div>
+
+                    
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</form>
+

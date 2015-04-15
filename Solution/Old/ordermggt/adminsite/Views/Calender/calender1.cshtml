@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "calender1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    
+	<link href="~/plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
+	<link href="~/css/demo/nifty-demo.min.css" rel="stylesheet">
+
+
+<div id="page-content">
+
+
+    <div class="row">
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">Calendar</h3>
+            </div>
+            <div class="panel-body">
+
+                <!-- Calendar placeholder-->
+                <!-- ============================================ -->
+                <div id='demo-calendar'></div>
+                <!-- ============================================ -->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/plugins/fullcalendar/lib/moment.min.js"></script>
+<script src="~/plugins/fullcalendar/lib/jquery-ui.custom.min.js"></script>
+<script src="~/plugins/fullcalendar/fullcalendar.min.js"></script>
+
+<script src="~/js/demo/misc-fullcalendar.js"></script>

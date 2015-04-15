@@ -1,0 +1,164 @@
+﻿@model adminsite.Models.TblProductMaster
+@{
+    ViewBag.Title = "createProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("createProduct", "Product", FormMethod.Post, new { id = "frmApproveFirm", @class = "form-horizontal", enctype = "multipart/form-data" }))
+{
+    
+    <div id="page-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Add New Product </h3>
+                    </div>
+
+                    <div class="panel-body">
+
+                        @*  @if(!Html.ValidationSummary().ToString().Contains("display:none"))
+                        {
+                            <div class="row">
+                            <div  class="col-sm-3"></div>
+                            <div class="col-sm-6 alert alert-danger">
+                                @Html.ValidationSummary()
+                            </div>
+                            </div>
+                        }*@
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Category Name</label>
+                            <div class="col-md-6 col-sm-6">
+
+                                <select id="CategoryID" name="CategoryID" class="form-control" onchange="loadsubcat()  ">
+                                    <option value="0">------Select Category------</option>
+                                    @foreach (var items in ViewBag.category)
+                                    { 
+                                        <option value="@items.CategoryID">@items.CategoryName</option>
+                                    }
+                                </select>
+                                @Html.ValidationMessageFor(Model => Model.CategoryID)
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Subcategory Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @*   @Html.DropDownListFor(Model => Model.productData.SubCategoryID, new SelectList(ViewBag.SCat, "SubCategoryID", "SubCategoryName"), "---Select SubCategory ---", new { @class = "form-control" })*@
+                                <select id="SubCategoryID" name="SubCategoryID" class="form-control">
+                                    <option value="0">------Select Subcategory------</option>
+                                </select>
+                                @Html.ValidationMessageFor(Model => Model.SubCategoryID)
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Product Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.ProductName, new { @class = "form-control", @placeholder = "Product name", @maxlength = "20", @minlength = "3", autocomplete = "off" })
+                                @Html.ValidationMessageFor(Model => Model.ProductName)
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Product Image</label>
+                            <div class="col-md-6 col-sm-6">
+                                <input type="file" name="file" id="file" class="form-control">
+                                @Html.ValidationMessageFor(Model => Model.ProductImage)
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Product Price</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.ProductPrice, new { @class = "form-control", @placeholder = "Product price", @maxlength = "5", @minlength = "1", autocomplete = "off" })
+                                @Html.ValidationMessageFor(Model => Model.ProductPrice)
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Product Discount(%)</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.ProductDiscount, new { @class = "form-control", @placeholder = "Product Discount", @maxlength = "3", autocomplete = "off" })
+                                @Html.ValidationMessageFor(Model => Model.ProductDiscount)
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-6">
+                                <button class="btn btn-info btn-labeled fa fa-thumbs-o-up" type="submit">Submit</button>
+                                @Html.ActionLink("Back to List", "ProductIndex", "Product", null, new { @class = "btn btn-warning btn-labeled fa fa-undo" })
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+    });
+    function loadsubcat() {
+        // alert("call");
+        var Id1 = $("#CategoryID").val();
+        var callUrl = " http://localhost:2870/Product/subType";
+        var dataToSend = { Id: Id1 }
+        $.ajax({
+            url: callUrl,
+            type: "GET",
+            data: dataToSend,
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            cache: false,
+            success: function (data) {
+                $('#SubCategoryID').html('');
+                $.each(data, function (id, option) {
+                    $('#SubCategoryID').append($('<option></option>').val(option.id).html(option.name));
+                });
+            },
+            error: function (error) {
+                alert(JSON.stringify(error));
+            }
+        });
+    }
+
+
+</script>
+
+<div class="row">
+    <div class="pad-ver">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            @if (ViewBag.actionmsg == "1")
+            {
+                <label class="control-label  btn btn-success btn-labeled  fa fa-thumbs-o-up">Well done! Your data is Successfully Inserted</label>
+            }
+            @if (ViewBag.actionmsg == "0")
+            { 
+                <label class="control-label btn btn-danger btn-labeled fa fa-thumbs-o-down"> "@ViewBag.prodNAME "   Name is already Exist.  .............</label>
+            }
+        </div>
+    </div>
+</div>

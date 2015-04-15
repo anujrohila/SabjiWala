@@ -1,0 +1,79 @@
+﻿@model IEnumerable<adminsite.Models.DTO.productdto>
+@{
+    ViewBag.Title = "ProductIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div id="page-content">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Product</h3>
+        </div>
+
+        <!--Data Table-->
+        <!--===================================================-->
+        <div class="panel-body">
+            <div class="pad-btm form-inline">
+                <!--Add new Category--->
+
+
+                @Html.ActionLink("Add New Product", "createProduct", "Product",null, new { @class = "btn btn-purple btn-labeled fa fa-plus" })
+
+
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Category</th>   
+                            <th>SubCategory</th>
+                            <th>Product Name</th>
+                            <th>Product Price</th>
+                            <th>Product Discount(%)</th>
+                             <th>Product Image</th>
+                            <th colspan="3" style="text-align:center;">Action</th>
+                          
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(model => item.cname)</td>
+                                <td>@Html.DisplayFor(model => item.sname)</td>
+                                <td>@Html.DisplayFor(model => item.pname)</td>
+                                <td>@Html.DisplayFor(model => item.price)</td>
+                                <td>@Html.DisplayFor(model => item.discount)%</td>
+                                 <td><img src="http://localhost:2870/Images/Product/@Html.DisplayFor(model => item.pimage)" height="70" width="70"/></td>
+                              
+
+                                <td class="pad-all text-center">
+                                @Html.ActionLink("View", "ProductDetail", new { id = item.pid }, new { @class = " btn btn-mint btn-labeled fa fa-book" })
+                                @Html.ActionLink("Edit", "ProductEdit", new { id = item.pid }, new { @class = " btn btn-success btn-labeled fa fa-pencil-square-o" })
+                                @Html.ActionLink("Delete", "ProductDelete", new { id = item.pid }, new { @class = " btn btn-danger btn-labeled fa fa-trash-o" })
+                                </td>
+                            </tr>
+                             
+                        }
+
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+

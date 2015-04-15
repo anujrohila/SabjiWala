@@ -1,0 +1,131 @@
+﻿@model adminsite.Models.TblEmployeeMaster
+@{
+    ViewBag.Title = "CreateEmployee";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("CreateEmployee", "Employee", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    
+    @Html.ValidationSummary(true)
+  
+    <div id="page-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Add New Employee </h3>
+                    </div>
+
+                    <div class="panel-body">
+
+                        @*  @if(!Html.ValidationSummary().ToString().Contains("display:none"))
+                        {
+                            <div class="row">
+                            <div  class="col-sm-3"></div>
+                            <div class="col-sm-6 alert alert-danger">
+                                @Html.ValidationSummary()
+                            </div>
+                            </div>
+                        }*@
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Employee Name(Mobile No.)</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.EmployeeName, new { @class = "form-control", @placeholder = "Employee Name as a Mobile Number", @maxlength = "10", @minlength = "10", autocomplete = "off" })
+                                @Html.ValidationMessageFor(Model => Model.EmployeeName)
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">First Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.FirstName, new { @class = "form-control", @placeholder = "First Name", @maxlength = "10", @minlength = "3", autocomplete = "off" })
+                                @Html.ValidationMessageFor(Model => Model.FirstName)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Middle Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.MiddleName, new { @class = "form-control", @placeholder = "Middle Name", @maxlength = "10", @minlength = "3", autocomplete = "off" })
+                                @Html.ValidationMessageFor(Model => Model.MiddleName)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Last Name</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.LastName, new { @class = "form-control", @placeholder = "Last Name", @maxlength = "10", @minlength = "3", autocomplete = "off" })
+                                @Html.ValidationMessageFor(Model => Model.LastName)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">EmailID</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextBoxFor(Model => Model.EmailId, new { @class = "form-control", @placeholder = "EmailID", @maxlength = "20", autocomplete = "off" })
+                                @Html.ValidationMessageFor(Model => Model.EmailId)
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Address</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.TextAreaFor(Model => Model.Address, new { @class = "form-control", @placeholder = "Address", @maxlength = "50", @minlength = "6", autocomplete = "off" })
+                                @Html.ValidationMessageFor(Model => Model.Address)
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">EmployeeType</label>
+                            <div class="col-md-6 col-sm-6">
+                                @Html.DropDownListFor(Model => Model.EmployeeTypeID, new SelectList(ViewBag.empType, "EmployeeTypeID", "EmployeeType"), "---Select Employee Type ---", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(Model => Model.EmployeeTypeID)
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-6">
+                                <button class="btn btn-info btn-labeled fa fa-thumbs-o-up" type="submit">Submit</button>
+                                @Html.ActionLink("Back to List", "EmpIndex", "Employee", null, new { @class = "btn btn-warning btn-labeled fa fa-undo" })
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+   
+}
+
+
+<div class="row">
+    <div class="pad-ver">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            @if (ViewBag.actionmsg == "1")
+            {
+                <label class="control-label  btn btn-success btn-labeled  fa fa-thumbs-o-up">Well done! Your data is Successfully Inserted</label>
+            }
+            @if (ViewBag.actionmsg == "0")
+            { 
+                <label class="control-label btn btn-danger  btn-labeled fa fa-thumbs-o-down">Sorry...Data is already Exist.  .............</label>
+            }
+        </div>
+    </div>
+</div>
