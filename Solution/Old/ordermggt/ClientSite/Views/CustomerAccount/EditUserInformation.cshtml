@@ -1,0 +1,87 @@
+﻿@model ClientSite.Models.TblCustomerMaster
+@{
+    ViewBag.Title = "EditUserInformation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("EditUserInformation", "CustomerAccount", FormMethod.Post))
+{
+   
+  
+<div class="container main-container headerOffset">
+  <div class="row">
+    <div class="breadcrumbDiv col-lg-12">
+      <ul class="breadcrumb">
+        <li> <a href="index.html">Home</a> </li>
+        <li> <a href="account.html">My Account</a> </li>
+        <li class="active"> My information </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-9 col-md-9 col-sm-7">
+      <h1 class="section-title-inner"><span><i class="glyphicon glyphicon-user"></i> My personal information </span></h1>
+      <div class="row userInfo">
+        <div class="col-lg-12">
+          <h2 class="block-title-2"> Please be sure to update your personal information if it has changed. </h2>
+          @Html.HiddenFor(Model => Model.CustomerID, new { @class = "form-control" })
+            @Html.HiddenFor(Model => Model.Password, new { @class = "form-control" })
+            @Html.HiddenFor(Model => Model.UserID, new { @class = "form-control" })
+            @Html.HiddenFor(Model => Model.LanguageID, new { @class = "form-control" })
+        </div>
+        <form>
+          <div class="col-xs-12 col-sm-6">
+            <div class="form-group">
+              <label for="InputEmail">Customer Name </label>
+                             @Html.TextBoxFor(Model => Model.DisplayName, new { @class = "form-control"})
+            </div>
+          
+              <div class="form-group">
+              <label for="InputEmail"> Mobile Number </label>
+                                @Html.TextBoxFor(Model => Model.CustomerName, new { @class = "form-control" })
+            </div>
+          
+           
+            <div class="form-group">
+              <label for="InputEmail"> Email </label>
+                              @Html.TextBoxFor(Model => Model.EmailId, new { @class = "form-control" })
+            </div>
+              
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="form-group required">
+              <label for="InputName">First Name  </label>
+                            @Html.TextBoxFor(Model => Model.FirstName, new { @class = "form-control"})
+            </div>
+               <div class="form-group required">
+              <label for="InputLastName">Middel Name </label>
+                                @Html.TextBoxFor(Model => Model.MiddleName, new { @class = "form-control"})
+            </div>
+            <div class="form-group required">
+              <label for="InputLastName">Last Name  </label>
+                             @Html.TextBoxFor(Model => Model.LastName, new { @class = "form-control"})
+            </div>
+          </div>
+        
+          <div class="col-lg-12 " Style="text-align:right;">
+            <button type="submit" class="btn   btn-primary"><i class="fa fa-save"></i> &nbsp; Save </button>
+          </div>
+        </form>
+        <div class="col-lg-12 clearfix">
+          <ul class="pager">
+            @*<li class="previous pull-right"><a href="index.html"> <i class="fa fa-home"></i> Go to Shop </a></li>*@
+            <li class="next pull-left"><a href="@Url.Action("UserInformation", "CustomerAccount")"> &larr; Back to User Information</a></li>
+          </ul>
+        </div>
+      </div>
+      <!--/row end--> 
+      
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-5"> </div>
+  </div>
+  <!--/row-->
+  
+  <div style="clear:both"></div>
+</div>
+}
