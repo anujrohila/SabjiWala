@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OrderWalaModelStoreContainer" CdmEntityContainer="OrderWalaEntities">
+    <EntitySetMapping Name="tblCategories">
+      <EntityTypeMapping TypeName="OrderWalaModel.tblCategory">
+        <MappingFragment StoreEntitySet="tblCategory">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCities">
+      <EntityTypeMapping TypeName="OrderWalaModel.tblCity">
+        <MappingFragment StoreEntitySet="tblCity">
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCustomers">
+      <EntityTypeMapping TypeName="OrderWalaModel.tblCustomer">
+        <MappingFragment StoreEntitySet="tblCustomer">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="TotalOrderAmount" ColumnName="TotalOrderAmount" />
+          <ScalarProperty Name="RecievedAmount" ColumnName="RecievedAmount" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="RegisterDeviceFrom" ColumnName="RegisterDeviceFrom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblCustomerPayments">
+      <EntityTypeMapping TypeName="OrderWalaModel.tblCustomerPayment">
+        <MappingFragment StoreEntitySet="tblCustomerPayment">
+          <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="RecievedBy" ColumnName="RecievedBy" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLanguages">
+      <EntityTypeMapping TypeName="OrderWalaModel.tblLanguage">
+        <MappingFragment StoreEntitySet="tblLanguage">
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblLanguageWiseProducts">
+      <EntityTypeMapping TypeName="OrderWalaModel.tblLanguageWiseProduct">
+        <MappingFragment StoreEntitySet="tblLanguageWiseProduct">
+          <ScalarProperty Name="RowId" ColumnName="RowId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOrders">
+      <EntityTypeMapping TypeName="OrderWalaModel.tblOrder">
+        <MappingFragment StoreEntitySet="tblOrder">
+          <ScalarProperty Name="OverMessage" ColumnName="OverMessage" />
+          <ScalarProperty Name="CustomerMessage" ColumnName="CustomerMessage" />
+          <ScalarProperty Name="OtherCharges" ColumnName="OtherCharges" />
+          <ScalarProperty Name="DeliveryCharges" ColumnName="DeliveryCharges" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="OrderDateTime" ColumnName="OrderDateTime" />
+          <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+          <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOrderItems">
+      <EntityTypeMapping TypeName="OrderWalaModel.tblOrderItem">
+        <MappingFragment StoreEntitySet="tblOrderItems">
+          <ScalarProperty Name="OrderItemId" ColumnName="OrderItemId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProducts">
+      <EntityTypeMapping TypeName="OrderWalaModel.tblProduct">
+        <MappingFragment StoreEntitySet="tblProduct">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="SubCategoryId" ColumnName="SubCategoryId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="QuantityTypeId" ColumnName="QuantityTypeId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProductPrices">
+      <EntityTypeMapping TypeName="OrderWalaModel.tblProductPrice">
+        <MappingFragment StoreEntitySet="tblProductPrice">
+          <ScalarProperty Name="PriceId" ColumnName="PriceId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="NewPrice" ColumnName="NewPrice" />
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="UpdationDateTime" ColumnName="UpdationDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblQuantityTypes">
+      <EntityTypeMapping TypeName="OrderWalaModel.tblQuantityType">
+        <MappingFragment StoreEntitySet="tblQuantityType">
+          <ScalarProperty Name="QuantityTypeId" ColumnName="QuantityTypeId" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStates">
+      <EntityTypeMapping TypeName="OrderWalaModel.tblState">
+        <MappingFragment StoreEntitySet="tblState">
+          <ScalarProperty Name="StateId" ColumnName="StateId" />
+          <ScalarProperty Name="StateName" ColumnName="StateName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSubCategories">
+      <EntityTypeMapping TypeName="OrderWalaModel.tblSubCategory">
+        <MappingFragment StoreEntitySet="tblSubCategory">
+          <ScalarProperty Name="SubCategoryId" ColumnName="SubCategoryId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="SubCategoryName" ColumnName="SubCategoryName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDeliveryCharges">
+      <EntityTypeMapping TypeName="OrderWalaModel.tblDeliveryCharge">
+        <MappingFragment StoreEntitySet="tblDeliveryCharges">
+          <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Charges" ColumnName="Charges" />
+          <ScalarProperty Name="EndAmount" ColumnName="EndAmount" />
+          <ScalarProperty Name="StartAmount" ColumnName="StartAmount" />
+          <ScalarProperty Name="DeliveryChargesId" ColumnName="DeliveryChargesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
