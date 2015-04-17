@@ -187,8 +187,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ContentFactory.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\ApplicationMember.cs" />
+    <Compile Include="Utilities\CommonFunctions.cs" />
+    <Compile Include="Utilities\JavaScriptSerialization.cs" />
+    <Compile Include="Utilities\ResourceJavaScripter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
