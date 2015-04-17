@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace OrderWala.Domain.DTO
+namespace OrderWala.Domain
 {
     [DataContract()]
     public partial class tblDeliveryChargeDTO

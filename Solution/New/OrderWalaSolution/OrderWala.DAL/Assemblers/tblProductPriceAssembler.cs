@@ -11,10 +11,10 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Linq;
-using OrderWala.Domain.DTO;
+using OrderWala.Domain;
 using OrderWala.DAL;
 
-namespace OrderWala.DAL.Assemblers
+namespace OrderWala.DAL
 {
 
     /// <summary>
