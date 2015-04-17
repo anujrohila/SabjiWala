@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,8 +41,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DTO\tblCategoryDTO.cs" />
+    <Compile Include="DTO\tblCityDTO.cs" />
+    <Compile Include="DTO\tblCustomerDTO.cs" />
+    <Compile Include="DTO\tblCustomerPaymentDTO.cs" />
+    <Compile Include="DTO\tblDeliveryChargeDTO.cs" />
+    <Compile Include="DTO\tblLanguageDTO.cs" />
+    <Compile Include="DTO\tblLanguageWiseProductDTO.cs" />
+    <Compile Include="DTO\tblOrderDTO.cs" />
+    <Compile Include="DTO\tblOrderItemDTO.cs" />
+    <Compile Include="DTO\tblProductDTO.cs" />
+    <Compile Include="DTO\tblProductPriceDTO.cs" />
+    <Compile Include="DTO\tblQuantityTypeDTO.cs" />
+    <Compile Include="DTO\tblStateDTO.cs" />
+    <Compile Include="DTO\tblSubCategoryDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

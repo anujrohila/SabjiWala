@@ -308,6 +308,16 @@
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OrderWala.DAL\OrderWala.DAL.csproj">
+      <Project>{46451f8a-aa07-4e84-a043-3f3fc86210e7}</Project>
+      <Name>OrderWala.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrderWala.Domain\OrderWala.Domain.csproj">
+      <Project>{7f7458e4-b82a-4409-95c2-9763d0ff17a5}</Project>
+      <Name>OrderWala.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
