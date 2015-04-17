@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -40,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Common\CommonModel.cs" />
+    <Compile Include="Common\Enums.cs" />
+    <Compile Include="Common\OrderWalaApplication.cs" />
+    <Compile Include="Common\PageHeaderModel.cs" />
     <Compile Include="DTO\tblCategoryDTO.cs" />
     <Compile Include="DTO\tblCityDTO.cs" />
     <Compile Include="DTO\tblCustomerDTO.cs" />
@@ -56,8 +60,20 @@
     <Compile Include="DTO\tblStateDTO.cs" />
     <Compile Include="DTO\tblSubCategoryDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource\OrderWalaResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderWalaResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\Encryption.cs" />
+    <Compile Include="Utility\RegularExpressionString.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resource\OrderWalaResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OrderWalaResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

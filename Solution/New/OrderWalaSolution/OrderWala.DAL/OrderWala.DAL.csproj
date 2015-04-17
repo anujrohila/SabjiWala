@@ -60,7 +60,6 @@
     <Compile Include="Assemblers\tblQuantityTypeAssembler.cs" />
     <Compile Include="Assemblers\tblStateAssembler.cs" />
     <Compile Include="Assemblers\tblSubCategoryAssembler.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="OrderWalaDatabase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
