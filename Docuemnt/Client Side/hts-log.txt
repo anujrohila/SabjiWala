@@ -1,0 +1,22 @@
+HTTrack3.48-19+htsswf+htsjava launched on Tue, 24 Mar 2015 13:58:02 at http://codepeoples.com/tanimdesign.net/thsop-v-1.3/white/index.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://codepeoples.com/tanimdesign.net/thsop-v-1.3/white/index.html -O1 "E:\10-2-2015\24" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+14:01:04	Error: 	"Not Found" (404) at link codepeoples.com/tanimdesign.net/thsop-v-1.3/white/ico/apple-touch-icon-57-precomposed.png (from codepeoples.com/tanimdesign.net/thsop-v-1.3/white/index.html)
+14:04:21	Error: 	"Not Found" (404) at link codepeoples.com/tanimdesign.net/thsop-v-1.3/white/san-remo-spaghetti (from codepeoples.com/tanimdesign.net/thsop-v-1.3/white/product-details.html)
+14:04:21	Error: 	"Not Found" (404) at link codepeoples.com/tanimdesign.net/thsop-v-1.3/white/assets/js/product-details.js (from codepeoples.com/tanimdesign.net/thsop-v-1.3/white/single-product-modal.html)
+14:04:29	Error: 	"Not Found" (404) at link codepeoples.com/tanimdesign.net/thsop-v-1.3/white/Popover requires tooltip.js (from codepeoples.com/tanimdesign.net/thsop-v-1.3/white/assets/bootstrap/js/bootstrap.min.js)
+14:04:29	Error: 	"Not Found" (404) at link codepeoples.com/tanimdesign.net/thsop-v-1.3/white/2W.h 1Z.h (from codepeoples.com/tanimdesign.net/thsop-v-1.3/white/assets/js/owl.carousel.min.js)
+14:04:29	Error: 	"Not Found" (404) at link codepeoples.com/tanimdesign.net/thsop-v-1.3/white/2P.h 3V.h (from codepeoples.com/tanimdesign.net/thsop-v-1.3/white/assets/js/owl.carousel.min.js)
+14:04:29	Error: 	"Not Found" (404) at link codepeoples.com/tanimdesign.net/thsop-v-1.3/white/2W.h (from codepeoples.com/tanimdesign.net/thsop-v-1.3/white/assets/js/owl.carousel.min.js)
+14:04:29	Error: 	"Not Found" (404) at link codepeoples.com/tanimdesign.net/thsop-v-1.3/white/2P.h (from codepeoples.com/tanimdesign.net/thsop-v-1.3/white/assets/js/owl.carousel.min.js)
+14:04:29	Error: 	"Not Found" (404) at link codepeoples.com/tanimdesign.net/thsop-v-1.3/white/1Z.h (from codepeoples.com/tanimdesign.net/thsop-v-1.3/white/assets/js/owl.carousel.min.js)
+14:04:29	Error: 	"Not Found" (404) at link codepeoples.com/tanimdesign.net/thsop-v-1.3/white/3V.h (from codepeoples.com/tanimdesign.net/thsop-v-1.3/white/assets/js/owl.carousel.min.js)
+14:04:29	Error: 	"Not Found" (404) at link codepeoples.com/tanimdesign.net/thsop-v-1.3/white/5A.h (from codepeoples.com/tanimdesign.net/thsop-v-1.3/white/assets/js/owl.carousel.min.js)
+
+HTTrack Website Copier/3.48-19 mirror complete in 6 minutes 30 seconds : 229 links scanned, 217 files written (9947443 bytes overall) [10035298 bytes received at 25731 bytes/sec], 15.2 requests per connection
+(11 errors, 0 warnings, 0 messages)
