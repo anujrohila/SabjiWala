@@ -25,12 +25,16 @@ namespace OrderWala.DAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<tblAdvertisement> tblAdvertisements { get; set; }
+        public DbSet<tblArea> tblAreas { get; set; }
         public DbSet<tblCategory> tblCategories { get; set; }
         public DbSet<tblCity> tblCities { get; set; }
         public DbSet<tblCustomer> tblCustomers { get; set; }
         public DbSet<tblCustomerPayment> tblCustomerPayments { get; set; }
+        public DbSet<tblDeliveryCharge> tblDeliveryCharges { get; set; }
         public DbSet<tblLanguage> tblLanguages { get; set; }
         public DbSet<tblLanguageWiseProduct> tblLanguageWiseProducts { get; set; }
+        public DbSet<tblLogin> tblLogins { get; set; }
         public DbSet<tblOrder> tblOrders { get; set; }
         public DbSet<tblOrderItem> tblOrderItems { get; set; }
         public DbSet<tblProduct> tblProducts { get; set; }
@@ -38,6 +42,6 @@ namespace OrderWala.DAL
         public DbSet<tblQuantityType> tblQuantityTypes { get; set; }
         public DbSet<tblState> tblStates { get; set; }
         public DbSet<tblSubCategory> tblSubCategories { get; set; }
-        public DbSet<tblDeliveryCharge> tblDeliveryCharges { get; set; }
+        public DbSet<tblUserType> tblUserTypes { get; set; }
     }
 }

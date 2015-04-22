@@ -15,7 +15,7 @@
     <AssemblyName>OrderWala.Service</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Service1.svc" />
-    <Content Include="Service\OrderAccount.svc" />
+    <Content Include="Service\OrderAccountService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -69,8 +69,9 @@
     </Compile>
     <Compile Include="IService1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\OrderAccount.svc.cs">
-      <DependentUpon>OrderAccount.svc</DependentUpon>
+    <Compile Include="Service\IOrderAccountService.cs" />
+    <Compile Include="Service\OrderAccountService.svc.cs">
+      <DependentUpon>OrderAccountService.svc</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
@@ -95,9 +96,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>57760</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:53023/</IISUrl>
+          <IISUrl>http://localhost/OrderWala.Service</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

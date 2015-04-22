@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="OrderWala.Service.Service.OrderAccount" CodeBehind="OrderAccount.svc.cs" %>

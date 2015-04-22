@@ -7,7 +7,7 @@ using OrderWala.DAL;
 
 namespace OrderWala.DAL
 {
-    public class AdministratorRepository
+    public class AccountRepository
     {
         #region [Declaration]
 
@@ -15,7 +15,7 @@ namespace OrderWala.DAL
 
         #region [Constructor]
 
-        public AdministratorRepository()
+        public AccountRepository()
         {
 
         }
@@ -23,6 +23,8 @@ namespace OrderWala.DAL
         #endregion
 
         #region [Methods]
+
+        //public 
 
         #endregion
     }

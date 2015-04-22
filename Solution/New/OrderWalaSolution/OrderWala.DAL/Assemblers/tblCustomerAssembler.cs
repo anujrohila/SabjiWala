@@ -48,7 +48,7 @@ namespace OrderWala.DAL
             entity.FirstName = dto.FirstName;
             entity.LastName = dto.LastName;
             entity.Address = dto.Address;
-            entity.CityId = dto.CityId;
+            entity.AreaId = dto.AreaId;
             entity.EmailAddress = dto.EmailAddress;
             entity.MobileNo = dto.MobileNo;
             entity.Latitude = dto.Latitude;
@@ -79,7 +79,7 @@ namespace OrderWala.DAL
             dto.FirstName = entity.FirstName;
             dto.LastName = entity.LastName;
             dto.Address = entity.Address;
-            dto.CityId = entity.CityId;
+            dto.AreaId = entity.AreaId;
             dto.EmailAddress = entity.EmailAddress;
             dto.MobileNo = entity.MobileNo;
             dto.Latitude = entity.Latitude;

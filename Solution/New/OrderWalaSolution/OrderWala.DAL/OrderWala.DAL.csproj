@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assemblers\tblAdvertisementAssembler.cs" />
+    <Compile Include="Assemblers\tblAreaAssembler.cs" />
     <Compile Include="Assemblers\tblCategoryAssembler.cs" />
     <Compile Include="Assemblers\tblCityAssembler.cs" />
     <Compile Include="Assemblers\tblCustomerAssembler.cs" />
@@ -53,6 +55,7 @@
     <Compile Include="Assemblers\tblDeliveryChargeAssembler.cs" />
     <Compile Include="Assemblers\tblLanguageAssembler.cs" />
     <Compile Include="Assemblers\tblLanguageWiseProductAssembler.cs" />
+    <Compile Include="Assemblers\tblLoginAssembler.cs" />
     <Compile Include="Assemblers\tblOrderAssembler.cs" />
     <Compile Include="Assemblers\tblOrderItemAssembler.cs" />
     <Compile Include="Assemblers\tblProductAssembler.cs" />
@@ -60,6 +63,7 @@
     <Compile Include="Assemblers\tblQuantityTypeAssembler.cs" />
     <Compile Include="Assemblers\tblStateAssembler.cs" />
     <Compile Include="Assemblers\tblSubCategoryAssembler.cs" />
+    <Compile Include="Assemblers\tblUserTypeAssembler.cs" />
     <Compile Include="OrderWalaDatabase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -76,7 +80,13 @@
       <DependentUpon>OrderWalaDatabase.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\AdministratorRepository.cs" />
+    <Compile Include="Repositories\AccountRepository.cs" />
+    <Compile Include="tblAdvertisement.cs">
+      <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblArea.cs">
+      <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
+    </Compile>
     <Compile Include="tblCategory.cs">
       <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
     </Compile>
@@ -98,6 +108,9 @@
     <Compile Include="tblLanguageWiseProduct.cs">
       <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="tblLogin.cs">
+      <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
+    </Compile>
     <Compile Include="tblOrder.cs">
       <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
     </Compile>
@@ -117,6 +130,9 @@
       <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="tblSubCategory.cs">
+      <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblUserType.cs">
       <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
     </Compile>
   </ItemGroup>

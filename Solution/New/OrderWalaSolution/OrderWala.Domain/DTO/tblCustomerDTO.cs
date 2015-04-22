@@ -29,7 +29,7 @@ namespace OrderWala.Domain
         public String Address { get; set; }
 
         [DataMember()]
-        public Int32 CityId { get; set; }
+        public Int32 AreaId { get; set; }
 
         [DataMember()]
         public String EmailAddress { get; set; }
@@ -71,7 +71,7 @@ namespace OrderWala.Domain
 			this.FirstName = firstName;
 			this.LastName = lastName;
 			this.Address = address;
-			this.CityId = cityId;
+			this.AreaId = cityId;
 			this.EmailAddress = emailAddress;
 			this.MobileNo = mobileNo;
 			this.Latitude = latitude;
