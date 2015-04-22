@@ -17,6 +17,12 @@ namespace OrderWala.Domain
             Completed = 4
         }
 
+        public enum UserType
+        {
+            Admin = 1,
+            Customer = 2,
+            Supplier = 3,
+        }
     }
 
 }
