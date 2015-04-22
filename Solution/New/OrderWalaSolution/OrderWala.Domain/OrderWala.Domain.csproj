@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdditionalDTO\OrderUserDetailDTO.cs" />
     <Compile Include="Common\CommonModel.cs" />
     <Compile Include="Common\Enums.cs" />
     <Compile Include="Common\OrderWalaApplication.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="DTO\tblCustomerDTO.cs" />
     <Compile Include="DTO\tblCustomerPaymentDTO.cs" />
     <Compile Include="DTO\tblDeliveryChargeDTO.cs" />
+    <Compile Include="DTO\tblDeviceTypeDTO.cs" />
     <Compile Include="DTO\tblLanguageDTO.cs" />
     <Compile Include="DTO\tblLanguageWiseProductDTO.cs" />
     <Compile Include="DTO\tblLoginDTO.cs" />
@@ -78,6 +80,7 @@
       <LastGenOutput>OrderWalaResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -16,14 +16,11 @@ namespace OrderWala.Domain
         public CommonModel()
         {
             ModelMessage = new List<ModelMessage>();
-            PageHeaderModel = new PageHeaderModel();
         }
 
         [DataMember(EmitDefaultValue = false)]
         public List<ModelMessage> ModelMessage { get; set; }
 
-        [DataMember(EmitDefaultValue = false)]
-        public PageHeaderModel PageHeaderModel { get; set; }
     }
 
     public class ModelMessage

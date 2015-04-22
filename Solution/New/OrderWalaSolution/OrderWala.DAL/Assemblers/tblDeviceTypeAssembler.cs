@@ -17,35 +17,34 @@ namespace OrderWala.DAL
 {
 
     /// <summary>
-    /// Assembler for <see cref="tblCity"/> and <see cref="tblCityDTO"/>.
+    /// Assembler for <see cref="tblDeviceType"/> and <see cref="tblDeviceTypeDTO"/>.
     /// </summary>
-    public static partial class tblCityAssembler
+    public static partial class tblDeviceTypeAssembler
     {
         /// <summary>
         /// Invoked when <see cref="ToDTO"/> operation is about to return.
         /// </summary>
-        /// <param name="dto"><see cref="tblCityDTO"/> converted from <see cref="tblCity"/>.</param>
-        static partial void OnDTO(this tblCity entity, tblCityDTO dto);
+        /// <param name="dto"><see cref="tblDeviceTypeDTO"/> converted from <see cref="tblDeviceType"/>.</param>
+        static partial void OnDTO(this tblDeviceType entity, tblDeviceTypeDTO dto);
 
         /// <summary>
         /// Invoked when <see cref="ToEntity"/> operation is about to return.
         /// </summary>
-        /// <param name="entity"><see cref="tblCity"/> converted from <see cref="tblCityDTO"/>.</param>
-        static partial void OnEntity(this tblCityDTO dto, tblCity entity);
+        /// <param name="entity"><see cref="tblDeviceType"/> converted from <see cref="tblDeviceTypeDTO"/>.</param>
+        static partial void OnEntity(this tblDeviceTypeDTO dto, tblDeviceType entity);
 
         /// <summary>
-        /// Converts this instance of <see cref="tblCityDTO"/> to an instance of <see cref="tblCity"/>.
+        /// Converts this instance of <see cref="tblDeviceTypeDTO"/> to an instance of <see cref="tblDeviceType"/>.
         /// </summary>
-        /// <param name="dto"><see cref="tblCityDTO"/> to convert.</param>
-        public static tblCity ToEntity(this tblCityDTO dto)
+        /// <param name="dto"><see cref="tblDeviceTypeDTO"/> to convert.</param>
+        public static tblDeviceType ToEntity(this tblDeviceTypeDTO dto)
         {
             if (dto == null) return null;
 
-            var entity = new tblCity();
+            var entity = new tblDeviceType();
 
-            entity.CityId = dto.CityId;
-            entity.CityName = dto.CityName;
-            entity.StateId = dto.StateId;
+            entity.DeviceId = dto.DeviceId;
+            entity.DeviceType = dto.DeviceType;
 
             dto.OnEntity(entity);
 
@@ -53,18 +52,17 @@ namespace OrderWala.DAL
         }
 
         /// <summary>
-        /// Converts this instance of <see cref="tblCity"/> to an instance of <see cref="tblCityDTO"/>.
+        /// Converts this instance of <see cref="tblDeviceType"/> to an instance of <see cref="tblDeviceTypeDTO"/>.
         /// </summary>
-        /// <param name="entity"><see cref="tblCity"/> to convert.</param>
-        public static tblCityDTO ToDTO(this tblCity entity)
+        /// <param name="entity"><see cref="tblDeviceType"/> to convert.</param>
+        public static tblDeviceTypeDTO ToDTO(this tblDeviceType entity)
         {
             if (entity == null) return null;
 
-            var dto = new tblCityDTO();
+            var dto = new tblDeviceTypeDTO();
 
-            dto.CityId = entity.CityId;
-            dto.CityName = entity.CityName;
-            dto.StateId = entity.StateId;
+            dto.DeviceId = entity.DeviceId;
+            dto.DeviceType = entity.DeviceType;
 
             entity.OnDTO(dto);
 
@@ -72,11 +70,11 @@ namespace OrderWala.DAL
         }
 
         /// <summary>
-        /// Converts each instance of <see cref="tblCityDTO"/> to an instance of <see cref="tblCity"/>.
+        /// Converts each instance of <see cref="tblDeviceTypeDTO"/> to an instance of <see cref="tblDeviceType"/>.
         /// </summary>
         /// <param name="dtos"></param>
         /// <returns></returns>
-        public static List<tblCity> ToEntities(this IEnumerable<tblCityDTO> dtos)
+        public static List<tblDeviceType> ToEntities(this IEnumerable<tblDeviceTypeDTO> dtos)
         {
             if (dtos == null) return null;
 
@@ -84,11 +82,11 @@ namespace OrderWala.DAL
         }
 
         /// <summary>
-        /// Converts each instance of <see cref="tblCity"/> to an instance of <see cref="tblCityDTO"/>.
+        /// Converts each instance of <see cref="tblDeviceType"/> to an instance of <see cref="tblDeviceTypeDTO"/>.
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
-        public static List<tblCityDTO> ToDTOs(this IEnumerable<tblCity> entities)
+        public static List<tblDeviceTypeDTO> ToDTOs(this IEnumerable<tblDeviceType> entities)
         {
             if (entities == null) return null;
 

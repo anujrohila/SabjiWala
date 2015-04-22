@@ -53,6 +53,7 @@
     <Compile Include="Assemblers\tblCustomerAssembler.cs" />
     <Compile Include="Assemblers\tblCustomerPaymentAssembler.cs" />
     <Compile Include="Assemblers\tblDeliveryChargeAssembler.cs" />
+    <Compile Include="Assemblers\tblDeviceTypeAssembler.cs" />
     <Compile Include="Assemblers\tblLanguageAssembler.cs" />
     <Compile Include="Assemblers\tblLanguageWiseProductAssembler.cs" />
     <Compile Include="Assemblers\tblLoginAssembler.cs" />
@@ -100,6 +101,9 @@
       <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="tblDeliveryCharge.cs">
+      <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblDeviceType.cs">
       <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="tblLanguage.cs">

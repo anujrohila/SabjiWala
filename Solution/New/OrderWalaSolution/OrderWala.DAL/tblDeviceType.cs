@@ -12,14 +12,9 @@ namespace OrderWala.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class tblLogin
+    public partial class tblDeviceType
     {
-        public int UserId { get; set; }
-        public string MobileNo { get; set; }
-        public int UserTypeId { get; set; }
-        public System.DateTime CreationDatetime { get; set; }
-        public string Password { get; set; }
-        public bool IsActive { get; set; }
-        public int RegisterDeviceId { get; set; }
+        public int DeviceId { get; set; }
+        public string DeviceType { get; set; }
     }
 }

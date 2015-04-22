@@ -15,6 +15,7 @@ namespace OrderWala.DAL
     public partial class tblCustomer
     {
         public int CustomerId { get; set; }
+        public int UserId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
@@ -28,6 +29,5 @@ namespace OrderWala.DAL
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
         public System.DateTime CreationDateTime { get; set; }
-        public int RegisterDeviceFrom { get; set; }
     }
 }

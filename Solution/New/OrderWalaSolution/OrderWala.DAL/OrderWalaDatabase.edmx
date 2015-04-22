@@ -13,6 +13,7 @@
           <EntitySet Name="tblCustomer" EntityType="OrderWalaModel.Store.tblCustomer" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblCustomerPayment" EntityType="OrderWalaModel.Store.tblCustomerPayment" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblDeliveryCharges" EntityType="OrderWalaModel.Store.tblDeliveryCharges" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblDeviceType" EntityType="OrderWalaModel.Store.tblDeviceType" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblLanguage" EntityType="OrderWalaModel.Store.tblLanguage" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblLanguageWiseProduct" EntityType="OrderWalaModel.Store.tblLanguageWiseProduct" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="tblLogin" EntityType="OrderWalaModel.Store.tblLogin" store:Type="Tables" Schema="dbo" />
@@ -75,6 +76,7 @@
             <PropertyRef Name="CustomerId" />
           </Key>
           <Property Name="CustomerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="LastName" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="Address" Type="varchar" Nullable="false" MaxLength="1000" />
@@ -88,7 +90,6 @@
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
           <Property Name="CreationDateTime" Type="datetime" Nullable="false" />
-          <Property Name="RegisterDeviceFrom" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblCustomerPayment">
           <Key>
@@ -111,6 +112,13 @@
           <Property Name="Charges" Type="float" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="CreationDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblDeviceType">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Name="DeviceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DeviceType" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tblLanguage">
           <Key>
@@ -135,11 +143,12 @@
             <PropertyRef Name="UserId" />
           </Key>
           <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="MobileNo" Type="varchar" MaxLength="50" />
-          <Property Name="UserTypeId" Type="int" />
-          <Property Name="CreationDatetime" Type="datetime" />
-          <Property Name="Password" Type="varchar" MaxLength="200" />
-          <Property Name="IsActive" Type="bit" />
+          <Property Name="MobileNo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="UserTypeId" Type="int" Nullable="false" />
+          <Property Name="CreationDatetime" Type="datetime" Nullable="false" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="RegisterDeviceId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblOrder">
           <Key>
@@ -236,6 +245,7 @@
           <EntitySet Name="tblCustomers" EntityType="OrderWalaModel.tblCustomer" />
           <EntitySet Name="tblCustomerPayments" EntityType="OrderWalaModel.tblCustomerPayment" />
           <EntitySet Name="tblDeliveryCharges" EntityType="OrderWalaModel.tblDeliveryCharge" />
+          <EntitySet Name="tblDeviceTypes" EntityType="OrderWalaModel.tblDeviceType" />
           <EntitySet Name="tblLanguages" EntityType="OrderWalaModel.tblLanguage" />
           <EntitySet Name="tblLanguageWiseProducts" EntityType="OrderWalaModel.tblLanguageWiseProduct" />
           <EntitySet Name="tblLogins" EntityType="OrderWalaModel.tblLogin" />
@@ -298,6 +308,7 @@
             <PropertyRef Name="CustomerId" />
           </Key>
           <Property Type="Int32" Name="CustomerId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserId" Nullable="false" />
           <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="Address" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
@@ -311,7 +322,6 @@
           <Property Type="Boolean" Name="IsActive" Nullable="false" />
           <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
           <Property Type="DateTime" Name="CreationDateTime" Nullable="false" Precision="3" />
-          <Property Type="Int32" Name="RegisterDeviceFrom" Nullable="false" />
         </EntityType>
         <EntityType Name="tblCustomerPayment">
           <Key>
@@ -334,6 +344,13 @@
           <Property Type="Double" Name="Charges" Nullable="false" />
           <Property Type="Boolean" Name="IsActive" Nullable="false" />
           <Property Type="DateTime" Name="CreationDateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tblDeviceType">
+          <Key>
+            <PropertyRef Name="DeviceId" />
+          </Key>
+          <Property Type="Int32" Name="DeviceId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DeviceType" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tblLanguage">
           <Key>
@@ -358,11 +375,12 @@
             <PropertyRef Name="UserId" />
           </Key>
           <Property Type="Int32" Name="UserId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="MobileNo" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="UserTypeId" />
-          <Property Type="DateTime" Name="CreationDatetime" Precision="3" />
-          <Property Type="String" Name="Password" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="IsActive" />
+          <Property Type="String" Name="MobileNo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="UserTypeId" Nullable="false" />
+          <Property Type="DateTime" Name="CreationDatetime" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Int32" Name="RegisterDeviceId" Nullable="false" />
         </EntityType>
         <EntityType Name="tblOrder">
           <Key>
@@ -505,7 +523,6 @@
           <EntitySetMapping Name="tblCustomers">
             <EntityTypeMapping TypeName="OrderWalaModel.tblCustomer">
               <MappingFragment StoreEntitySet="tblCustomer">
-                <ScalarProperty Name="RegisterDeviceFrom" ColumnName="RegisterDeviceFrom" />
                 <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
@@ -519,6 +536,7 @@
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -547,6 +565,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tblDeviceTypes">
+            <EntityTypeMapping TypeName="OrderWalaModel.tblDeviceType">
+              <MappingFragment StoreEntitySet="tblDeviceType">
+                <ScalarProperty Name="DeviceType" ColumnName="DeviceType" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tblLanguages">
             <EntityTypeMapping TypeName="OrderWalaModel.tblLanguage">
               <MappingFragment StoreEntitySet="tblLanguage">
@@ -570,6 +596,7 @@
           <EntitySetMapping Name="tblLogins">
             <EntityTypeMapping TypeName="OrderWalaModel.tblLogin">
               <MappingFragment StoreEntitySet="tblLogin">
+                <ScalarProperty Name="RegisterDeviceId" ColumnName="RegisterDeviceId" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="CreationDatetime" ColumnName="CreationDatetime" />
