@@ -60,7 +60,7 @@ namespace OrderWala.DAL
                                                IsActive = customer.IsActive,
                                                JoiningDate = customer.CreationDateTime,
                                                Latitude = customer.Latitude,
-                                               Logitude = customer.Longitude,
+                                               Longitude = customer.Longitude,
                                                RecievedAmount = customer.RecievedAmount,
                                                TotalOrderAmount = customer.TotalOrderAmount,
                                            }).FirstOrDefault();
