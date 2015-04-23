@@ -120,4 +120,16 @@
   <data name="lblLogin" xml:space="preserve">
     <value>Login</value>
   </data>
+  <data name="msgErrorInTransaction" xml:space="preserve">
+    <value>Error in transaction please try again later.</value>
+  </data>
+  <data name="valInvalidLoginDetail" xml:space="preserve">
+    <value>Invalid user name or password.</value>
+  </data>
+  <data name="valRequiredPassword" xml:space="preserve">
+    <value>Please enter password.</value>
+  </data>
+  <data name="valRequiredUserName" xml:space="preserve">
+    <value>Please enter username.</value>
+  </data>
 </root>

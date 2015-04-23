@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdditionalDTO\OrderUserDetailDTO.cs" />
+    <Compile Include="AdditionalDTO\RegisterCustomerResponse.cs" />
+    <Compile Include="AdditionalDTO\UserDetailDTO.cs" />
     <Compile Include="Common\CommonModel.cs" />
     <Compile Include="Common\Enums.cs" />
     <Compile Include="Common\OrderWalaApplication.cs" />

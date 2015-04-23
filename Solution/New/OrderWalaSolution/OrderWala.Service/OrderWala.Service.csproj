@@ -74,7 +74,16 @@
       <DependentUpon>OrderAccountService.svc</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\OrderWala.DAL\OrderWala.DAL.csproj">
+      <Project>{46451f8a-aa07-4e84-a043-3f3fc86210e7}</Project>
+      <Name>OrderWala.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OrderWala.Domain\OrderWala.Domain.csproj">
+      <Project>{7f7458e4-b82a-4409-95c2-9763d0ff17a5}</Project>
+      <Name>OrderWala.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

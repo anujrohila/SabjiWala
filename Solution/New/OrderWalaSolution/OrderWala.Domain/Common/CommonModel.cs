@@ -25,9 +25,8 @@ namespace OrderWala.Domain
 
     public class ModelMessage
     {
-        public int Code { get; set; }
         public string Message { get; set; }
-        public MessageType Type { get; set; }
+        public MessageType Status { get; set; }
     }
 
     public enum MessageType
