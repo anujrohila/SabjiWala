@@ -76,9 +76,13 @@ namespace OrderWala.Service.Service
                 userDetailDTO.FirstName = firstName;
                 userDetailDTO.LastName = firstName;
                 userDetailDTO.AreaId = areaId;
+                userDetailDTO.Address = address;
                 userDetailDTO.EmailAddress = emailAddress;
                 userDetailDTO.MobileNo = mobileNo;
-                userDetailDTO.Password = Encryption.EncryptToBase64(password);
+                if (!string.IsNullOrWhiteSpace(password))
+                {
+                    userDetailDTO.Password = Encryption.EncryptToBase64(password);
+                }
                 userDetailDTO.Latitude = latitude;
                 userDetailDTO.Longitude = longitude;
                 userDetailDTO.RegisterDeviceId = registerDeviceId;
@@ -96,6 +100,11 @@ namespace OrderWala.Service.Service
                         if (registerResponse == 0)
                         {
                             userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.msgErrorInRegistration });
+                        }
+                        else
+                        {
+                            registerCustomerResponse.UserId = registerResponse;
+                            userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Success, Message = OrderWalaResource.msgRegisterSuccessfullly });
                         }
                     }
                     else
@@ -120,27 +129,31 @@ namespace OrderWala.Service.Service
             var validationModel = new List<ModelMessage>();
             if (string.IsNullOrWhiteSpace(userDetailDTO.FirstName))
             {
-                userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredFirstName });
+                validationModel.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredFirstName });
             }
             if (string.IsNullOrWhiteSpace(userDetailDTO.LastName))
             {
-                userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredLastName });
+                validationModel.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredLastName });
+            }
+            if (string.IsNullOrWhiteSpace(userDetailDTO.Address))
+            {
+                validationModel.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredAddress });
             }
             if (userDetailDTO.AreaId == 0)
             {
-                userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredArea });
+                validationModel.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredArea });
             }
             if (string.IsNullOrWhiteSpace(userDetailDTO.MobileNo))
             {
-                userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredMobileNo });
+                validationModel.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredMobileNo });
             }
             if (string.IsNullOrWhiteSpace(userDetailDTO.Password))
             {
-                userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredPassword });
+                validationModel.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredPassword });
             }
             if (string.IsNullOrWhiteSpace(userDetailDTO.Latitude) || string.IsNullOrWhiteSpace(userDetailDTO.Longitude))
             {
-                userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredMapAddress });
+                validationModel.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredMapAddress });
             }
             return validationModel;
         }

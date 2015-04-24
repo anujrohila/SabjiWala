@@ -129,8 +129,14 @@
   <data name="msgErrorInTransaction" xml:space="preserve">
     <value>Error in transaction please try again later.</value>
   </data>
+  <data name="msgRegisterSuccessfullly" xml:space="preserve">
+    <value>Registration done successfully.</value>
+  </data>
   <data name="valInvalidLoginDetail" xml:space="preserve">
     <value>Invalid user name or password.</value>
+  </data>
+  <data name="valRequiredAddress" xml:space="preserve">
+    <value>Please enter address.</value>
   </data>
   <data name="valRequiredArea" xml:space="preserve">
     <value>Please select area.</value>

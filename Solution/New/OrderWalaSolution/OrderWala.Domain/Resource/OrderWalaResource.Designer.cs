@@ -97,11 +97,29 @@ namespace OrderWala.Domain.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Registration done successfully..
+        /// </summary>
+        public static string msgRegisterSuccessfullly {
+            get {
+                return ResourceManager.GetString("msgRegisterSuccessfullly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid user name or password..
         /// </summary>
         public static string valInvalidLoginDetail {
             get {
                 return ResourceManager.GetString("valInvalidLoginDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter address..
+        /// </summary>
+        public static string valRequiredAddress {
+            get {
+                return ResourceManager.GetString("valRequiredAddress", resourceCulture);
             }
         }
         
