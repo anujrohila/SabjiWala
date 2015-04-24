@@ -14,9 +14,6 @@ namespace OrderWala.Service.Service
 {
     public class OrderAccountService : IOrderAccountService
     {
-        public void DoWork()
-        {
-        }
 
         #region [Public Method]
 
@@ -81,7 +78,7 @@ namespace OrderWala.Service.Service
                 userDetailDTO.AreaId = areaId;
                 userDetailDTO.EmailAddress = emailAddress;
                 userDetailDTO.MobileNo = mobileNo;
-                userDetailDTO.Password = password;
+                userDetailDTO.Password = Encryption.EncryptToBase64(password);
                 userDetailDTO.Latitude = latitude;
                 userDetailDTO.Longitude = longitude;
                 userDetailDTO.RegisterDeviceId = registerDeviceId;
@@ -114,16 +111,37 @@ namespace OrderWala.Service.Service
             return registerCustomerResponse;
         }
 
-
         #endregion
-
-
 
         #region [Private Method]
 
         public List<ModelMessage> CustomerRegisterValidation(UserDetailDTO userDetailDTO)
         {
             var validationModel = new List<ModelMessage>();
+            if (string.IsNullOrWhiteSpace(userDetailDTO.FirstName))
+            {
+                userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredFirstName });
+            }
+            if (string.IsNullOrWhiteSpace(userDetailDTO.LastName))
+            {
+                userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredLastName });
+            }
+            if (userDetailDTO.AreaId == 0)
+            {
+                userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredArea });
+            }
+            if (string.IsNullOrWhiteSpace(userDetailDTO.MobileNo))
+            {
+                userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredMobileNo });
+            }
+            if (string.IsNullOrWhiteSpace(userDetailDTO.Password))
+            {
+                userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredPassword });
+            }
+            if (string.IsNullOrWhiteSpace(userDetailDTO.Latitude) || string.IsNullOrWhiteSpace(userDetailDTO.Longitude))
+            {
+                userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valRequiredMapAddress });
+            }
             return validationModel;
         }
 

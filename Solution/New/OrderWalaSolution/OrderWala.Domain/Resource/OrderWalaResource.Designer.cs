@@ -106,6 +106,51 @@ namespace OrderWala.Domain.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please select area..
+        /// </summary>
+        public static string valRequiredArea {
+            get {
+                return ResourceManager.GetString("valRequiredArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter first name..
+        /// </summary>
+        public static string valRequiredFirstName {
+            get {
+                return ResourceManager.GetString("valRequiredFirstName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter last name..
+        /// </summary>
+        public static string valRequiredLastName {
+            get {
+                return ResourceManager.GetString("valRequiredLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select your location in google map..
+        /// </summary>
+        public static string valRequiredMapAddress {
+            get {
+                return ResourceManager.GetString("valRequiredMapAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter mobile no..
+        /// </summary>
+        public static string valRequiredMobileNo {
+            get {
+                return ResourceManager.GetString("valRequiredMobileNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please enter password..
         /// </summary>
         public static string valRequiredPassword {

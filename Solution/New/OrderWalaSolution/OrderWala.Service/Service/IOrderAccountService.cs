@@ -11,12 +11,8 @@ namespace OrderWala.Service.Service
     [ServiceContract]
     public interface IOrderAccountService
     {
-        [OperationContract]
-        void DoWork();
-
-
         [OperationContract(Name = "GetAreaList")]
-        [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetAreaList")]
+        [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Xml, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetAreaList")]
         List<tblAreaDTO> GetAreaList();
 
         [OperationContract(Name = "Login")]
@@ -24,7 +20,7 @@ namespace OrderWala.Service.Service
         UserDetailDTO Login(string userName, string password);
 
         [OperationContract(Name = "CustomerRegister")]
-        [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "CustomerRegister?firstName={firstName}&lastName={lastName}&address={address}&areaId={areaId}&emailAddress={emailAddress}&mobileNo={mobileNo}&password={password},&latitude={latitude}&longitude={longitude}&registerDeviceId={registerDeviceId}")]
+        [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "CustomerRegister?firstName={firstName}&lastName={lastName}&address={address}&areaId={areaId}&emailAddress={emailAddress}&mobileNo={mobileNo}&password={password}&latitude={latitude}&longitude={longitude}&registerDeviceId={registerDeviceId}")]
         RegisterCustomerResponse CustomerRegister(string firstName, string lastName, string address, int areaId, string emailAddress, string mobileNo, string password, string latitude, string longitude, int registerDeviceId);
     }
 }

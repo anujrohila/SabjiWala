@@ -132,6 +132,21 @@
   <data name="valInvalidLoginDetail" xml:space="preserve">
     <value>Invalid user name or password.</value>
   </data>
+  <data name="valRequiredArea" xml:space="preserve">
+    <value>Please select area.</value>
+  </data>
+  <data name="valRequiredFirstName" xml:space="preserve">
+    <value>Please enter first name.</value>
+  </data>
+  <data name="valRequiredLastName" xml:space="preserve">
+    <value>Please enter last name.</value>
+  </data>
+  <data name="valRequiredMapAddress" xml:space="preserve">
+    <value>Please select your location in google map.</value>
+  </data>
+  <data name="valRequiredMobileNo" xml:space="preserve">
+    <value>Please enter mobile no.</value>
+  </data>
   <data name="valRequiredPassword" xml:space="preserve">
     <value>Please enter password.</value>
   </data>
