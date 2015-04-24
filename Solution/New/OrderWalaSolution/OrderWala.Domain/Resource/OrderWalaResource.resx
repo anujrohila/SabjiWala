@@ -129,8 +129,20 @@
   <data name="msgErrorInTransaction" xml:space="preserve">
     <value>Error in transaction please try again later.</value>
   </data>
+  <data name="msgNoUserFound" xml:space="preserve">
+    <value>No user found.</value>
+  </data>
+  <data name="msgOldPasswordNotMatch" xml:space="preserve">
+    <value>Old passowrd does not match.</value>
+  </data>
+  <data name="msgPasswordChangedSuccessfully" xml:space="preserve">
+    <value>Password changed successfully.</value>
+  </data>
   <data name="msgRegisterSuccessfullly" xml:space="preserve">
     <value>Registration done successfully.</value>
+  </data>
+  <data name="valInvalidEmail" xml:space="preserve">
+    <value>Please enter valid email address.</value>
   </data>
   <data name="valInvalidLoginDetail" xml:space="preserve">
     <value>Invalid user name or password.</value>
@@ -152,6 +164,12 @@
   </data>
   <data name="valRequiredMobileNo" xml:space="preserve">
     <value>Please enter mobile no.</value>
+  </data>
+  <data name="valRequiredNewPassword" xml:space="preserve">
+    <value>Please enter new password.</value>
+  </data>
+  <data name="valRequiredOldPassword" xml:space="preserve">
+    <value>Please enter old password.</value>
   </data>
   <data name="valRequiredPassword" xml:space="preserve">
     <value>Please enter password.</value>

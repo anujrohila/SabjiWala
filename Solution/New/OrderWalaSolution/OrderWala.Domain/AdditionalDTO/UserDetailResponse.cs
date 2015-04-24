@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace OrderWala.Domain
 {
     [DataContract]
-    public class UserDetailDTO : CommonModel
+    public class UserDetailResponse : CommonModel
     {
         [DataMember]
         public int UserId { get; set; }
@@ -63,5 +63,8 @@ namespace OrderWala.Domain
 
         [DataMember]
         public string Password { get; set; }
+
+        [DataMember]
+        public ServiceResponseStatus ServiceResponseStatus { get; set; }
     }
 }

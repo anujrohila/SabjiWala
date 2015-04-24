@@ -8,11 +8,8 @@ using System.Threading.Tasks;
 namespace OrderWala.Domain
 {
     [DataContract]
-    public class RegisterCustomerResponse : CommonModel
+    public class ChangePasswordResponse : CommonModel
     {
-        [DataMember]
-        public int UserId { get; set; }
-
         [DataMember]
         public ServiceResponseStatus ServiceResponseStatus { get; set; }
     }

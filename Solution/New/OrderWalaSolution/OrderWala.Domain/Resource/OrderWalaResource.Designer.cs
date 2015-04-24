@@ -97,11 +97,47 @@ namespace OrderWala.Domain.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No user found..
+        /// </summary>
+        public static string msgNoUserFound {
+            get {
+                return ResourceManager.GetString("msgNoUserFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Old passowrd does not match..
+        /// </summary>
+        public static string msgOldPasswordNotMatch {
+            get {
+                return ResourceManager.GetString("msgOldPasswordNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password changed successfully..
+        /// </summary>
+        public static string msgPasswordChangedSuccessfully {
+            get {
+                return ResourceManager.GetString("msgPasswordChangedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Registration done successfully..
         /// </summary>
         public static string msgRegisterSuccessfullly {
             get {
                 return ResourceManager.GetString("msgRegisterSuccessfullly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter valid email address..
+        /// </summary>
+        public static string valInvalidEmail {
+            get {
+                return ResourceManager.GetString("valInvalidEmail", resourceCulture);
             }
         }
         
@@ -165,6 +201,24 @@ namespace OrderWala.Domain.Resource {
         public static string valRequiredMobileNo {
             get {
                 return ResourceManager.GetString("valRequiredMobileNo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter new password..
+        /// </summary>
+        public static string valRequiredNewPassword {
+            get {
+                return ResourceManager.GetString("valRequiredNewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter old password..
+        /// </summary>
+        public static string valRequiredOldPassword {
+            get {
+                return ResourceManager.GetString("valRequiredOldPassword", resourceCulture);
             }
         }
         

@@ -29,11 +29,11 @@ namespace OrderWala.DAL
         /// Login
         /// </summary>
         /// <returns></returns>
-        public UserDetailDTO Login(string userName, string password)
+        public UserDetailResponse Login(string userName, string password)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
-                UserDetailDTO userDetailDTO = new UserDetailDTO();
+                UserDetailResponse userDetailDTO = new UserDetailResponse();
                 var loginDetail = (from login in OrderWalaContext.tblLogins
                                    where string.Compare(userName, login.MobileNo, StringComparison.CurrentCultureIgnoreCase) == 0
                                    && string.Compare(password, login.Password, StringComparison.CurrentCultureIgnoreCase) == 0
@@ -46,7 +46,7 @@ namespace OrderWala.DAL
                         userDetailDTO = (from customer in OrderWalaContext.tblCustomers
                                          join area in OrderWalaContext.tblAreas on customer.AreaId equals area.AreaId
                                          where customer.UserId == loginDetail.UserId
-                                         select new UserDetailDTO
+                                         select new UserDetailResponse
                                            {
                                                UserId = customer.UserId,
                                                FirstName = customer.FirstName,
@@ -74,7 +74,7 @@ namespace OrderWala.DAL
         /// Register Customer
         /// </summary>
         /// <returns></returns>
-        public int RegisterCustomer(UserDetailDTO userDetailDTO)
+        public int RegisterCustomer(UserDetailResponse userDetailDTO)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
@@ -122,12 +122,41 @@ namespace OrderWala.DAL
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
-                UserDetailDTO userDetailDTO = new UserDetailDTO();
+                UserDetailResponse userDetailDTO = new UserDetailResponse();
                 var loginDetails = (from login in OrderWalaContext.tblLogins
-                                   where string.Compare(mobileNo, login.MobileNo, StringComparison.CurrentCultureIgnoreCase) == 0
-                                   select login).ToList();
+                                    where string.Compare(mobileNo, login.MobileNo, StringComparison.CurrentCultureIgnoreCase) == 0
+                                    select login).ToList();
 
                 return loginDetails.Count > 0 ? true : false;
+            }
+        }
+
+        /// <summary>
+        /// Register Customer
+        /// </summary>
+        /// <returns></returns>
+        public int ChangePassword(int userId, string oldPassword, string newPassword)
+        {
+            using (var OrderWalaContext = new OrderWalaEntities())
+            {
+                tblLogin tblLogin;
+
+                tblLogin = OrderWalaContext.tblLogins.Find(userId);
+
+                if (tblLogin == null)
+                {
+                    return 2; // no record found
+                }
+                else if (string.Compare(oldPassword, tblLogin.Password, StringComparison.CurrentCultureIgnoreCase) != 0)
+                {
+                    return 3; // old password not match
+                }
+                else
+                {
+                    tblLogin.Password = newPassword;
+                    OrderWalaContext.SaveChanges();
+                    return 1;
+                }
             }
         }
 

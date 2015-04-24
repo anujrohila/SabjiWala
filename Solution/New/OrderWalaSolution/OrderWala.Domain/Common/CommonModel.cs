@@ -26,10 +26,9 @@ namespace OrderWala.Domain
     public class ModelMessage
     {
         public string Message { get; set; }
-        public MessageType Status { get; set; }
     }
 
-    public enum MessageType
+    public enum ServiceResponseStatus
     {
         Error,
         Success
