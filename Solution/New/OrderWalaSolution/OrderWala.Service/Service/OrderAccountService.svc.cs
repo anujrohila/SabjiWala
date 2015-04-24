@@ -18,6 +18,22 @@ namespace OrderWala.Service.Service
         {
         }
 
+        #region [Public Method]
+
+        public List<tblAreaDTO> GetAreaList()
+        {
+            var areaList = new List<tblAreaDTO>();
+            try
+            {
+                var masterRepository = new MasterRepository();
+                areaList = masterRepository.GetAllArea();
+            }
+            catch (Exception)
+            {
+            }
+            return areaList;
+        }
+
         public UserDetailDTO Login(string userName, string password)
         {
             var userDetailDTO = new UserDetailDTO();
@@ -52,51 +68,54 @@ namespace OrderWala.Service.Service
             return userDetailDTO;
         }
 
-        //public RegisterCustomerResponse CustomerRegister(string firstName, string lastName, string address, int areaId, string emailAddress, string mobileNo, string password, string latitude, string longitude, int registerDeviceId)
-        //{
-        //    var registerCustomerResponse = new RegisterCustomerResponse();
-        //    try
-        //    {
-        //        bool isValid = true;
+        public RegisterCustomerResponse CustomerRegister(string firstName, string lastName, string address, int areaId, string emailAddress, string mobileNo, string password, string latitude, string longitude, int registerDeviceId)
+        {
+            var registerCustomerResponse = new RegisterCustomerResponse();
+            try
+            {
+                bool isValid = true;
 
-        //        var userDetailDTO = new UserDetailDTO();
-        //        userDetailDTO.FirstName = firstName;
-        //        userDetailDTO.LastName = firstName;
-        //        userDetailDTO.AreaId = areaId;
-        //        userDetailDTO.EmailAddress = emailAddress;
-        //        userDetailDTO.MobileNo = mobileNo;
-        //        userDetailDTO.Password = password;
-        //        userDetailDTO.Latitude = latitude;
-        //        userDetailDTO.Logitude = longitude;
-        //        userDetailDTO.RegisterDeviceId = registerDeviceId;
+                var userDetailDTO = new UserDetailDTO();
+                userDetailDTO.FirstName = firstName;
+                userDetailDTO.LastName = firstName;
+                userDetailDTO.AreaId = areaId;
+                userDetailDTO.EmailAddress = emailAddress;
+                userDetailDTO.MobileNo = mobileNo;
+                userDetailDTO.Password = password;
+                userDetailDTO.Latitude = latitude;
+                userDetailDTO.Longitude = longitude;
+                userDetailDTO.RegisterDeviceId = registerDeviceId;
 
-        //        registerCustomerResponse.ModelMessage = CustomerRegisterValidation(userDetailDTO);
-        //        isValid = registerCustomerResponse.ModelMessage.Count > 0 ? false : true;
+                registerCustomerResponse.ModelMessage = CustomerRegisterValidation(userDetailDTO);
+                isValid = registerCustomerResponse.ModelMessage.Count > 0 ? false : true;
 
-        //        if (isValid)
-        //        {
-        //            var accountRepository = new AccountRepository();
-        //            var isDuplicateRegistration = accountRepository.IsDuplicateRegistration(mobileNo);
-        //            if (!isDuplicateRegistration)
-        //            {
-        //                userDetailDTO = accountRepository.RegisterCustomer(userName, Encryption.EncryptToBase64(password));
-        //                if (userDetailDTO.UserId == 0)
-        //                {
-        //                    userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valInvalidLoginDetail });
-        //                }
-        //            }
-        //            else
-        //            {
-        //                userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.valInvalidLoginDetail });
-        //            }
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.msgErrorInTransaction });
-        //    }
-        //    return userDetailDTO;
-        //}
+                if (isValid)
+                {
+                    var accountRepository = new AccountRepository();
+                    var isDuplicateRegistration = accountRepository.IsDuplicateRegistration(mobileNo);
+                    if (!isDuplicateRegistration)
+                    {
+                        var registerResponse = accountRepository.RegisterCustomer(userDetailDTO);
+                        if (registerResponse == 0)
+                        {
+                            userDetailDTO.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.msgErrorInRegistration });
+                        }
+                    }
+                    else
+                    {
+                        registerCustomerResponse.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.msgDuplicateUserName });
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                registerCustomerResponse.ModelMessage.Add(new ModelMessage { Status = MessageType.Error, Message = OrderWalaResource.msgErrorInTransaction });
+            }
+            return registerCustomerResponse;
+        }
+
+
+        #endregion
 
 
 

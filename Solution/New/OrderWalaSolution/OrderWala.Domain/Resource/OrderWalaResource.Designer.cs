@@ -70,6 +70,24 @@ namespace OrderWala.Domain.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your mobile number is already register with us..
+        /// </summary>
+        public static string msgDuplicateUserName {
+            get {
+                return ResourceManager.GetString("msgDuplicateUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration faild please contact admin for more detail..
+        /// </summary>
+        public static string msgErrorInRegistration {
+            get {
+                return ResourceManager.GetString("msgErrorInRegistration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error in transaction please try again later..
         /// </summary>
         public static string msgErrorInTransaction {
