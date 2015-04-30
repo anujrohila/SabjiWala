@@ -40,6 +40,9 @@ namespace OrderWala.Domain
         [DataMember()]
         public Boolean IsDeleted { get; set; }
 
+
+        public List<tblCategoryDTO> CategoryList { get; set; }
+
         public tblSubCategoryDTO()
         {
         }

@@ -30,6 +30,7 @@ namespace OrderWala.Domain
         {
 			this.StateId = stateId;
 			this.StateName = stateName;
+            
         }
     }
 }

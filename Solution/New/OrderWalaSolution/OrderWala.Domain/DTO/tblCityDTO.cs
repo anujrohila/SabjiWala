@@ -25,6 +25,13 @@ namespace OrderWala.Domain
         [DataMember()]
         public Int32 StateId { get; set; }
 
+
+
+
+        public String StateName { get; set; }
+    
+        public List<tblStateDTO> StateList { get; set; }
+
         public tblCityDTO()
         {
         }
