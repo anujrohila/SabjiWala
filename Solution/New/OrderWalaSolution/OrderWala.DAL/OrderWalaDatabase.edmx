@@ -45,7 +45,7 @@
           <Key>
             <PropertyRef Name="AreaId" />
           </Key>
-          <Property Name="AreaId" Type="int" Nullable="false" />
+          <Property Name="AreaId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="AreaName" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="CityId" Type="int" Nullable="false" />
           <Property Name="StateId" Type="int" Nullable="false" />
@@ -90,6 +90,7 @@
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
           <Property Name="CreationDateTime" Type="datetime" Nullable="false" />
+          <Property Name="RegisterDeviceId" Type="int" />
         </EntityType>
         <EntityType Name="tblCustomerPayment">
           <Key>
@@ -322,6 +323,7 @@
           <Property Type="Boolean" Name="IsActive" Nullable="false" />
           <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
           <Property Type="DateTime" Name="CreationDateTime" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="RegisterDeviceId" />
         </EntityType>
         <EntityType Name="tblCustomerPayment">
           <Key>
@@ -523,6 +525,7 @@
           <EntitySetMapping Name="tblCustomers">
             <EntityTypeMapping TypeName="OrderWalaModel.tblCustomer">
               <MappingFragment StoreEntitySet="tblCustomer">
+                <ScalarProperty Name="RegisterDeviceId" ColumnName="RegisterDeviceId" />
                 <ScalarProperty Name="CreationDateTime" ColumnName="CreationDateTime" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
