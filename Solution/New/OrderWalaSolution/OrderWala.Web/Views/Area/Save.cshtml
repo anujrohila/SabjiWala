@@ -1,0 +1,79 @@
+﻿@model OrderWala.Domain.tblAreaDTO
+
+@{
+    ViewBag.Title = "Save";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div id="page-title">
+    <h1 class="page-header text-overflow">ADD New Area</h1>
+</div>
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">Area Master</h3>
+    </div>
+   
+    
+    <!--Input Size-->
+    <!--===================================================-->
+  @using(Html.BeginForm("Save","Area",FormMethod.Post, new { @class="form-horizontal" }))
+    {
+      
+      @Html.HiddenFor(Model => Model.AreaId)
+      
+        <div class="panel-body">
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                <div class="text-danger">
+                    @Html.ValidationSummary()
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="col-sm-3 control-label" for="demo-is-inputsmall">Select State</label>
+                <div class="col-sm-5">
+                    @Html.DropDownListFor(Model => Model.StateId, new SelectList(ViewBag.state, "StateId", "StateName"), "--select State--", new { @class="btn dropdown-toggle btn-default btn-md"})
+                    @*<input type="text" placeholder=".input-sm" class="form-control input-sm" id="demo-is-inputsmall">*@
+                </div>
+            </div>
+
+             <div class="form-group">
+                <label class="col-sm-3 control-label" for="demo-is-inputsmall">Select City</label>
+                <div class="col-sm-5">
+                    @Html.DropDownListFor(Model => Model.CityId, new SelectList(ViewBag.city, "CityId", "CityName"), "--select State--", new { @class="btn dropdown-toggle btn-default btn-md"})
+                    @*<input type="text" placeholder=".input-sm" class="form-control input-sm" id="demo-is-inputsmall">*@
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="demo-is-inputsmall">Area Name</label>
+                <div class="col-sm-5">
+                    @Html.TextBoxFor(model => model.AreaName, new { @class ="form-control input-sm", placeholder ="" })
+                    @*<input type="text" placeholder=".input-sm" class="form-control input-sm" id="demo-is-inputsmall">*@
+                </div>
+            </div>
+
+             <div class="form-group">
+                <label class="col-sm-3 control-label" for="demo-is-inputsmall">Description</label>
+                <div class="col-sm-5">
+                    @Html.TextBoxFor(model => model.Description, new { @class ="form-control input-sm", placeholder ="" })
+                    @*<input type="text" placeholder=".input-sm" class="form-control input-sm" id="demo-is-inputsmall">*@
+                </div>
+            </div>
+            
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <button class="btn btn-success btn-labeled fa fa-save fa-lg" type="submit">Save</button>
+                   <a href="@Url.Action("ListAllArea","Area")" class="btn btn-danger btn-labeled fa fa-repeat fa-lg" >Cancel</a>
+                    
+                </div>
+            </div>
+        </div>
+    }
+    <!--===================================================-->
+    <!--End Input Size-->
+
+
+</div>

@@ -1,0 +1,69 @@
+﻿@model OrderWala.Domain.tblAreaDTO
+@{
+    ViewBag.Title = "AreaDelete";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div id="page-title">
+    <h1 class="page-header text-overflow">Are You Sure TO Delete This?</h1>
+</div>
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">State Remove</h3>
+    </div>
+   
+    
+    <!--Input Size-->
+    <!--===================================================-->
+  @using(Html.BeginForm())
+    {
+      
+      
+      
+        <div class="panel-body">
+      
+            <div class="form-group">
+                <div class="text-danger">
+      
+                </div>
+            </div>
+            
+            <div class="row">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="demo-is-inputsmall">Area Name</label>
+                <div class="col-sm-5">
+                  
+                     @Html.TextBoxFor(Model => Model.AreaName,new { @class="form-control input-sm",id="disabledInput" ,disabled="" , type="text" })
+                    @*<input type="text" placeholder=".input-sm" class="form-control input-sm" id="demo-is-inputsmall">*@
+                </div>
+            </div>
+                </div>
+            <div class="row">
+             <div class="form-group">
+                <label class="col-sm-3 control-label" for="demo-is-inputsmall">Description</label>
+                <div class="col-sm-5">
+                  
+                     @Html.TextBoxFor(Model => Model.Description,new { @class="form-control input-sm",id="disabledInput" ,disabled="" , type="text" })
+                    @*<input type="text" placeholder=".input-sm" class="form-control input-sm" id="demo-is-inputsmall">*@
+                </div>
+            </div>
+                </div>
+            
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <button class="btn btn-success btn-labeled fa fa-save fa-lg" type="submit">Delete</button>
+                   <a href="@Url.Action("ListAllArea","Area")" class="btn btn-danger btn-labeled fa fa-repeat fa-lg" >Cancel</a>
+                    
+                </div>
+            </div>
+        </div>
+    }
+    <!--===================================================-->
+    <!--End Input Size-->
+
+
+</div>
+

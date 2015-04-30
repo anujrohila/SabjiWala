@@ -1,0 +1,81 @@
+﻿@model List<OrderWala.Domain.tblAreaDTO>
+@{
+    ViewBag.Title = "ListAllArea";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">Add &amp; Remove City</h3>
+						</div>
+					
+						<!-- Foo Table - Add & Remove Rows -->
+						<!--===================================================-->
+						<div class="panel-body">
+							<div class="pad-btm form-inline">
+									<div class="row">
+										<div class="col-sm-6 text-xs-center">
+											<div class="form-group">
+												<a id="demo-btn-addrow" class="btn btn-purple btn-labeled fa fa-plus" href="@Url.Action("Save","Area")">Add New Area</a>
+											</div>
+										</div>
+										<div class="col-sm-6 text-xs-center text-right">
+											<div class="form-group">
+												<input id="demo-input-search2" type="text" placeholder="Search" class="form-control" autocomplete="off">
+											</div>
+										</div>
+									</div>
+								</div><table id="demo-foo-addrow" class="table table-bordered table-hover toggle-circle default footable-loaded footable no-paging" data-page-size="7">
+                                  
+								<thead>
+									<tr>
+										
+										<th data-hide="phone, tablet" class="footable-visible footable-sortable">Name Of The Area<span class="footable-sort-indicator"></span></th>
+										<th data-hide="phone, tablet" class="footable-visible footable-sortable">Description<span class="footable-sort-indicator"></span></th>
+										
+										<th data-hide="phone, tablet" class="footable-visible footable-last-column footable-sortable">Action<span class="footable-sort-indicator"></span></th>
+									</tr>
+								</thead>
+								
+								<tbody>
+									
+                                      @foreach(var item in Model)
+                                    {
+								<tr class="footable-even" style="display: table-row;">
+									
+										
+										<td class="footable-visible"><a href="#">@item.AreaName</a></td>
+										<td class="footable-visible"><a href="#">@item.Description</a></td>
+										
+										<td class="footable-visible footable-last-column"><span class="label label-table label-dark">
+                                            
+                                            @*@Html.ActionLink("Update", "Save", "State", new { id=item.StateId , @style="color:white;"})*@
+                                            <a href="@Url.Action("Save", "Area", new { id=item.AreaId})" style="color:white">Update</a>
+
+										                                                  </span></td>
+                                    <td class="footable-visible footable-last-column">
+                                            
+                                            @*@Html.ActionLink("Update", "Save", "State", new { id=item.StateId , @style="color:white;"})*@
+                                         
+                                        <a class="demo-delete-row btn btn-danger btn-xs btn-icon fa fa-times" href="@Url.Action("AreaDelete", "Area", new { id=item.AreaId })"></a>
+                                          
+
+										                                              </td>
+									</tr>
+                                    }
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="6" class="footable-visible">
+											<div class="text-right">
+												<ul class="pagination"><li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li><li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li><li class="footable-page active"><a data-page="0" href="#">1</a></li><li class="footable-page-arrow disabled"><a data-page="next" href="#next">›</a></li><li class="footable-page-arrow disabled"><a data-page="last" href="#last">»</a></li></ul>
+											</div>
+										</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+						<!--===================================================-->
+						<!-- End Foo Table - Add & Remove Rows -->
+					
+					</div>

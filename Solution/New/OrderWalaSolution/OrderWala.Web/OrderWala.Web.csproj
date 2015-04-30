@@ -40,6 +40,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -182,7 +188,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AreaController.cs" />
+    <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StateController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -227,6 +236,7 @@
     <Content Include="Content\js\demo\widgets.js" />
     <Content Include="Content\js\jquery-2.1.1.min.js" />
     <Content Include="Content\js\nifty.min.js" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\plugins\animate-css\animate.min.css" />
     <Content Include="Content\plugins\bootbox\bootbox.min.js" />
     <Content Include="Content\plugins\bootstrap-datepicker\bootstrap-datepicker.css" />
@@ -363,7 +373,6 @@
     <Content Include="Content\plugins\fooTable\css\fonts\footable.woff" />
     <Content Include="Content\plugins\fooTable\css\fonts\footabled41d.eot" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
-    <Content Include="Images\accent.png" />
     <Content Include="Images\av1.png" />
     <Content Include="Images\av2.png" />
     <Content Include="Images\av3.png" />
@@ -379,24 +388,12 @@
     <Content Include="Images\bg-img\thumbs\bg-img-6.jpg" />
     <Content Include="Images\bg-img\thumbs\bg-img-7.jpg" />
     <Content Include="Images\bg-img\thumbs\bg-trns.jpg" />
-    <Content Include="Images\bullet.png" />
     <Content Include="Images\flags\france.png" />
     <Content Include="Images\flags\germany.png" />
     <Content Include="Images\flags\italy.png" />
     <Content Include="Images\flags\spain.png" />
     <Content Include="Images\flags\united-kingdom.png" />
-    <Content Include="Images\heroAccent.png" />
     <Content Include="Images\logo.png" />
-    <Content Include="Images\orderedList0.png" />
-    <Content Include="Images\orderedList1.png" />
-    <Content Include="Images\orderedList2.png" />
-    <Content Include="Images\orderedList3.png" />
-    <Content Include="Images\orderedList4.png" />
-    <Content Include="Images\orderedList5.png" />
-    <Content Include="Images\orderedList6.png" />
-    <Content Include="Images\orderedList7.png" />
-    <Content Include="Images\orderedList8.png" />
-    <Content Include="Images\orderedList9.png" />
     <Content Include="Images\thumbs\img1.jpg" />
     <Content Include="Images\thumbs\img2.jpg" />
     <Content Include="Images\thumbs\img3.jpg" />
@@ -440,6 +437,15 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\State\Save.cshtml" />
+    <Content Include="Views\State\ListAllState.cshtml" />
+    <Content Include="Views\State\StateDelete.cshtml" />
+    <Content Include="Views\City\Save.cshtml" />
+    <Content Include="Views\City\ListAllCity.cshtml" />
+    <Content Include="Views\City\CityDelete.cshtml" />
+    <Content Include="Views\Area\ListAllArea.cshtml" />
+    <Content Include="Views\Area\Save.cshtml" />
+    <Content Include="Views\Area\AreaDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
