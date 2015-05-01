@@ -29,7 +29,7 @@ namespace OrderWala.Domain
         public String Description { get; set; }
 
         [DataMember()]
-        public Byte[] Logo { get; set; }
+        public String Logo { get; set; }
 
         [DataMember()]
         public Boolean IsActive { get; set; }
@@ -41,7 +41,7 @@ namespace OrderWala.Domain
         {
         }
 
-        public tblCategoryDTO(Int32 categoryId, String categoryName, Int32 languageId, String description, Byte[] logo, Boolean isActive, Boolean isDeleted)
+        public tblCategoryDTO(Int32 categoryId, String categoryName, Int32 languageId, String description, String logo, Boolean isActive, Boolean isDeleted)
         {
 			this.CategoryId = categoryId;
 			this.CategoryName = categoryName;
