@@ -7,7 +7,6 @@
       <Diagram DiagramId="2e6f12b7d8974714b9dafb6b72d76720" Name="Diagram1" ZoomLevel="63">
         <EntityTypeShape EntityType="OrderWalaModel.tblAdvertisement" Width="1.5" PointX="17.875" PointY="1.875" />
         <EntityTypeShape EntityType="OrderWalaModel.tblArea" Width="1.5" PointX="20.875" PointY="3.375" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblCategory" Width="1.5" PointX="3.375" PointY="4.875" />
         <EntityTypeShape EntityType="OrderWalaModel.tblCity" Width="1.5" PointX="5.875" PointY="6.375" />
         <EntityTypeShape EntityType="OrderWalaModel.tblCustomer" Width="1.5" PointX="8.875" PointY="7.875" />
         <EntityTypeShape EntityType="OrderWalaModel.tblCustomerPayment" Width="1.5" PointX="11.875" PointY="9.375" />
@@ -24,6 +23,7 @@
         <EntityTypeShape EntityType="OrderWalaModel.tblState" Width="1.5" PointX="3.375" PointY="25.875" />
         <EntityTypeShape EntityType="OrderWalaModel.tblSubCategory" Width="1.5" PointX="5.875" PointY="27.375" />
         <EntityTypeShape EntityType="OrderWalaModel.tblUserType" Width="1.5" PointX="8.875" PointY="28.875" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblCategory" Width="1.5" PointX="1.9729384882249583" PointY="26.809735459652607" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

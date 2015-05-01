@@ -92,8 +92,10 @@ namespace OrderWala.DAL
                     OrderWalaContext.tblStates.Add(statedto.ToEntity());
                 }
                 else
-                {
+                {   
+                    
                     var statedata = OrderWalaContext.tblStates.Where(st => st.StateId == statedto.StateId).FirstOrDefault();
+                    
                     statedata.StateName = statedto.StateName;
                 }
 
@@ -109,7 +111,10 @@ namespace OrderWala.DAL
         }
 
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
      public  List<tblStateDTO> GetAllState()
         {
             using (var OrderWalaContext = new OrderWalaEntities())
@@ -118,6 +123,11 @@ namespace OrderWala.DAL
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="StateID"></param>
+        /// <returns></returns>
         public tblStateDTO GetStateByStateID(int StateID)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
@@ -126,7 +136,11 @@ namespace OrderWala.DAL
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="StateID"></param>
+        /// <returns></returns>
         public bool StateDelete(int StateID)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
@@ -144,7 +158,12 @@ namespace OrderWala.DAL
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Statename"></param>
+        /// <param name="StateID"></param>
+        /// <returns></returns>
         public bool IsDuplicateState(string Statename, int StateID)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
@@ -160,6 +179,12 @@ namespace OrderWala.DAL
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cityname"></param>
+        /// <param name="cityId"></param>
+        /// <returns></returns>
         public bool IsDuplicateCity(string cityname, int cityId)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
@@ -173,7 +198,11 @@ namespace OrderWala.DAL
         
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tblcitydto"></param>
+        /// <returns></returns>
         public int CitySave(tblCityDTO tblcitydto)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
@@ -190,6 +219,7 @@ namespace OrderWala.DAL
                 else
                 {
                     var citydata = OrderWalaContext.tblCities.Where(ct => ct.CityId == tblcitydto.CityId).FirstOrDefault();
+                    citydata.StateId = tblcitydto.StateId;
                     citydata.CityName = tblcitydto.CityName;
                     
                 }
@@ -207,6 +237,11 @@ namespace OrderWala.DAL
         
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cityId"></param>
+        /// <returns></returns>
         public tblCityDTO GetCityByCityId(int cityId)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
@@ -219,6 +254,11 @@ namespace OrderWala.DAL
 
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="cityId"></param>
+        /// <returns></returns>
         public bool citydelete(int cityId)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
@@ -237,6 +277,11 @@ namespace OrderWala.DAL
         }
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tblareadto"></param>
+        /// <returns></returns>
         public int AreaSave(tblAreaDTO tblareadto)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
@@ -248,15 +293,22 @@ namespace OrderWala.DAL
 
                 if (tblareadto.AreaId == 0)
                 {
+                    tblArea area=new tblArea();
+                    area.StateId= tblareadto.StateId;
+                    area.CityId = tblareadto.CityId;
+                    tblareadto.StateId = area.StateId;
+                    tblareadto.CityId = area.CityId;
                     OrderWalaContext.tblAreas.Add(tblareadto.ToEntity());
                 }
                 else
                 {
 
-                    GetAllCity();
-                    GetAllState();
+                    
                     var citydata = OrderWalaContext.tblAreas.Where(at => at.AreaId == tblareadto.AreaId).FirstOrDefault();
+
                     citydata.AreaName = tblareadto.AreaName;
+                    citydata.CityId = tblareadto.CityId;
+                    citydata.StateId = tblareadto.StateId;
 
                 }
 
@@ -274,7 +326,12 @@ namespace OrderWala.DAL
         }
 
        
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="AreaName"></param>
+        /// <param name="AreaId"></param>
+        /// <returns></returns>
         public bool IsDuplicateArea(string AreaName, int AreaId)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
@@ -287,7 +344,11 @@ namespace OrderWala.DAL
 
 
        
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="AreaId"></param>
+        /// <returns></returns>
         public tblAreaDTO GetAreaByAreaId(int AreaId)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
@@ -297,7 +358,11 @@ namespace OrderWala.DAL
             }   
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="AreaId"></param>
+        /// <returns></returns>
         public bool AreaDelete(int AreaId)
         {
             using (var OrderWalaContext = new OrderWalaEntities())

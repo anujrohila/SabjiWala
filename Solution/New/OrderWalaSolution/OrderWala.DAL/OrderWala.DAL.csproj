@@ -82,7 +82,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AccountRepository.cs" />
+    <Compile Include="Repositories\AdvertiseRepository.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\DeliveryChargeRepository.cs" />
+    <Compile Include="Repositories\DeviceRepository.cs" />
     <Compile Include="Repositories\MasterRepository.cs" />
+    <Compile Include="Repositories\SubCategoryRepository.cs" />
     <Compile Include="tblAdvertisement.cs">
       <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
     </Compile>

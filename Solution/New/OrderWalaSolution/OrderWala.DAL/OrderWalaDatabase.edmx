@@ -59,7 +59,7 @@
           <Property Name="CategoryName" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="LanguageId" Type="int" Nullable="false" />
           <Property Name="Description" Type="varchar" Nullable="false" MaxLength="5000" />
-          <Property Name="Logo" Type="varbinary" Nullable="false" MaxLength="200" />
+          <Property Name="Logo" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
         </EntityType>
@@ -241,7 +241,6 @@
         <EntityContainer Name="OrderWalaEntities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="tblAdvertisements" EntityType="OrderWalaModel.tblAdvertisement" />
           <EntitySet Name="tblAreas" EntityType="OrderWalaModel.tblArea" />
-          <EntitySet Name="tblCategories" EntityType="OrderWalaModel.tblCategory" />
           <EntitySet Name="tblCities" EntityType="OrderWalaModel.tblCity" />
           <EntitySet Name="tblCustomers" EntityType="OrderWalaModel.tblCustomer" />
           <EntitySet Name="tblCustomerPayments" EntityType="OrderWalaModel.tblCustomerPayment" />
@@ -258,6 +257,7 @@
           <EntitySet Name="tblStates" EntityType="OrderWalaModel.tblState" />
           <EntitySet Name="tblSubCategories" EntityType="OrderWalaModel.tblSubCategory" />
           <EntitySet Name="tblUserTypes" EntityType="OrderWalaModel.tblUserType" />
+          <EntitySet Name="tblCategories" EntityType="OrderWalaModel.tblCategory" />
         </EntityContainer>
         <EntityType Name="tblAdvertisement">
           <Key>
@@ -283,18 +283,6 @@
           <Property Type="Int32" Name="CityId" Nullable="false" />
           <Property Type="Int32" Name="StateId" Nullable="false" />
           <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="tblCategory">
-          <Key>
-            <PropertyRef Name="CategoryId" />
-          </Key>
-          <Property Type="Int32" Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="LanguageId" Nullable="false" />
-          <Property Type="String" Name="Description" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
-          <Property Type="Binary" Name="Logo" Nullable="false" MaxLength="200" FixedLength="false" />
-          <Property Type="Boolean" Name="IsActive" Nullable="false" />
-          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
         </EntityType>
         <EntityType Name="tblCity">
           <Key>
@@ -467,6 +455,18 @@
           <Property Type="Int32" Name="UserTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="TypeName" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="tblCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Type="Int32" Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="LanguageId" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Logo" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -497,19 +497,6 @@
                 <ScalarProperty Name="CityId" ColumnName="CityId" />
                 <ScalarProperty Name="AreaName" ColumnName="AreaName" />
                 <ScalarProperty Name="AreaId" ColumnName="AreaId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblCategories">
-            <EntityTypeMapping TypeName="OrderWalaModel.tblCategory">
-              <MappingFragment StoreEntitySet="tblCategory">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="Logo" ColumnName="Logo" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
-                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -697,6 +684,19 @@
               <MappingFragment StoreEntitySet="tblUserType">
                 <ScalarProperty Name="TypeName" ColumnName="TypeName" />
                 <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCategories">
+            <EntityTypeMapping TypeName="OrderWalaModel.tblCategory">
+              <MappingFragment StoreEntitySet="tblCategory">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
