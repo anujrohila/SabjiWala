@@ -1,12 +1,12 @@
-﻿@model List<OrderWala.Domain.tblAreaDTO>
+﻿@model  List<OrderWala.Domain.tblAdvertisementDTO>
 @{
-    ViewBag.Title = "ListAllArea";
+    ViewBag.Title = "ListAllAdvertise";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
 <div class="panel">
 						<div class="panel-heading">
-							<h3 class="panel-title">Area Master</h3>
+							<h3 class="panel-title">Advertise Master</h3>
 						</div>
 					
 						<!-- Foo Table - Add & Remove Rows -->
@@ -16,7 +16,7 @@
 									<div class="row">
 										<div class="col-sm-6 text-xs-center">
 											<div class="form-group">
-												<a id="demo-btn-addrow" class="btn btn-purple btn-labeled fa fa-plus" href="@Url.Action("Save","Area")">Add New Area</a>
+												<a id="demo-btn-addrow" class="btn btn-purple btn-labeled fa fa-plus" href="@Url.Action("Save","Advertise")">Add New Advertise</a>
 											</div>
 										</div>
 										<div class="col-sm-6 text-xs-center text-right">
@@ -30,8 +30,13 @@
 								<thead>
 									<tr>
 										
-										<th data-hide="phone, tablet" class="footable-visible footable-sortable">Name Of The Area<span class="footable-sort-indicator"></span></th>
-										<th data-hide="phone, tablet" class="footable-visible footable-sortable">Description<span class="footable-sort-indicator"></span></th>
+										
+										<th data-hide="phone, tablet" class="footable-visible footable-sortable">Name Of The Advertise<span class="footable-sort-indicator"></span></th>
+                                        <th data-hide="phone, tablet" class="footable-visible footable-sortable">Company Name<span class="footable-sort-indicator"></span></th>
+                                        <th data-hide="phone, tablet" class="footable-visible footable-sortable">Description<span class="footable-sort-indicator"></span></th>
+                                        <th data-hide="phone, tablet" class="footable-visible footable-sortable">WebLink<span class="footable-sort-indicator"></span></th>
+                                        <th data-hide="phone, tablet" class="footable-visible footable-sortable">Starting Date<span class="footable-sort-indicator"></span></th>
+                                        <th data-hide="phone, tablet" class="footable-visible footable-sortable">End Date<span class="footable-sort-indicator"></span></th>
 										
 										<th data-hide="phone, tablet" class="footable-visible footable-last-column footable-sortable">Action<span class="footable-sort-indicator"></span></th>
 									</tr>
@@ -44,18 +49,22 @@
 								<tr class="footable-even" style="display: table-row;">
 									
 										
-										<td class="footable-visible"><a href="#">@item.AreaName</a></td>
-										<td class="footable-visible"><a href="#">@item.Description</a></td>
+										
+										<td class="footable-visible"><a href="#">@item.AdvertisementName</a></td>
+                                    	<td class="footable-visible"><a href="#">@item.CompanyName</a></td>
+                                    	<td class="footable-visible"><a href="#">@item.Description</a></td>
+                                    	<td class="footable-visible"><a href="#">@item.Weblink</a></td>
+                                    	<td class="footable-visible"><a href="#">@item.StartDateTime</a></td>
+                                    	<td class="footable-visible"><a href="#">@item.EndDateTime</a></td>
 										
 										<td class="footable-visible footable-last-column">
-                                             <a href="@Url.Action("Save", "Area", new { id=item.AreaId})" style="color:white"><i class="fa fa-lg fa-pencil-square-o" style="background-color:green; padding:5px;"></i></a>
+                                            
+                                           
+                                            <a href="@Url.Action("Save", "Advertise", new { id=item.AdvertisementId})" style="color:white"><i class="fa fa-lg fa-pencil-square-o" style="background-color:green; padding:5px;"></i></a>
                                             
                                         
-                                             <a class="demo-delete-row btn btn-danger btn-xs btn-icon fa fa-times" style="margin-left:10px;" onclick="AreaDelete(@item.AreaId,this)"></a>
-                                          
-
-
-										                                                  </td>
+                                             <a class="demo-delete-row btn btn-danger btn-xs btn-icon fa fa-times" style="margin-left:10px;" onclick="DeleteState(@item.AdvertisementId,this)"></a>
+										                                                 </td>
                                  
 									</tr>
                                     }
@@ -76,13 +85,12 @@
 					
 					</div>
 
-
 <script type="text/javascript">
 
 
-    function AreaDelete(id, thd) {
+    function DeleteState(id, thd) {
         var confirmResult = confirm("Are you Sure Delete Record ?");
-        var callUrl = $("#webUrl").val() + "Area/AreaDelete";
+        var callUrl = $("#webUrl").val() + "Advertise/AdvertiseDelete";
         var dataToSend = { ID: id };
         if (confirmResult) {
             $.ajax({
@@ -106,3 +114,6 @@
         }
     }
 </script>
+
+
+

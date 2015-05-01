@@ -1,0 +1,55 @@
+﻿@model OrderWala.Domain.tblDeliveryChargeDTO
+@{
+    ViewBag.Title = "DeliveryChargeDelete";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>DeliveryChargeDelete</h2>
+
+@using (Html.BeginForm())
+{ 
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-2">
+                <label class="control-label" for="disabledInput">Start Amount</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(Model => Model.StartAmount, new { @class = "form-control", id = "disabledInput", disabled = "", type = "text" })
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-2">
+                <label class="control-label" for="disabledInput">End Amount</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(Model => Model.EndAmount, new { @class = "form-control", id = "disabledInput", disabled = "", type = "text" })
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-2">
+                <label class="control-label" for="disabledInput">Charges</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(Model => Model.Charges, new { @class = "form-control", id = "disabledInput", disabled = "", type = "text" })
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-2">
+                <label class="control-label" for="disabledInput">Title</label>
+            </div>
+            <div class="col-md-4">
+                <input type="submit" value="Delete" class="btn btn-danger btn-sm" style="float: right;" />
+            </div>
+        </div>
+    </div>
+
+}
+
+

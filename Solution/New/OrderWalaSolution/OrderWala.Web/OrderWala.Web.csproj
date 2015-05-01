@@ -188,10 +188,15 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdvertiseController.cs" />
     <Compile Include="Controllers\AreaController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CityController.cs" />
+    <Compile Include="Controllers\DeliveryChargeController.cs" />
+    <Compile Include="Controllers\DeviceTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\StateController.cs" />
+    <Compile Include="Controllers\SubCategoryController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -393,7 +398,9 @@
     <Content Include="Images\flags\italy.png" />
     <Content Include="Images\flags\spain.png" />
     <Content Include="Images\flags\united-kingdom.png" />
+    <Content Include="Images\images.png" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\office_v3.ico" />
     <Content Include="Images\thumbs\img1.jpg" />
     <Content Include="Images\thumbs\img2.jpg" />
     <Content Include="Images\thumbs\img3.jpg" />
@@ -439,13 +446,21 @@
     <Content Include="Views\Shared\_MainLayout.cshtml" />
     <Content Include="Views\State\Save.cshtml" />
     <Content Include="Views\State\ListAllState.cshtml" />
-    <Content Include="Views\State\StateDelete.cshtml" />
     <Content Include="Views\City\Save.cshtml" />
     <Content Include="Views\City\ListAllCity.cshtml" />
-    <Content Include="Views\City\CityDelete.cshtml" />
     <Content Include="Views\Area\ListAllArea.cshtml" />
     <Content Include="Views\Area\Save.cshtml" />
-    <Content Include="Views\Area\AreaDelete.cshtml" />
+    <Content Include="Views\Advertise\ListAllAdvertise.cshtml" />
+    <Content Include="Views\Advertise\Save.cshtml" />
+    <Content Include="Views\Category\ListAllCategory.cshtml" />
+    <Content Include="Views\Category\Save.cshtml" />
+    <Content Include="Views\DeliveryCharge\DeliveryChargeDelete.cshtml" />
+    <Content Include="Views\DeliveryCharge\DeliveryChargeSave.cshtml" />
+    <Content Include="Views\DeliveryCharge\ListAllDeliveryCharge.cshtml" />
+    <Content Include="Views\DeviceType\DeviceSave.cshtml" />
+    <Content Include="Views\DeviceType\ListAllDeviceType.cshtml" />
+    <Content Include="Views\SubCategory\ListAllSubCategory.cshtml" />
+    <Content Include="Views\SubCategory\SubCategorySave.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -19,6 +19,7 @@ namespace OrderWala.Web.Controllers
         {
             var MasterRepository = new MasterRepository();
             getstate();
+
             if (id > 0)
             {
                 var citydata = MasterRepository.GetCityByCityId(id);
@@ -26,7 +27,8 @@ namespace OrderWala.Web.Controllers
                 return View(citydata);
             }
 
-            tblSubCategoryDTO subcategory = new tblSubCategoryDTO();
+            tblCityDTO city = new tblCityDTO();
+            
             //subcategory.CitySave = MasterRepository.GetAllCity();
             //subcategory.SubCategoryId = MasterRepository.GetAllCity();
            
@@ -45,11 +47,11 @@ namespace OrderWala.Web.Controllers
 
                 if (returnValue == 1)
                 {
-                    ModelState.AddModelError("StateName", "State Name Already Exist");
+                    ModelState.AddModelError("CityName", "City Name Already Exist");
                 }
                 else if (returnValue == 2)
                 {
-                    ModelState.AddModelError("StateName", "Error");
+                    ModelState.AddModelError("CityName", "Error");
                 }
                 else
                 {
@@ -80,23 +82,21 @@ namespace OrderWala.Web.Controllers
         }
 
 
-        [HttpGet]
-        public ActionResult CityDelete(int id)
+       
+
+        [HttpPost]
+        public JsonResult CityDelete(int ID)
         {
-
             var MasterRepository = new MasterRepository();
-            var CityData = MasterRepository.GetCityByCityId(id);
-            return View(CityData);
-        }
+            var result = MasterRepository.citydelete(ID);
+            if (result == true)
+            {
+                return Json(new { Success = true, Message = "Delete Succusfully!" });
+            }
+            return Json(new { Success = false, Message = "Delete Fail!" });
 
-        [HttpPost, ActionName("CityDelete")]
-        public ActionResult CityDeleteData(int id)
-        {
 
-            var MasterRepository = new MasterRepository();
-            var returnvalue = MasterRepository.citydelete(id);
-
-            return RedirectToAction("ListAllCity", "City");
+           
             
         
         }

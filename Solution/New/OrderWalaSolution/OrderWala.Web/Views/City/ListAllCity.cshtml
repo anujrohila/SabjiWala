@@ -8,7 +8,7 @@
 
 <div class="panel">
 						<div class="panel-heading">
-							<h3 class="panel-title">Add &amp; Remove City</h3>
+							<h3 class="panel-title">City Master</h3>
 						</div>
 					
 						<!-- Foo Table - Add & Remove Rows -->
@@ -49,20 +49,16 @@
 										<td class="footable-visible"><a href="#">@item.StateName</a></td>
 										<td class="footable-visible"><a href="#">@item.CityName</a></td>
 										
-										<td class="footable-visible footable-last-column"><span class="label label-table label-dark">
+										<td class="footable-visible footable-last-column">
+                                             <a href="@Url.Action("Save", "City", new { id=item.CityId})" style="color:white"><i class="fa fa-lg fa-pencil-square-o" style="background-color:green; padding:5px;"></i></a>
                                             
-                                            @*@Html.ActionLink("Update", "Save", "State", new { id=item.StateId , @style="color:white;"})*@
-                                            <a href="@Url.Action("Save", "City", new { id=item.CityId})" style="color:white">Update</a>
-
-										                                                  </span></td>
-                                    <td class="footable-visible footable-last-column">
-                                            
-                                            @*@Html.ActionLink("Update", "Save", "State", new { id=item.StateId , @style="color:white;"})*@
-                                         
-                                        <a class="demo-delete-row btn btn-danger btn-xs btn-icon fa fa-times" href="@Url.Action("CityDelete", "City", new { id=item.CityId })"></a>
+                                        
+                                             <a class="demo-delete-row btn btn-danger btn-xs btn-icon fa fa-times" style="margin-left:10px;" onclick="StateDelete(@item.CityId,this)"></a>
                                           
+                                           
 
-										                                              </td>
+										                                                  </td>
+                                   
 									</tr>
                                     }
 								</tbody>
@@ -83,4 +79,32 @@
 					</div>
 
 
+<script type="text/javascript">
 
+
+    function StateDelete(id, thd) {
+        var confirmResult = confirm("Are you Sure Delete Record ?");
+        var callUrl = $("#webUrl").val() + "City/CityDelete";
+        var dataToSend = { ID: id };
+        if (confirmResult) {
+            $.ajax({
+                url: callUrl,
+                type: "POST",
+                data: dataToSend,
+                cache: false,
+                success: function (result) {
+                    if (result.Success == true) {
+                        if (typeof (thd) == "object") {
+                            $(thd).closest("tr").remove();
+                        } else {
+                            return false;
+                        }
+                    }
+                    else {
+                        alert(result.Message);
+                    }
+                }
+            });
+        }
+    }
+</script>

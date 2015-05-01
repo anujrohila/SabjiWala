@@ -29,12 +29,11 @@ namespace OrderWala.Web.Controllers
         public ActionResult Save( int id = 0)
         {
             getstate();
-            getcity();
+           
             var MasterRepository = new MasterRepository();
             if (id > 0)
             {
                 getstate();
-                getcity();
                 var Areadata = MasterRepository.GetAreaByAreaId(id);
 
                 return View(Areadata);
@@ -77,39 +76,46 @@ namespace OrderWala.Web.Controllers
         {
 
             OrderWalaEntities db = new OrderWalaEntities();
-
-
             ViewBag.state = db.tblStates.ToList<tblState>();
         }
 
-        public void getcity()
+        public JsonResult getcity(int Id)
         {
             OrderWalaEntities db = new OrderWalaEntities();
 
-            ViewBag.city = db.tblCities.ToList<tblCity>();
-        
-        
-        }
+            //var MasterRepository = new MasterRepository();
 
+            var Qualitylist = db.tblCities.Where(i => i.StateId == Id);
+            var result = (from s in Qualitylist
+                          select new
+                          {
+                              CityName = s.CityName,
+                              CityId = s.CityId
+                          }).ToList()
+;
 
-        [HttpGet]
-        public ActionResult AreaDelete(int id)
-        {
+            return Json(result, JsonRequestBehavior.AllowGet);
 
-            var MasterRepository = new MasterRepository();
-            var AreaData = MasterRepository.GetAreaByAreaId(id);
-            return View(AreaData);
-        }
-
-        [HttpPost,ActionName("AreaDelete")]
-        public ActionResult AreaDeleteData(int id)
-        {
-            var MasterRepository = new MasterRepository();
-            var returnvalue = MasterRepository.AreaDelete(id);
-
-            return RedirectToAction("ListAllArea", "Area");
             
         
+        }
+
+
+       
+
+        [HttpPost]
+        public JsonResult AreaDelete(int ID)
+        {
+            var MasterRepository = new MasterRepository();
+            var result = MasterRepository.AreaDelete(ID);
+            if (result == true)
+            {
+                return Json(new { Success = true, Message = "Delete Succusfully!" });
+            }
+            return Json(new { Success = false, Message = "Delete Fail!" });
+
+
+
         
         }
 

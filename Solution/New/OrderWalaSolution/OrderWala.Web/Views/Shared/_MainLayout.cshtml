@@ -73,7 +73,7 @@
 
 <body>
     <div id="container" class="effect mainnav-lg">
-
+        <input type="hidden" name="webUrl" id="webUrl" value="http://localhost/OrderWala.Web/" />
         <!--NAVBAR-->
         <!--===================================================-->
         <header id="navbar">
@@ -657,10 +657,13 @@
 
                                         <!--Submenu-->
                                         <ul class="collapse">
-                                            <li><a href="@Url.Action("ListAllState","State")">List Of State</a></li>
-                                             <li><a href="@Url.Action("ListAllCity","City")">List Of City</a></li>
-                                              <li><a href="@Url.Action("ListAllArea","Area")">List Of Area</a></li>
-                                            <li><a href="">Customer</a></li>
+                                            <li><a href="@Url.Action("ListAllState","State")">State</a></li>
+                                             <li><a href="@Url.Action("ListAllCity","City")">City</a></li>
+                                              <li><a href="@Url.Action("ListAllArea","Area")">Area</a></li>
+                                            <li><a href="@Url.Action("ListAllAdvertise","Advertise")">Advertise</a></li>
+                                              <li><a href="@Url.Action("ListAllDeliveryCharge","DeliveryCharge")">DeliveryCharge</a></li>
+                                            <li><a href="@Url.Action("ListAllDeviceType","DeviceType")">DeviceType</a></li>
+                                           
                                         </ul>
                                     </li>
                                     <li>
@@ -674,7 +677,8 @@
 
                                         <!--Submenu-->
                                         <ul class="collapse">
-                                            <li><a href="layouts-collapsed-navigation.html">Category</a></li>
+                                            <li><a href="@Url.Action("ListAllCategory","Category")">Category</a></li>
+                                            <li><a href="@Url.Action("ListAllSubCategory","SubCategory")">SubCategory</a></li>
                                             <li><a href="layouts-offcanvas-navigation.html">Product</a></li>
                                         </ul>
                                     </li>

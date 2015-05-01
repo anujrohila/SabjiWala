@@ -35,21 +35,21 @@ namespace OrderWala.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                 var MasterRepository = new MasterRepository();
-                 var returnValue = MasterRepository.StateSave(tblStateDTO);
+                var MasterRepository = new MasterRepository();
+                var returnValue = MasterRepository.StateSave(tblStateDTO);
 
-                 if (returnValue == 1)
-                 {
-                     ModelState.AddModelError("StateName", "State Name Already Exist");
-                 }
-                 else if (returnValue == 2)
-                 {
-                     ModelState.AddModelError("StateName", "Error");
-                 }
-                 else
-                 {
+                if (returnValue == 1)
+                {
+                    ModelState.AddModelError("StateName", "State Name Already Exist");
+                }
+                else if (returnValue == 2)
+                {
+                    ModelState.AddModelError("StateName", "Error");
+                }
+                else
+                {
                     return RedirectToAction("ListAllState", "State");
-                 }
+                }
             }
             return View(tblStateDTO);
         }
@@ -66,22 +66,20 @@ namespace OrderWala.Web.Controllers
 
         }
 
-        [HttpGet]
-        public ActionResult StateDelete(int id = 0)
-        {
-            var MasterRepository = new MasterRepository();
-            var stateData = MasterRepository.GetStateByStateID(id);
-            return View(stateData);
-        }
 
 
-        [HttpPost, ActionName("StateDelete")]
-        public ActionResult StateDeletedata( int id)
+
+        [HttpPost]
+        public JsonResult StateDelete(int ID)
         {
             var MasterRepository = new MasterRepository();
-            var returnvalue = MasterRepository.StateDelete(id);
-            
-            return View();
+            var result = MasterRepository.StateDelete(ID);
+            if (result == true)
+            {
+                return Json(new { Success = true, Message = "Delete Succusfully!" });
+            }
+            return Json(new { Success = false, Message = "Delete Fail!" });
+
         }
 
     }
