@@ -39,18 +39,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Auth0, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Auth0.1.0.0\lib\net40\Auth0.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EasyHttp, Version=1.6.52.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyHttp.1.6.52.0\lib\net40\EasyHttp.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="JsonFx, Version=2.0.1209.2802, Culture=neutral, PublicKeyToken=315052dd637f8a52, processorArchitecture=MSIL">
-      <HintPath>..\packages\JsonFx.2.0.1209.2802\lib\net40\JsonFx.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PagedList">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
@@ -199,7 +187,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Auth0Client.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdvertiseController.cs" />
     <Compile Include="Controllers\AreaController.cs" />
@@ -478,10 +465,13 @@
     <Content Include="Views\DeviceType\ListAllDeviceType.cshtml" />
     <Content Include="Views\SubCategory\ListAllSubCategory.cshtml" />
     <Content Include="Views\SubCategory\SubCategorySave.cshtml" />
+
     <Content Include="Views\Login\ListAllLogin.cshtml" />
     <Content Include="Views\Login\Save.cshtml" />
+
     <Content Include="Views\Customer\CustomerSave.cshtml" />
     <Content Include="Views\Customer\ListAllCustomer.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

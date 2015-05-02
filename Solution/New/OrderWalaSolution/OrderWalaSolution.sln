@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderWala.Domain", "OrderWa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderWala.Service", "OrderWala.Service\OrderWala.Service.csproj", "{ECB40881-B24B-440C-9642-27413D69A02C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderWalaClient.Web", "OrderWalaClient.Web\OrderWalaClient.Web.csproj", "{86EE5455-2018-434B-B939-56B3AE51BD3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{ECB40881-B24B-440C-9642-27413D69A02C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECB40881-B24B-440C-9642-27413D69A02C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECB40881-B24B-440C-9642-27413D69A02C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86EE5455-2018-434B-B939-56B3AE51BD3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86EE5455-2018-434B-B939-56B3AE51BD3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86EE5455-2018-434B-B939-56B3AE51BD3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86EE5455-2018-434B-B939-56B3AE51BD3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
