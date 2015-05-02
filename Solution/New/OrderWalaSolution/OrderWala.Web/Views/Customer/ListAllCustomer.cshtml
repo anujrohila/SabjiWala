@@ -1,0 +1,122 @@
+﻿@model List<OrderWala.Domain.tblCustomerDTO>
+@{
+    ViewBag.Title = "ListAllCustomer";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3 class="panel-title">Customer Master</h3>
+    </div>
+
+    <!-- Foo Table - Add & Remove Rows -->
+    <!--===================================================-->
+    <div class="panel-body">
+        <div class="pad-btm form-inline">
+            <div class="row">
+                <div class="col-sm-6 text-xs-center">
+                    <div class="form-group">
+                        <a id="demo-btn-addrow" class="btn btn-purple btn-labeled fa fa-plus" href="@Url.Action("CustomerSave", "Customer")">Add New Customer</a>
+                    </div>
+                </div>
+                <div class="col-sm-6 text-xs-center text-right">
+                    <div class="form-group">
+                        <input id="demo-input-search2" type="text" placeholder="Search" class="form-control" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table id="demo-foo-addrow" class="table table-bordered table-hover toggle-circle default footable-loaded footable no-paging" data-page-size="7">
+
+            <thead>
+                <tr>
+
+
+                    <th data-hide="phone, tablet" class="footable-visible footable-sortable">First Name<span class="footable-sort-indicator"></span></th>
+                    <th data-hide="phone, tablet" class="footable-visible footable-sortable">Last Name<span class="footable-sort-indicator"></span></th>
+                    <th data-hide="phone, tablet" class="footable-visible footable-sortable">Email Addres<span class="footable-sort-indicator"></span></th>
+                    <th data-hide="phone, tablet" class="footable-visible footable-sortable">Total OrderAmt<span class="footable-sort-indicator"></span></th>
+                    <th data-hide="phone, tablet" class="footable-visible footable-sortable">Total Receive Amt<span class="footable-sort-indicator"></span></th>
+
+                    <th data-hide="phone, tablet" class="footable-visible footable-last-column footable-sortable">Action<span class="footable-sort-indicator"></span></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                                          
+                    <tr class="footable-even" style="display: table-row;">
+                        <td class="footable-visible"><a href="#">@item.FirstName</a></td>
+                        <td class="footable-visible"><a href="#">@item.LastName</a></td>
+                        <td class="footable-visible"><a href="#">@item.EmailAddress</a></td>
+                        <td class="footable-visible"><a href="#">@item.TotalOrderAmount</a></td>
+                        <td class="footable-visible"><a href="#">@item.RecievedAmount</a></td>
+                        <td class="footable-visible footable-last-column">
+                            <a href="@Url.Action("CustomerSave", "Customer", new { id = item.CustomerId })" style="color:white"><i class="fa fa-lg fa-pencil-square-o" style="background-color: green; padding: 5px;"></i></a>
+                            <a class="demo-delete-row btn btn-danger btn-xs btn-icon fa fa-times" style="margin-left:10px;" onclick="DeleteCustomer(@item.CustomerId,this)"></a>
+                        </td>
+
+                    </tr>
+                     
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6" class="footable-visible">
+                        <div class="text-right">
+                            <ul class="pagination">
+                                <li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li>
+                                <li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li>
+                                <li class="footable-page active"><a data-page="0" href="#">1</a></li>
+                                <li class="footable-page-arrow disabled"><a data-page="next" href="#next">›</a></li>
+                                <li class="footable-page-arrow disabled"><a data-page="last" href="#last">»</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <!--===================================================-->
+    <!-- End Foo Table - Add & Remove Rows -->
+
+</div>
+
+
+
+
+<script type="text/javascript">
+
+
+    function DeleteCustomer(id, thd) {
+        var confirmResult = confirm("Are you Sure Delete Record ?");
+        var callUrl = $("#webUrl").val() + "Customer/CustomerDelete";
+
+
+        var dataToSend = { id: id };
+        if (confirmResult) {
+            $.ajax({
+                url: callUrl,
+                type: "POST",
+                data: dataToSend,
+                cache: false,
+                success: function (result) {
+                    if (result.Success == true) {
+                        if (typeof (thd) == "object") {
+                            $(thd).closest("tr").remove();
+                        } else {
+                            return false;
+                        }
+                    }
+                    else {
+                        alert(result.Message);
+                    }
+                }
+            });
+        }
+    }
+</script>
+
