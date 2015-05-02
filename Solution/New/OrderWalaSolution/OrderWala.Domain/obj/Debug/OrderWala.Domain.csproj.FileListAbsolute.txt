@@ -5,10 +5,3 @@ D:\Project\SabjiWala\trunk\Solution\New\OrderWalaSolution\OrderWala.Domain\obj\D
 D:\Project\SabjiWala\trunk\Solution\New\OrderWalaSolution\OrderWala.Domain\obj\Debug\OrderWala.Domain.pdb
 D:\Project\SabjiWala\trunk\Solution\New\OrderWalaSolution\OrderWala.Domain\obj\Debug\OrderWala.Domain.Resource.OrderWalaResource.resources
 D:\Project\SabjiWala\trunk\Solution\New\OrderWalaSolution\OrderWala.Domain\obj\Debug\OrderWala.Domain.csproj.GenerateResource.Cache
-F:\OrderManagement\trunk\Solution\New\OrderWalaSolution\OrderWala.Domain\bin\Debug\OrderWala.Domain.dll
-F:\OrderManagement\trunk\Solution\New\OrderWalaSolution\OrderWala.Domain\bin\Debug\OrderWala.Domain.pdb
-F:\OrderManagement\trunk\Solution\New\OrderWalaSolution\OrderWala.Domain\obj\Debug\OrderWala.Domain.csprojResolveAssemblyReference.cache
-F:\OrderManagement\trunk\Solution\New\OrderWalaSolution\OrderWala.Domain\obj\Debug\OrderWala.Domain.Resource.OrderWalaResource.resources
-F:\OrderManagement\trunk\Solution\New\OrderWalaSolution\OrderWala.Domain\obj\Debug\OrderWala.Domain.csproj.GenerateResource.Cache
-F:\OrderManagement\trunk\Solution\New\OrderWalaSolution\OrderWala.Domain\obj\Debug\OrderWala.Domain.dll
-F:\OrderManagement\trunk\Solution\New\OrderWalaSolution\OrderWala.Domain\obj\Debug\OrderWala.Domain.pdb
