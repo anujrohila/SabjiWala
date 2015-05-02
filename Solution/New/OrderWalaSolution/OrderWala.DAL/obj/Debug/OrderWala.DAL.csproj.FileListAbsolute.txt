@@ -8,13 +8,3 @@ D:\Project\SabjiWala\trunk\Solution\New\OrderWalaSolution\OrderWala.DAL\bin\Debu
 D:\Project\SabjiWala\trunk\Solution\New\OrderWalaSolution\OrderWala.DAL\bin\Debug\OrderWala.Domain.dll
 D:\Project\SabjiWala\trunk\Solution\New\OrderWalaSolution\OrderWala.DAL\bin\Debug\OrderWala.Domain.pdb
 D:\Project\SabjiWala\trunk\Solution\New\OrderWalaSolution\OrderWala.DAL\bin\Debug\EntityFramework.xml
-F:\OrderManagement\trunk\Solution\New\OrderWalaSolution\OrderWala.DAL\bin\Debug\OrderWala.DAL.dll.config
-F:\OrderManagement\trunk\Solution\New\OrderWalaSolution\OrderWala.DAL\bin\Debug\OrderWala.DAL.dll
-F:\OrderManagement\trunk\Solution\New\OrderWalaSolution\OrderWala.DAL\bin\Debug\OrderWala.DAL.pdb
-F:\OrderManagement\trunk\Solution\New\OrderWalaSolution\OrderWala.DAL\bin\Debug\EntityFramework.dll
-F:\OrderManagement\trunk\Solution\New\OrderWalaSolution\OrderWala.DAL\bin\Debug\OrderWala.Domain.dll
-F:\OrderManagement\trunk\Solution\New\OrderWalaSolution\OrderWala.DAL\bin\Debug\OrderWala.Domain.pdb
-F:\OrderManagement\trunk\Solution\New\OrderWalaSolution\OrderWala.DAL\bin\Debug\EntityFramework.xml
-F:\OrderManagement\trunk\Solution\New\OrderWalaSolution\OrderWala.DAL\obj\Debug\OrderWala.DAL.csprojResolveAssemblyReference.cache
-F:\OrderManagement\trunk\Solution\New\OrderWalaSolution\OrderWala.DAL\obj\Debug\OrderWala.DAL.dll
-F:\OrderManagement\trunk\Solution\New\OrderWalaSolution\OrderWala.DAL\obj\Debug\OrderWala.DAL.pdb
