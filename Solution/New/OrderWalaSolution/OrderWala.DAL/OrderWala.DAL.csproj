@@ -89,6 +89,7 @@
     <Compile Include="Repositories\DeviceRepository.cs" />
     <Compile Include="Repositories\MasterRepository.cs" />
     <Compile Include="Repositories\SubCategoryRepository.cs" />
+    <Compile Include="Repositories\UserRepositories.cs" />
     <Compile Include="tblAdvertisement.cs">
       <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
     </Compile>
