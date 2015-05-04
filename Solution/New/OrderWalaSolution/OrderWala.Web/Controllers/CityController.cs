@@ -40,6 +40,7 @@ namespace OrderWala.Web.Controllers
         [HttpPost]
         public ActionResult Save(tblCityDTO tblcitydto)
         {
+            getstate();
             if (ModelState.IsValid)
             {
                 var MasterRepository = new MasterRepository();
