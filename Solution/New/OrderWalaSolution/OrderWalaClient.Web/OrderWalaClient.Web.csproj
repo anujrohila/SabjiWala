@@ -162,8 +162,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CustomerCheckOutController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -418,6 +421,12 @@
     <Content Include="Images\slider\veg4.jpg" />
     <Content Include="Images\slider\veg5.jpeg" />
     <Content Include="Images\slider\veg6.jpg" />
+    <Content Include="Images\zoom\zoom1.jpg" />
+    <Content Include="Images\zoom\zoom1hi.jpg" />
+    <Content Include="Images\zoom\zoom2.jpg" />
+    <Content Include="Images\zoom\zoom2hi.jpg" />
+    <Content Include="Images\zoom\zoom3.jpg" />
+    <Content Include="Images\zoom\zoom3hi.jpg" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -477,6 +486,17 @@
     <Content Include="Views\Customer\AddAddress.cshtml" />
     <Content Include="Views\Customer\CustomerWishList.cshtml" />
     <Content Include="Views\Customer\CustomerPersonalInformation.cshtml" />
+    <Content Include="Views\ShoppingCart\Cart.cshtml" />
+    <Content Include="Views\Category\Category.cshtml" />
+    <Content Include="Views\Category\SubCategory.cshtml" />
+    <Content Include="Views\Category\ProductDetail.cshtml" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
+    <Content Include="Views\Home\ContactUs.cshtml" />
+    <Content Include="Views\Home\TermCondition.cshtml" />
+    <Content Include="Views\Customer\AccountLogin.cshtml" />
+    <Content Include="Views\CustomerCheckOut\CustomerShipping.cshtml" />
+    <Content Include="Views\CustomerCheckOut\CustomerOrder.cshtml" />
+    <Content Include="Views\CustomerCheckOut\CustomerPayment.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
