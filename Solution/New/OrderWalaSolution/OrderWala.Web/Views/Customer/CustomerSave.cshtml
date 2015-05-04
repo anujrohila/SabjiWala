@@ -21,7 +21,8 @@
   @using (Html.BeginForm("CustomerSave", "Customer", FormMethod.Post, new { @class = "form-horizontal" }))
     {
       
-      @Html.HiddenFor(Model => Model.CustomerId)
+      @Html.HiddenFor(Model => Model.UserId)
+       @Html.HiddenFor(Model => Model.CustomerId)
       
         <div class="panel-body">
             @Html.ValidationSummary(true)
@@ -31,7 +32,21 @@
                 </div>
             </div>
           
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="demo-is-inputsmall">User Name</label>
+                <div class="col-sm-5">
+                    @Html.TextBoxFor(model => model.MobileNo, new { @class ="form-control input-sm", placeholder ="" })
+                </div>
+            </div>
 
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="demo-is-inputsmall">PassWord</label>
+                <div class="col-sm-5">
+                    @Html.TextBoxFor(model => model.Password, new { @class ="form-control input-sm", placeholder ="" })
+                </div>
+            </div>
+
+==============================================================================================================
             <div class="form-group">
                 <label class="col-sm-3 control-label" for="demo-is-inputsmall">First Name</label>
                 <div class="col-sm-5">
@@ -58,7 +73,8 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label" for="demo-is-inputsmall">Area</label>
                 <div class="col-sm-5">
-                    @Html.TextBoxFor(model => model.AreaId, new { @class ="form-control input-sm", placeholder ="" })
+                @Html.DropDownListFor(Model => Model.AreaId, new SelectList(ViewBag.Area, "AreaId", "AreaName"), "--select Area--", new { @class="btn dropdown-toggle btn-default btn-md"})
+                  @*  @Html.TextBoxFor(model => model.AreaId, new { @class ="form-control input-sm", placeholder ="" })*@
                     @*<input type="text" placeholder=".input-sm" class="form-control input-sm" id="demo-is-inputsmall">*@
                 </div>
             </div>
@@ -71,15 +87,9 @@
                 </div>
             </div>
 
-             <div class="form-group">
-                <label class="col-sm-3 control-label" for="demo-is-inputsmall">Mobile Number</label>
-                <div class="col-sm-5">
-                    @Html.TextBoxFor(model => model.MobileNo, new { @class ="form-control input-sm", placeholder ="" })
-                    @*<input type="text" placeholder=".input-sm" class="form-control input-sm" id="demo-is-inputsmall">*@
-                </div>
-            </div>
+            
 
-             <div class="form-group">
+            <div class="form-group">
                 <label class="col-sm-3 control-label" for="demo-is-inputsmall">Latitude</label>
                 <div class="col-sm-5">
                     @Html.TextBoxFor(model => model.Latitude, new { @class ="form-control input-sm", placeholder ="" })
@@ -87,7 +97,7 @@
                 </div>
             </div>
 
-             <div class="form-group">
+            <div class="form-group">
                 <label class="col-sm-3 control-label" for="demo-is-inputsmall">Longitude</label>
                 <div class="col-sm-5">
                     @Html.TextBoxFor(model => model.Longitude, new { @class ="form-control input-sm", placeholder ="" })
@@ -95,7 +105,7 @@
                 </div>
             </div>
 
-             <div class="form-group">
+            <div class="form-group">
                 <label class="col-sm-3 control-label" for="demo-is-inputsmall">Total Order Amount</label>
                 <div class="col-sm-5">
                     @Html.TextBoxFor(model => model.TotalOrderAmount, new { @class ="form-control input-sm", placeholder ="" })
@@ -103,7 +113,7 @@
                 </div>
             </div>
 
-             <div class="form-group">
+            <div class="form-group">
                 <label class="col-sm-3 control-label" for="demo-is-inputsmall">Received Amount</label>
                 <div class="col-sm-5">
                     @Html.TextBoxFor(model => model.RecievedAmount, new { @class ="form-control input-sm", placeholder ="" })
