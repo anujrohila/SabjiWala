@@ -49,6 +49,11 @@ namespace OrderWalaClient.Web.Controllers
         {
             return View();
         }
+        
+        public ActionResult CustomerLogin()
+        {
+            return View();
+        }
 
     }
 }

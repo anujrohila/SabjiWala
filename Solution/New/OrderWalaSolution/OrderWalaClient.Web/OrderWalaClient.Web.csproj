@@ -497,6 +497,7 @@
     <Content Include="Views\CustomerCheckOut\CustomerShipping.cshtml" />
     <Content Include="Views\CustomerCheckOut\CustomerOrder.cshtml" />
     <Content Include="Views\CustomerCheckOut\CustomerPayment.cshtml" />
+    <Content Include="Views\Customer\CustomerLogin.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
