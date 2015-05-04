@@ -61,6 +61,10 @@ namespace OrderWala.Domain
         [DataMember()]
         public DateTime CreationDateTime { get; set; }
 
+        public Int32 UserTypeId { get; set; }
+        public String Password { get; set; }
+        public Int32 RegisterDeviceId { get; set; }
+
         public tblCustomerDTO()
         {
         }
