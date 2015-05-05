@@ -198,6 +198,28 @@ namespace OrderWala.DAL
             }
         }
 
+        /// <summary>
+        /// Get Customer Payment List
+        /// </summary>
+        /// <returns></returns>
+        public List<tblCustomerPaymentDTO> GetCustomerPaymentList(int customerId)
+        {
+            using (var OrderWalaContext = new OrderWalaEntities())
+            {
+                return (from customerPayment in OrderWalaContext.tblCustomerPayments
+                        where customerPayment.CustomerId == customerId
+                        select new tblCustomerPaymentDTO
+                        {
+                            PaymentId = customerPayment.PaymentId,
+                            Amount = customerPayment.Amount,
+                            CreationDateTime = customerPayment.CreationDateTime,
+                            CustomerId = customerPayment.CustomerId,
+                            PaymentDate = customerPayment.PaymentDate,
+                            RecievedBy = customerPayment.RecievedBy
+                        }).ToList();
+            }
+        }
+
         #endregion
     }
 }

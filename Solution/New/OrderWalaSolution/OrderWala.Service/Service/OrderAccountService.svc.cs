@@ -227,25 +227,25 @@ namespace OrderWala.Service.Service
             return productSubCategoryResponse;
         }
 
-        public ProductResponse GetProductList(int subCategoryId, int languageId, int cityId)
+        public ProductListResponse GetProductList(int subCategoryId, int languageId, int cityId)
         {
-            var productResponse = new ProductResponse();
-            productResponse.ModelMessage = new List<ModelMessage>();
+            var productListResponse = new ProductListResponse();
+            productListResponse.ModelMessage = new List<ModelMessage>();
             try
             {
                 var masterRepository = new MasterRepository();
-                productResponse.ProductList = masterRepository.GetProductList(subCategoryId, languageId, cityId);
-                productResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
+                productListResponse.ProductList = masterRepository.GetProductList(subCategoryId, languageId, cityId);
+                productListResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
             }
             catch (Exception)
             {
-                productResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgErrorInTransaction });
-                productResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
+                productListResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgErrorInTransaction });
+                productListResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
             }
-            return productResponse;
+            return productListResponse;
         }
 
-        public CustomerOrderListResponse GetUCustomerOrderList(int customerId, int languageId)
+        public CustomerOrderListResponse GetCustomerOrderList(int customerId, int languageId)
         {
             var customerOrderListResponse = new CustomerOrderListResponse();
             customerOrderListResponse.ModelMessage = new List<ModelMessage>();
@@ -262,6 +262,43 @@ namespace OrderWala.Service.Service
             }
             return customerOrderListResponse;
         }
+
+        public ProductResponse GetProduct(int productId, int languageId, int cityId)
+        {
+            var productResponse = new ProductResponse();
+            productResponse.ModelMessage = new List<ModelMessage>();
+            try
+            {
+                var masterRepository = new MasterRepository();
+                productResponse.Product = masterRepository.GetProduct(productId, languageId, cityId);
+                productResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
+            }
+            catch (Exception)
+            {
+                productResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgErrorInTransaction });
+                productResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
+            }
+            return productResponse;
+        }
+
+        public CustomerPaymentListResponse GetCustomerPaymentList(int customerId)
+        {
+            var customerPaymentListResponse = new CustomerPaymentListResponse();
+            customerPaymentListResponse.ModelMessage = new List<ModelMessage>();
+            try
+            {
+                var accountRepository = new AccountRepository();
+                customerPaymentListResponse.PaymentList = accountRepository.GetCustomerPaymentList(customerId);
+                customerPaymentListResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
+            }
+            catch (Exception)
+            {
+                customerPaymentListResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgErrorInTransaction });
+                customerPaymentListResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
+            }
+            return customerPaymentListResponse;
+        }
+
         #endregion
 
         #region [Private Method]

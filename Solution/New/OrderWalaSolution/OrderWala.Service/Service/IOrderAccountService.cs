@@ -37,10 +37,20 @@ namespace OrderWala.Service.Service
 
         [OperationContract(Name = "GetProductList")]
         [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetProductList?subCategoryId={subCategoryId}&languageId={languageId}&cityId={cityId}")]
-        ProductResponse GetProductList(int subCategoryId, int languageId, int cityId);
+        ProductListResponse GetProductList(int subCategoryId, int languageId, int cityId);
 
-        [OperationContract(Name = "GetUCustomerOrderList")]
-        [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetUCustomerOrderList?customerId={userId}&languageId={languageId}")]
-        CustomerOrderListResponse GetUCustomerOrderList(int customerId, int languageId);
+        [OperationContract(Name = "GetProduct")]
+        [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetProduct?productId={productId}&languageId={languageId}&cityId={cityId}")]
+        ProductResponse GetProduct(int productId, int languageId, int cityId);
+
+        [OperationContract(Name = "GetCustomerOrderList")]
+        [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetCustomerOrderList?customerId={userId}&languageId={languageId}")]
+        CustomerOrderListResponse GetCustomerOrderList(int customerId, int languageId);
+
+        [OperationContract(Name = "GetCustomerPaymentList")]
+        [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetCustomerPaymentList?customerId={customerId}")]
+        CustomerPaymentListResponse GetCustomerPaymentList(int customerId);
+
+
     }
 }

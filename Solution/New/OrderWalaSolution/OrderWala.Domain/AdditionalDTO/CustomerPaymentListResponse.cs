@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 namespace OrderWala.Domain
 {
     [DataContract]
-    public class ProductResponse : CommonModel
+    public class CustomerPaymentListResponse : CommonModel
     {
         [DataMember]
         public ServiceResponseStatus ServiceResponseStatus { get; set; }
 
-        public tblProductDTO Product { get; set; }
+        public List<tblCustomerPaymentDTO> PaymentList { get; set; }
     }
 }

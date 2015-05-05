@@ -43,8 +43,10 @@
   <ItemGroup>
     <Compile Include="AdditionalDTO\ChangePasswordResponse.cs" />
     <Compile Include="AdditionalDTO\AreaListResponse.cs" />
-    <Compile Include="AdditionalDTO\CustomerOrderListResponse.cs" />
+    <Compile Include="AdditionalDTO\CustomerPaymentListResponse.cs" />
     <Compile Include="AdditionalDTO\ProductResponse.cs" />
+    <Compile Include="AdditionalDTO\CustomerOrderListResponse.cs" />
+    <Compile Include="AdditionalDTO\ProductListResponse.cs" />
     <Compile Include="AdditionalDTO\ProductSubCategoryResponse.cs" />
     <Compile Include="AdditionalDTO\ProductMainCategoryResponse.cs" />
     <Compile Include="AdditionalDTO\RegisterCustomerResponse.cs" />

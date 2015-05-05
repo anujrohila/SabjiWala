@@ -103,6 +103,42 @@ namespace OrderWala.DAL
         }
 
         /// <summary>
+        /// Get Product
+        /// </summary>
+        /// <returns></returns>
+        public tblProductDTO GetProduct(int productId, int languageId, int cityId)
+        {
+            using (var OrderWalaContext = new OrderWalaEntities())
+            {
+                return (from product in OrderWalaContext.tblProducts
+                        join subCategory in OrderWalaContext.tblSubCategories on product.SubCategoryId equals subCategory.SubCategoryId
+                        join languageWiseProduct in OrderWalaContext.tblLanguageWiseProducts on product.ProductId equals languageWiseProduct.ProductId
+                        join productPrice in OrderWalaContext.tblProductPrices on product.ProductId equals productPrice.ProductId
+                        join quantityType in OrderWalaContext.tblQuantityTypes on product.QuantityTypeId equals quantityType.QuantityTypeId
+                        where product.ProductId == productId 
+                                && product.IsActive == true
+                                && product.IsDeleted == false
+                                && languageWiseProduct.LanguageId == languageId
+                                && productPrice.CityId == cityId
+                        select new tblProductDTO
+                        {
+                            ProductId = product.ProductId,
+                            SubCategoryId = product.SubCategoryId,
+                            CategoryId = product.CategoryId,
+                            QuantityTypeId = product.QuantityTypeId,
+                            IsActive = product.IsActive,
+                            IsDeleted = product.IsDeleted,
+                            ProductName = languageWiseProduct.ProductName,
+                            Description = languageWiseProduct.Description,
+                            LanguageId = languageWiseProduct.LanguageId ?? 0,
+                            OldPrice = productPrice.OldPrice ?? 0,
+                            NewPrice = productPrice.NewPrice ?? 0,
+                            QuantityTypeName = quantityType.TypeName
+                        }).FirstOrDefault();
+            }
+        }
+
+        /// <summary>
         /// Area List
         /// </summary>
         /// <returns></returns>
