@@ -245,22 +245,22 @@ namespace OrderWala.Service.Service
             return productResponse;
         }
 
-        public UserOrderListResponse GetUserOrderList(int customerId, int languageId)
+        public CustomerOrderListResponse GetUCustomerOrderList(int customerId, int languageId)
         {
-            var userOrderListResponse = new UserOrderListResponse();
-            userOrderListResponse.ModelMessage = new List<ModelMessage>();
+            var customerOrderListResponse = new CustomerOrderListResponse();
+            customerOrderListResponse.ModelMessage = new List<ModelMessage>();
             try
             {
                 var accountRepository = new AccountRepository();
-                userOrderListResponse.OrderList = accountRepository.GetUserOrderList(customerId, languageId);
-                userOrderListResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
+                customerOrderListResponse.OrderList = accountRepository.GetUserOrderList(customerId, languageId);
+                customerOrderListResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
             }
             catch (Exception)
             {
-                userOrderListResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgErrorInTransaction });
-                userOrderListResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
+                customerOrderListResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgErrorInTransaction });
+                customerOrderListResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
             }
-            return userOrderListResponse;
+            return customerOrderListResponse;
         }
         #endregion
 
