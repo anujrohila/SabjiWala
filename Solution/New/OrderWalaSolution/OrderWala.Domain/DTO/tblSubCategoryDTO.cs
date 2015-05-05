@@ -40,23 +40,9 @@ namespace OrderWala.Domain
         [DataMember()]
         public Boolean IsDeleted { get; set; }
 
+        public string MainCategoryName { get; set; }
 
         public List<tblCategoryDTO> CategoryList { get; set; }
-
-        public tblSubCategoryDTO()
-        {
-        }
-
-        public tblSubCategoryDTO(Int32 subCategoryId, Int32 categoryId, Int32 languageId, String subCategoryName, String description, String logo, Boolean isActive, Boolean isDeleted)
-        {
-			this.SubCategoryId = subCategoryId;
-			this.CategoryId = categoryId;
-			this.LanguageId = languageId;
-			this.SubCategoryName = subCategoryName;
-			this.Description = description;
-			this.Logo = logo;
-			this.IsActive = isActive;
-			this.IsDeleted = isDeleted;
-        }
+        
     }
 }

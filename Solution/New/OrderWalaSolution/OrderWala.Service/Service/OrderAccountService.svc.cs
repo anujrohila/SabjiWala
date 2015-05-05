@@ -191,6 +191,60 @@ namespace OrderWala.Service.Service
             return changePasswordResponse;
         }
 
+        public ProductMainCategoryResponse GetProductMainCategoryList(int languageId)
+        {
+            var productMainCategoryResponse = new ProductMainCategoryResponse();
+            productMainCategoryResponse.ModelMessage = new List<ModelMessage>();
+            try
+            {
+                var masterRepository = new MasterRepository();
+                productMainCategoryResponse.CategoryList = masterRepository.GetProductMainCategoryList(languageId);
+                productMainCategoryResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
+            }
+            catch (Exception)
+            {
+                productMainCategoryResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgErrorInTransaction });
+                productMainCategoryResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
+            }
+            return productMainCategoryResponse;
+        }
+
+        public ProductSubCategoryResponse GetProductSubCategoryList(int mainCategoryId, int languageId)
+        {
+            var productSubCategoryResponse = new ProductSubCategoryResponse();
+            productSubCategoryResponse.ModelMessage = new List<ModelMessage>();
+            try
+            {
+                var masterRepository = new MasterRepository();
+                productSubCategoryResponse.SubCategoryList = masterRepository.GetProductSubCategoryList(mainCategoryId, languageId);
+                productSubCategoryResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
+            }
+            catch (Exception)
+            {
+                productSubCategoryResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgErrorInTransaction });
+                productSubCategoryResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
+            }
+            return productSubCategoryResponse;
+        }
+
+        public ProductResponse GetProductList(int subCategoryId, int languageId, int cityId)
+        {
+            var productResponse = new ProductResponse();
+            productResponse.ModelMessage = new List<ModelMessage>();
+            try
+            {
+                var masterRepository = new MasterRepository();
+                productResponse.ProductList = masterRepository.GetProductList(subCategoryId, languageId, cityId);
+                productResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
+            }
+            catch (Exception)
+            {
+                productResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgErrorInTransaction });
+                productResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
+            }
+            return productResponse;
+        }
+
         #endregion
 
         #region [Private Method]

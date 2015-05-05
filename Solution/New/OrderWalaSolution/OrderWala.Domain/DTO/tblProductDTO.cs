@@ -34,18 +34,22 @@ namespace OrderWala.Domain
         [DataMember()]
         public Boolean IsDeleted { get; set; }
 
-        public tblProductDTO()
-        {
-        }
+        [DataMember()]
+        public Int32 LanguageId { get; set; }
 
-        public tblProductDTO(Int32 productId, Int32 subCategoryId, Int32 categoryId, Int32 quantityTypeId, Boolean isActive, Boolean isDeleted)
-        {
-			this.ProductId = productId;
-			this.SubCategoryId = subCategoryId;
-			this.CategoryId = categoryId;
-			this.QuantityTypeId = quantityTypeId;
-			this.IsActive = isActive;
-			this.IsDeleted = isDeleted;
-        }
+        [DataMember()]
+        public String ProductName { get; set; }
+
+        [DataMember()]
+        public String Description { get; set; }
+
+        [DataMember()]
+        public Double OldPrice { get; set; }
+
+        [DataMember()]
+        public Double NewPrice { get; set; }
+
+        [DataMember()]
+        public string QuantityTypeName { get; set; }
     }
 }

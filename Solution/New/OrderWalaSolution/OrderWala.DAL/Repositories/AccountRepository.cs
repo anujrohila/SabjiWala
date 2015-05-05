@@ -113,7 +113,6 @@ namespace OrderWala.DAL
             }
         }
 
-
         /// <summary>
         /// Is Duplicate Registration
         /// </summary>

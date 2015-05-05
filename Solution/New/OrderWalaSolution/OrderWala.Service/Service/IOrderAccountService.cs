@@ -26,6 +26,17 @@ namespace OrderWala.Service.Service
         [OperationContract(Name = "ChangePassword")]
         [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "ChangePassword?userId={userId}&oldPassword={oldPassword}&newPassword={newPassword}")]
         ChangePasswordResponse ChangePassword(int userId, string oldPassword, string newPassword);
-        
+
+        [OperationContract(Name = "GetProductMainCategoryList")]
+        [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetProductMainCategoryList?languageId={languageId}")]
+        ProductMainCategoryResponse GetProductMainCategoryList(int languageId);
+
+        [OperationContract(Name = "GetProductSubCategoryList")]
+        [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetProductSubCategoryList?mainCategoryId={mainCategoryId}&languageId={languageId}")]
+        ProductSubCategoryResponse GetProductSubCategoryList(int mainCategoryId, int languageId);
+
+        [OperationContract(Name = "GetProductList")]
+        [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetProductList?subCategoryId={subCategoryId}&languageId={languageId}&cityId={cityId}")]
+        ProductResponse GetProductList(int subCategoryId, int languageId, int cityId);
     }
 }

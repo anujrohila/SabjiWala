@@ -29,6 +29,84 @@ namespace OrderWala.DAL
         /// Area List
         /// </summary>
         /// <returns></returns>
+        public List<tblCategoryDTO> GetProductMainCategoryList(int languageId)
+        {
+            using (var OrderWalaContext = new OrderWalaEntities())
+            {
+                return OrderWalaContext.tblCategories.Where(cat => cat.IsActive && cat.IsDeleted == false && cat.LanguageId == languageId).ToList().ToDTOs();
+            }
+        }
+
+        /// <summary>
+        /// Get Product Sub Category List
+        /// </summary>
+        /// <returns></returns>
+        public List<tblSubCategoryDTO> GetProductSubCategoryList(int mainCategoryId, int languageId)
+        {
+            using (var OrderWalaContext = new OrderWalaEntities())
+            {
+                return (from subCategory in OrderWalaContext.tblSubCategories
+                        join mainCategory in OrderWalaContext.tblCategories on subCategory.CategoryId equals mainCategory.CategoryId
+                        where subCategory.IsActive == true
+                                && subCategory.IsDeleted == false
+                                && subCategory.LanguageId == languageId
+                                && subCategory.CategoryId == mainCategoryId
+                        select new tblSubCategoryDTO
+                        {
+                            SubCategoryId = subCategory.SubCategoryId,
+                            SubCategoryName = subCategory.SubCategoryName,
+                            CategoryId = subCategory.CategoryId,
+                            Description = subCategory.Description,
+                            IsActive = subCategory.IsActive,
+                            IsDeleted = subCategory.IsDeleted,
+                            LanguageId = subCategory.LanguageId,
+                            Logo = subCategory.Logo,
+                            MainCategoryName = mainCategory.CategoryName
+                        }).ToList();
+            }
+        }
+
+        /// <summary>
+        /// Area List
+        /// </summary>
+        /// <returns></returns>
+        public List<tblProductDTO> GetProductList(int subCategoryId, int languageId, int cityId)
+        {
+            using (var OrderWalaContext = new OrderWalaEntities())
+            {
+                return (from product in OrderWalaContext.tblProducts
+                        join subCategory in OrderWalaContext.tblSubCategories on product.SubCategoryId equals subCategory.SubCategoryId
+                        join languageWiseProduct in OrderWalaContext.tblLanguageWiseProducts on product.ProductId equals languageWiseProduct.ProductId
+                        join productPrice in OrderWalaContext.tblProductPrices on product.ProductId equals productPrice.ProductId
+                        join quantityType in OrderWalaContext.tblQuantityTypes on product.QuantityTypeId equals quantityType.QuantityTypeId
+                        where product.IsActive == true
+                                && product.IsDeleted == false
+                                && languageWiseProduct.LanguageId == languageId
+                                && product.SubCategoryId == subCategoryId
+                                && productPrice.CityId == cityId
+                        select new tblProductDTO
+                        {
+                            ProductId = product.ProductId,
+                            SubCategoryId = product.SubCategoryId,
+                            CategoryId = product.CategoryId,
+                            QuantityTypeId = product.QuantityTypeId,
+                            IsActive = product.IsActive,
+                            IsDeleted = product.IsDeleted,
+                            ProductName = languageWiseProduct.ProductName,
+                            Description = languageWiseProduct.Description,
+                            LanguageId = languageWiseProduct.LanguageId ?? 0,
+                            OldPrice = productPrice.OldPrice ?? 0,
+                            NewPrice = productPrice.NewPrice ?? 0,
+                            QuantityTypeName = quantityType.TypeName
+                        }).ToList();
+            }
+        }
+
+
+        /// <summary>
+        /// Area List
+        /// </summary>
+        /// <returns></returns>
         public List<tblAreaDTO> GetAllArea()
         {
             using (var OrderWalaContext = new OrderWalaEntities())
@@ -92,10 +170,10 @@ namespace OrderWala.DAL
                     OrderWalaContext.tblStates.Add(statedto.ToEntity());
                 }
                 else
-                {   
-                    
+                {
+
                     var statedata = OrderWalaContext.tblStates.Where(st => st.StateId == statedto.StateId).FirstOrDefault();
-                    
+
                     statedata.StateName = statedto.StateName;
                 }
 
@@ -115,7 +193,7 @@ namespace OrderWala.DAL
         /// 
         /// </summary>
         /// <returns></returns>
-     public  List<tblStateDTO> GetAllState()
+        public List<tblStateDTO> GetAllState()
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
@@ -193,9 +271,9 @@ namespace OrderWala.DAL
                 var citycount = OrderWalaContext.tblCities.Where(ct => string.Compare(ct.CityName, cityname) == 0 && ct.CityId != cityId).ToList();
                 return citycount.Count > 0 ? true : false;
 
-            
+
             }
-        
+
         }
 
         /// <summary>
@@ -221,7 +299,7 @@ namespace OrderWala.DAL
                     var citydata = OrderWalaContext.tblCities.Where(ct => ct.CityId == tblcitydto.CityId).FirstOrDefault();
                     citydata.StateId = tblcitydto.StateId;
                     citydata.CityName = tblcitydto.CityName;
-                    
+
                 }
 
                 if (OrderWalaContext.SaveChanges() > 0)
@@ -233,8 +311,8 @@ namespace OrderWala.DAL
                     return 2;
                 }
             }
-        
-        
+
+
         }
 
         /// <summary>
@@ -247,9 +325,9 @@ namespace OrderWala.DAL
             using (var OrderWalaContext = new OrderWalaEntities())
             {
                 return OrderWalaContext.tblCities.Where(ct => ct.CityId == cityId).FirstOrDefault().ToDTO();
-                
+
             }
-        
+
         }
 
 
@@ -293,8 +371,8 @@ namespace OrderWala.DAL
 
                 if (tblareadto.AreaId == 0)
                 {
-                    tblArea area=new tblArea();
-                    area.StateId= tblareadto.StateId;
+                    tblArea area = new tblArea();
+                    area.StateId = tblareadto.StateId;
                     area.CityId = tblareadto.CityId;
                     tblareadto.StateId = area.StateId;
                     tblareadto.CityId = area.CityId;
@@ -303,7 +381,7 @@ namespace OrderWala.DAL
                 else
                 {
 
-                    
+
                     var citydata = OrderWalaContext.tblAreas.Where(at => at.AreaId == tblareadto.AreaId).FirstOrDefault();
 
                     citydata.AreaName = tblareadto.AreaName;
@@ -321,11 +399,11 @@ namespace OrderWala.DAL
                     return 2;
                 }
             }
-        
-        
+
+
         }
 
-       
+
         /// <summary>
         /// 
         /// </summary>
@@ -343,7 +421,7 @@ namespace OrderWala.DAL
         }
 
 
-       
+
         /// <summary>
         /// 
         /// </summary>
@@ -355,7 +433,7 @@ namespace OrderWala.DAL
             {
                 return OrderWalaContext.tblAreas.Where(at => at.AreaId == AreaId).FirstOrDefault().ToDTO();
 
-            }   
+            }
         }
 
         /// <summary>
