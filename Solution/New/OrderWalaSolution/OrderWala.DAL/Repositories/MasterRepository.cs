@@ -102,7 +102,6 @@ namespace OrderWala.DAL
             }
         }
 
-
         /// <summary>
         /// Area List
         /// </summary>
@@ -462,7 +461,6 @@ namespace OrderWala.DAL
 
 
         #endregion
-
 
     }
 }

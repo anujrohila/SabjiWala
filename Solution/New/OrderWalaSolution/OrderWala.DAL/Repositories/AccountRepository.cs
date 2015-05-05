@@ -159,6 +159,45 @@ namespace OrderWala.DAL
             }
         }
 
+        /// <summary>
+        /// Get User Order List
+        /// </summary>
+        /// <returns></returns>
+        public List<tblOrderDTO> GetUserOrderList(int customerId, int languageId)
+        {
+            using (var OrderWalaContext = new OrderWalaEntities())
+            {
+                return (from orderObject in OrderWalaContext.tblOrders
+                        where orderObject.CustomerId == customerId
+                        select new tblOrderDTO
+                        {
+                            OrderId = orderObject.OrderId,
+                            OrderDateTime = orderObject.OrderDateTime,
+                            OrderStatus = orderObject.OrderStatus,
+                            OrderAmount = orderObject.OrderAmount,
+                            CustomerId = orderObject.CustomerId,
+                            DeliveryCharges = orderObject.DeliveryCharges,
+                            OtherCharges = orderObject.OtherCharges,
+                            CustomerMessage = orderObject.CustomerMessage,
+                            OverMessage = orderObject.OverMessage,
+                            OrderItemList = (from orderItem in OrderWalaContext.tblOrderItems
+                                             join languageWiseProduct in OrderWalaContext.tblLanguageWiseProducts on orderItem.ProductId equals languageWiseProduct.ProductId
+                                             where orderItem.OrderId == orderObject.OrderId && languageWiseProduct.LanguageId == languageId
+                                             select new tblOrderItemDTO
+                                             {
+                                                 OrderItemId = orderItem.OrderItemId,
+                                                 OrderId = orderItem.OrderId,
+                                                 ProductId = orderItem.ProductId,
+                                                 Price = orderItem.Price,
+                                                 Discount = orderItem.Discount,
+                                                 CreationDateTime = orderItem.CreationDateTime,
+                                                 ProductName = languageWiseProduct.ProductName,
+                                                 ProductDescription = languageWiseProduct.Description
+                                             }).ToList()
+                        }).ToList();
+            }
+        }
+
         #endregion
     }
 }
