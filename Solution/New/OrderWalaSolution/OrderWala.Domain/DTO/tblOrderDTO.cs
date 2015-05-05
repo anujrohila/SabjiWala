@@ -43,21 +43,6 @@ namespace OrderWala.Domain
         [DataMember()]
         public String OverMessage { get; set; }
 
-        public tblOrderDTO()
-        {
-        }
-
-        public tblOrderDTO(Int32 orderId, DateTime orderDateTime, Int32 orderStatus, Double orderAmount, Int32 customerId, Double deliveryCharges, Double otherCharges, String customerMessage, String overMessage)
-        {
-			this.OrderId = orderId;
-			this.OrderDateTime = orderDateTime;
-			this.OrderStatus = orderStatus;
-			this.OrderAmount = orderAmount;
-			this.CustomerId = customerId;
-			this.DeliveryCharges = deliveryCharges;
-			this.OtherCharges = otherCharges;
-			this.CustomerMessage = customerMessage;
-			this.OverMessage = overMessage;
-        }
+        public List<tblOrderItemDTO> OrderItemList { get; set; }
     }
 }

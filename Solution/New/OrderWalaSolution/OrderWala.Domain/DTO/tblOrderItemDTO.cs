@@ -37,19 +37,10 @@ namespace OrderWala.Domain
         [DataMember()]
         public Int32 Status { get; set; }
 
-        public tblOrderItemDTO()
-        {
-        }
+        [DataMember()]
+        public string ProductName { get; set; }
 
-        public tblOrderItemDTO(Int32 orderItemId, Int32 orderId, Int32 productId, Double price, Double discount, DateTime creationDateTime, Int32 status)
-        {
-			this.OrderItemId = orderItemId;
-			this.OrderId = orderId;
-			this.ProductId = productId;
-			this.Price = price;
-			this.Discount = discount;
-			this.CreationDateTime = creationDateTime;
-			this.Status = status;
-        }
+        [DataMember()]
+        public string ProductDescription { get; set; }
     }
 }

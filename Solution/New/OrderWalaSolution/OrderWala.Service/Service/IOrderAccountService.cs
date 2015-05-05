@@ -38,5 +38,9 @@ namespace OrderWala.Service.Service
         [OperationContract(Name = "GetProductList")]
         [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetProductList?subCategoryId={subCategoryId}&languageId={languageId}&cityId={cityId}")]
         ProductResponse GetProductList(int subCategoryId, int languageId, int cityId);
+
+        [OperationContract(Name = "GetUserOrderList")]
+        [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetUserOrderList?customerId={userId}&languageId={languageId}")]
+        UserOrderListResponse GetUserOrderList(int customerId, int languageId);
     }
 }
