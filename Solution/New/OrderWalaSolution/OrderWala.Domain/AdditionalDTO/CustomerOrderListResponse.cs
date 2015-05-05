@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace OrderWala.Domain
 {
     [DataContract]
-    public class UserOrderListResponse : CommonModel
+    public class CustomerOrderListResponse : CommonModel
     {
         [DataMember]
         public ServiceResponseStatus ServiceResponseStatus { get; set; }
