@@ -56,10 +56,10 @@
             <PropertyRef Name="CategoryId" />
           </Key>
           <Property Name="CategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="CategoryName" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="CategoryName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="LanguageId" Type="int" Nullable="false" />
-          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="5000" />
-          <Property Name="Logo" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Logo" Type="varchar" Nullable="false" MaxLength="200" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
         </EntityType>
@@ -136,8 +136,8 @@
           <Property Name="RowId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ProductId" Type="int" />
           <Property Name="LanguageId" Type="int" />
-          <Property Name="ProductName" Type="varchar" MaxLength="100" />
-          <Property Name="Description" Type="varchar" MaxLength="5000" />
+          <Property Name="ProductName" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="tblLogin">
           <Key>
@@ -162,8 +162,8 @@
           <Property Name="CustomerId" Type="int" Nullable="false" />
           <Property Name="DeliveryCharges" Type="float" Nullable="false" />
           <Property Name="OtherCharges" Type="float" Nullable="false" />
-          <Property Name="CustomerMessage" Type="varchar" MaxLength="5000" />
-          <Property Name="OverMessage" Type="varchar" MaxLength="5000" />
+          <Property Name="CustomerMessage" Type="nvarchar(max)" />
+          <Property Name="OverMessage" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="tblOrderItems">
           <Key>
@@ -221,8 +221,8 @@
           <Property Name="SubCategoryId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CategoryId" Type="int" Nullable="false" />
           <Property Name="LanguageId" Type="int" Nullable="false" />
-          <Property Name="SubCategoryName" Type="varchar" Nullable="false" MaxLength="100" />
-          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="5000" />
+          <Property Name="SubCategoryName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Logo" Type="varchar" Nullable="false" MaxLength="200" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
@@ -241,6 +241,7 @@
         <EntityContainer Name="OrderWalaEntities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="tblAdvertisements" EntityType="OrderWalaModel.tblAdvertisement" />
           <EntitySet Name="tblAreas" EntityType="OrderWalaModel.tblArea" />
+          <EntitySet Name="tblCategories" EntityType="OrderWalaModel.tblCategory" />
           <EntitySet Name="tblCities" EntityType="OrderWalaModel.tblCity" />
           <EntitySet Name="tblCustomers" EntityType="OrderWalaModel.tblCustomer" />
           <EntitySet Name="tblCustomerPayments" EntityType="OrderWalaModel.tblCustomerPayment" />
@@ -257,7 +258,6 @@
           <EntitySet Name="tblStates" EntityType="OrderWalaModel.tblState" />
           <EntitySet Name="tblSubCategories" EntityType="OrderWalaModel.tblSubCategory" />
           <EntitySet Name="tblUserTypes" EntityType="OrderWalaModel.tblUserType" />
-          <EntitySet Name="tblCategories" EntityType="OrderWalaModel.tblCategory" />
         </EntityContainer>
         <EntityType Name="tblAdvertisement">
           <Key>
@@ -278,11 +278,23 @@
           <Key>
             <PropertyRef Name="AreaId" />
           </Key>
-          <Property Type="Int32" Name="AreaId" Nullable="false" />
+          <Property Type="Int32" Name="AreaId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="AreaName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="Int32" Name="CityId" Nullable="false" />
           <Property Type="Int32" Name="StateId" Nullable="false" />
           <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblCategory">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Type="Int32" Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="LanguageId" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Logo" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
         </EntityType>
         <EntityType Name="tblCity">
           <Key>
@@ -357,8 +369,8 @@
           <Property Type="Int32" Name="RowId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int32" Name="ProductId" />
           <Property Type="Int32" Name="LanguageId" />
-          <Property Type="String" Name="ProductName" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Description" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ProductName" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tblLogin">
           <Key>
@@ -383,8 +395,8 @@
           <Property Type="Int32" Name="CustomerId" Nullable="false" />
           <Property Type="Double" Name="DeliveryCharges" Nullable="false" />
           <Property Type="Double" Name="OtherCharges" Nullable="false" />
-          <Property Type="String" Name="CustomerMessage" MaxLength="5000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="OverMessage" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CustomerMessage" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="OverMessage" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tblOrderItem">
           <Key>
@@ -442,8 +454,8 @@
           <Property Type="Int32" Name="SubCategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int32" Name="CategoryId" Nullable="false" />
           <Property Type="Int32" Name="LanguageId" Nullable="false" />
-          <Property Type="String" Name="SubCategoryName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Description" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SubCategoryName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Logo" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="IsActive" Nullable="false" />
           <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
@@ -454,18 +466,6 @@
           </Key>
           <Property Type="Int32" Name="UserTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="TypeName" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="tblCategory">
-          <Key>
-            <PropertyRef Name="CategoryId" />
-          </Key>
-          <Property Type="Int32" Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="CategoryName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="LanguageId" Nullable="false" />
-          <Property Type="String" Name="Description" Nullable="false" MaxLength="5000" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Logo" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="IsActive" Nullable="false" />
-          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -497,6 +497,19 @@
                 <ScalarProperty Name="CityId" ColumnName="CityId" />
                 <ScalarProperty Name="AreaName" ColumnName="AreaName" />
                 <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblCategories">
+            <EntityTypeMapping TypeName="OrderWalaModel.tblCategory">
+              <MappingFragment StoreEntitySet="tblCategory">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -684,19 +697,6 @@
               <MappingFragment StoreEntitySet="tblUserType">
                 <ScalarProperty Name="TypeName" ColumnName="TypeName" />
                 <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tblCategories">
-            <EntityTypeMapping TypeName="OrderWalaModel.tblCategory">
-              <MappingFragment StoreEntitySet="tblCategory">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="Logo" ColumnName="Logo" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
-                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
-                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

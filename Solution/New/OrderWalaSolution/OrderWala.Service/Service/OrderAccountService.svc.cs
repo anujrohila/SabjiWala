@@ -15,7 +15,6 @@ namespace OrderWala.Service.Service
 {
     public class OrderAccountService : IOrderAccountService
     {
-
         #region [Public Method]
 
         public AreaListResponse GetAreaList()
@@ -35,48 +34,48 @@ namespace OrderWala.Service.Service
             return areaListResponse;
         }
 
-        public UserDetailResponse Login(string userName, string password)
+        public ServiceLoginResponse Login(string userName, string password)
         {
-            var userDetailDTO = new UserDetailResponse();
-            userDetailDTO.ModelMessage = new List<ModelMessage>();
+            var serviceLoginResponse = new ServiceLoginResponse();
+            serviceLoginResponse.ModelMessage = new List<ModelMessage>();
             try
             {
                 bool isValid = true;
                 if (string.IsNullOrWhiteSpace(userName))
                 {
-                    userDetailDTO.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.valRequiredUserName });
+                    serviceLoginResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.valRequiredUserName });
                     isValid = false;
                 }
                 if (string.IsNullOrWhiteSpace(password))
                 {
-                    userDetailDTO.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.valRequiredPassword });
+                    serviceLoginResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.valRequiredPassword });
                     isValid = false;
                 }
                 if (isValid)
                 {
                     var accountRepository = new AccountRepository();
-                    userDetailDTO = accountRepository.Login(userName, Encryption.EncryptToBase64(password));
-                    if (userDetailDTO.UserId == 0)
+                    serviceLoginResponse.UserDetailResponse = accountRepository.Login(userName, Encryption.EncryptToBase64(password));
+                    if (serviceLoginResponse.UserDetailResponse.UserId == 0)
                     {
-                        userDetailDTO.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.valInvalidLoginDetail });
-                        userDetailDTO.ServiceResponseStatus = ServiceResponseStatus.Error;
+                        serviceLoginResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.valInvalidLoginDetail });
+                        serviceLoginResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
                     }
                     else
                     {
-                        userDetailDTO.ServiceResponseStatus = ServiceResponseStatus.Success;
+                        serviceLoginResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
                     }
                 }
                 else
                 {
-                    userDetailDTO.ServiceResponseStatus = ServiceResponseStatus.Error;
+                    serviceLoginResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
                 }
             }
             catch (Exception)
             {
-                userDetailDTO.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgErrorInTransaction });
-                userDetailDTO.ServiceResponseStatus = ServiceResponseStatus.Error;
+                serviceLoginResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgErrorInTransaction });
+                serviceLoginResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
             }
-            return userDetailDTO;
+            return serviceLoginResponse;
         }
 
         public RegisterCustomerResponse CustomerRegister(string firstName, string lastName, string address, int areaId, string emailAddress, string mobileNo, string password, string latitude, string longitude, int registerDeviceId)
@@ -113,14 +112,14 @@ namespace OrderWala.Service.Service
                         var registerResponse = accountRepository.RegisterCustomer(userDetailDTO);
                         if (registerResponse == 0)
                         {
-                            userDetailDTO.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgErrorInRegistration });
+                            registerCustomerResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgErrorInRegistration });
                             registerCustomerResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
                         }
                         else
                         {
                             registerCustomerResponse.UserId = registerResponse;
                             registerCustomerResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
-                            userDetailDTO.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgRegisterSuccessfullly });
+                            registerCustomerResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgRegisterSuccessfullly });
                         }
                     }
                     else
@@ -245,24 +244,6 @@ namespace OrderWala.Service.Service
             return productListResponse;
         }
 
-        public CustomerOrderListResponse GetCustomerOrderList(int customerId, int languageId)
-        {
-            var customerOrderListResponse = new CustomerOrderListResponse();
-            customerOrderListResponse.ModelMessage = new List<ModelMessage>();
-            try
-            {
-                var accountRepository = new AccountRepository();
-                customerOrderListResponse.OrderList = accountRepository.GetUserOrderList(customerId, languageId);
-                customerOrderListResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
-            }
-            catch (Exception)
-            {
-                customerOrderListResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgErrorInTransaction });
-                customerOrderListResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
-            }
-            return customerOrderListResponse;
-        }
-
         public ProductResponse GetProduct(int productId, int languageId, int cityId)
         {
             var productResponse = new ProductResponse();
@@ -279,6 +260,24 @@ namespace OrderWala.Service.Service
                 productResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
             }
             return productResponse;
+        }
+
+        public CustomerOrderListResponse GetCustomerOrderList(int customerId, int languageId)
+        {
+            var customerOrderListResponse = new CustomerOrderListResponse();
+            customerOrderListResponse.ModelMessage = new List<ModelMessage>();
+            try
+            {
+                var accountRepository = new AccountRepository();
+                customerOrderListResponse.OrderList = accountRepository.GetUserOrderList(customerId, languageId);
+                customerOrderListResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
+            }
+            catch (Exception)
+            {
+                customerOrderListResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgErrorInTransaction });
+                customerOrderListResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
+            }
+            return customerOrderListResponse;
         }
 
         public CustomerPaymentListResponse GetCustomerPaymentList(int customerId)

@@ -27,6 +27,7 @@ namespace OrderWala.DAL
     
         public DbSet<tblAdvertisement> tblAdvertisements { get; set; }
         public DbSet<tblArea> tblAreas { get; set; }
+        public DbSet<tblCategory> tblCategories { get; set; }
         public DbSet<tblCity> tblCities { get; set; }
         public DbSet<tblCustomer> tblCustomers { get; set; }
         public DbSet<tblCustomerPayment> tblCustomerPayments { get; set; }
@@ -43,6 +44,5 @@ namespace OrderWala.DAL
         public DbSet<tblState> tblStates { get; set; }
         public DbSet<tblSubCategory> tblSubCategories { get; set; }
         public DbSet<tblUserType> tblUserTypes { get; set; }
-        public DbSet<tblCategory> tblCategories { get; set; }
     }
 }

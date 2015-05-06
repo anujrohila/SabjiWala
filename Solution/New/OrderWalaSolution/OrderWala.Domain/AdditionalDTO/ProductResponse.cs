@@ -13,6 +13,7 @@ namespace OrderWala.Domain
         [DataMember]
         public ServiceResponseStatus ServiceResponseStatus { get; set; }
 
+        [DataMember]
         public tblProductDTO Product { get; set; }
     }
 }

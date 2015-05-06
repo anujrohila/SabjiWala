@@ -17,7 +17,7 @@ namespace OrderWala.Service.Service
 
         [OperationContract(Name = "Login")]
         [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "Login?userName={userName}&password={password}")]
-        UserDetailResponse Login(string userName, string password);
+        ServiceLoginResponse Login(string userName, string password);
 
         [OperationContract(Name = "CustomerRegister")]
         [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "CustomerRegister?firstName={firstName}&lastName={lastName}&address={address}&areaId={areaId}&emailAddress={emailAddress}&mobileNo={mobileNo}&password={password}&latitude={latitude}&longitude={longitude}&registerDeviceId={registerDeviceId}")]
@@ -44,7 +44,7 @@ namespace OrderWala.Service.Service
         ProductResponse GetProduct(int productId, int languageId, int cityId);
 
         [OperationContract(Name = "GetCustomerOrderList")]
-        [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetCustomerOrderList?customerId={userId}&languageId={languageId}")]
+        [WebInvoke(Method = "GET", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Wrapped, UriTemplate = "GetCustomerOrderList?customerId={customerId}&languageId={languageId}")]
         CustomerOrderListResponse GetCustomerOrderList(int customerId, int languageId);
 
         [OperationContract(Name = "GetCustomerPaymentList")]
