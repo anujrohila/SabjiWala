@@ -51,5 +51,8 @@ namespace OrderWala.Domain
 
         [DataMember()]
         public string QuantityTypeName { get; set; }
+
+        [DataMember()]
+        public string Logo { get; set; }
     }
 }

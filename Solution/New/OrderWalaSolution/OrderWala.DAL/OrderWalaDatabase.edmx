@@ -187,6 +187,7 @@
           <Property Name="QuantityTypeId" Type="int" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Logo" Type="varchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="tblProductPrice">
           <Key>
@@ -420,6 +421,7 @@
           <Property Type="Int32" Name="QuantityTypeId" Nullable="false" />
           <Property Type="Boolean" Name="IsActive" Nullable="false" />
           <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="String" Name="Logo" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="tblProductPrice">
           <Key>
@@ -640,6 +642,7 @@
           <EntitySetMapping Name="tblProducts">
             <EntityTypeMapping TypeName="OrderWalaModel.tblProduct">
               <MappingFragment StoreEntitySet="tblProduct">
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="QuantityTypeId" ColumnName="QuantityTypeId" />

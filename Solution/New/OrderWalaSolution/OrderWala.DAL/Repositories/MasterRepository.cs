@@ -97,7 +97,8 @@ namespace OrderWala.DAL
                             LanguageId = languageWiseProduct.LanguageId ?? 0,
                             OldPrice = productPrice.OldPrice ?? 0,
                             NewPrice = productPrice.NewPrice ?? 0,
-                            QuantityTypeName = quantityType.TypeName
+                            QuantityTypeName = quantityType.TypeName,
+                            Logo = product.Logo,
                         }).ToList();
             }
         }
@@ -133,7 +134,8 @@ namespace OrderWala.DAL
                             LanguageId = languageWiseProduct.LanguageId ?? 0,
                             OldPrice = productPrice.OldPrice ?? 0,
                             NewPrice = productPrice.NewPrice ?? 0,
-                            QuantityTypeName = quantityType.TypeName
+                            QuantityTypeName = quantityType.TypeName,
+                            Logo = product.Logo,
                         }).FirstOrDefault();
             }
         }

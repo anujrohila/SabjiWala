@@ -198,6 +198,10 @@ namespace OrderWala.Service.Service
             {
                 var masterRepository = new MasterRepository();
                 productMainCategoryResponse.CategoryList = masterRepository.GetProductMainCategoryList(languageId);
+                foreach (var category in productMainCategoryResponse.CategoryList)
+                {
+                    category.Logo = string.Format("{0}Document/Category/{1}", WebConfigurationManagement.WebAdminPath, category.Logo);
+                }
                 productMainCategoryResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
             }
             catch (Exception)
@@ -216,6 +220,10 @@ namespace OrderWala.Service.Service
             {
                 var masterRepository = new MasterRepository();
                 productSubCategoryResponse.SubCategoryList = masterRepository.GetProductSubCategoryList(mainCategoryId, languageId);
+                foreach (var subCategory in productSubCategoryResponse.SubCategoryList)
+                {
+                    subCategory.Logo = string.Format("{0}Document/SubCategory/{1}", WebConfigurationManagement.WebAdminPath, subCategory.Logo);
+                }
                 productSubCategoryResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
             }
             catch (Exception)
@@ -234,6 +242,10 @@ namespace OrderWala.Service.Service
             {
                 var masterRepository = new MasterRepository();
                 productListResponse.ProductList = masterRepository.GetProductList(subCategoryId, languageId, cityId);
+                foreach (var product in productListResponse.ProductList)
+                {
+                    product.Logo = string.Format("{0}Document/Product/{1}", WebConfigurationManagement.WebAdminPath, product.Logo);
+                }
                 productListResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
             }
             catch (Exception)
@@ -252,6 +264,10 @@ namespace OrderWala.Service.Service
             {
                 var masterRepository = new MasterRepository();
                 productResponse.Product = masterRepository.GetProduct(productId, languageId, cityId);
+                if (productResponse.Product != null)
+                {
+                    productResponse.Product.Logo = string.Format("{0}Document/Product/{1}", WebConfigurationManagement.WebAdminPath, productResponse.Product.Logo);
+                }
                 productResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
             }
             catch (Exception)

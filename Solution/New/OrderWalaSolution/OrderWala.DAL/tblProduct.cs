@@ -20,5 +20,6 @@ namespace OrderWala.DAL
         public int QuantityTypeId { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
+        public string Logo { get; set; }
     }
 }
