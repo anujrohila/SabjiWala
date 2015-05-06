@@ -61,7 +61,7 @@ namespace OrderWala.DAL
                             IsDeleted = subCategory.IsDeleted,
                             LanguageId = subCategory.LanguageId,
                             Logo = subCategory.Logo,
-                            MainCategoryName = mainCategory.CategoryName
+                            //MainCategoryName = mainCategory.CategoryName
                         }).ToList();
             }
         }

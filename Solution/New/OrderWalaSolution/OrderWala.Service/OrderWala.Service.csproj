@@ -73,6 +73,7 @@
     <Compile Include="Service\OrderAccountService.svc.cs">
       <DependentUpon>OrderAccountService.svc</DependentUpon>
     </Compile>
+    <Compile Include="Utility\WebConfigurationManagement.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OrderWala.DAL\OrderWala.DAL.csproj">
@@ -92,9 +93,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utility\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
