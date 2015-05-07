@@ -5,25 +5,27 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="2e6f12b7d8974714b9dafb6b72d76720" Name="Diagram1" ZoomLevel="63">
-        <EntityTypeShape EntityType="OrderWalaModel.tblAdvertisement" Width="1.5" PointX="10.835414645651083" PointY="1.5804181106297384" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblArea" Width="1.5" PointX="4.8901803497644982" PointY="22.778531234142619" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblCategory" Width="1.5" PointX="0.67733400719116155" PointY="8.2288722583227187" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblCity" Width="1.5" PointX="5.2455569958526436" PointY="10.576296855963905" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblCustomer" Width="1.5" PointX="9.1110197478490971" PointY="4.4272897413127543" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblCustomerPayment" Width="1.5" PointX="0.23630323458290808" PointY="30.310104458737236" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblDeliveryCharge" Width="1.5" PointX="9.8838763376157157" PointY="23.194749872756539" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblDeviceType" Width="1.5" PointX="10.283729451840618" PointY="14.287247992254443" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblLanguage" Width="1.5" PointX="3.2572578821597888" PointY="25.988204044284394" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblLanguageWiseProduct" Width="1.5" PointX="3.513288635533903" PointY="13.550440913788249" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblLogin" Width="1.5" PointX="9.5686854466650111" PointY="13.8140920613958" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblOrder" Width="1.5" PointX="10.71441912404933" PointY="4.4009353091944643" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblOrderItem" Width="1.5" PointX="10.131950658807508" PointY="4.0098830629186164" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblProduct" Width="1.5" PointX="6.0468907496178952" PointY="0.21359978626184156" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblProductPrice" Width="1.5" PointX="5.4842270899024923" PointY="7.8376149273652649" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblQuantityType" Width="1.5" PointX="11.848956188116667" PointY="6.8069464894043961" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblState" Width="1.5" PointX="10.230077962498216" PointY="8.7721146385986888" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblSubCategory" Width="1.5" PointX="2.5387551237543837" PointY="10.545116593383773" />
-        <EntityTypeShape EntityType="OrderWalaModel.tblUserType" Width="1.5" PointX="5.8837743149529089" PointY="15.771524838996831" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblAdvertisement" Width="1.5" PointX="5.190500559839653" PointY="24.731053155255996" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblArea" Width="1.5" PointX="3.4073689335060164" PointY="25.655575808908594" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblCategory" Width="1.5" PointX="8.25787023653177" PointY="17.0356035758907" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblCity" Width="1.5" PointX="1.2268837938210386" PointY="10.054467444333465" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblCustomer" Width="1.5" PointX="3.6842701228727908" PointY="25.90626135184721" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblCustomerPayment" Width="1.5" PointX="4.478682849779112" PointY="9.4710959836240374" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblDeliveryCharge" Width="1.5" PointX="0.872747172076603" PointY="28.37132829258746" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblDeviceType" Width="1.5" PointX="4.8925844416453428" PointY="28.381944162948962" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblLanguage" Width="1.5" PointX="8.6260454229200469" PointY="23.383925702135976" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblLanguageWiseCategory" Width="1.5" PointX="0.084636507595254346" PointY="18.258777328887383" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblLanguageWiseProduct" Width="1.5" PointX="8.808754058931374" PointY="14.435682407783197" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblLanguageWiseSubCategory" Width="1.5" PointX="0.97730596595318342" PointY="1.0703503196455306" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblLogin" Width="1.5" PointX="7.6755974328497416" PointY="9.1097563547593339" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblOrder" Width="1.5" PointX="3.8671323879934532" PointY="24.546009388075216" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblOrderItem" Width="1.5" PointX="7.7357546983918892" PointY="8.5349106232332588" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblProduct" Width="1.5" PointX="10.8074778517743" PointY="10.945652400583798" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblProductPrice" Width="1.5" PointX="3.5331116968454381" PointY="18.857846030433592" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblQuantityType" Width="1.5" PointX="5.8119923946503516" PointY="17.368387334685952" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblState" Width="1.5" PointX="1.707677421023919" PointY="1.8430692264079438" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblSubCategory" Width="1.5" PointX="9.9330786680491077" PointY="20.951325828652514" />
+        <EntityTypeShape EntityType="OrderWalaModel.tblUserType" Width="1.5" PointX="7.2709512893440911" PointY="10.725542714225847" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

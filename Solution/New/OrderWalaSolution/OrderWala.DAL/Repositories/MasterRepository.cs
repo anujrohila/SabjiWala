@@ -33,7 +33,21 @@ namespace OrderWala.DAL
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
-                return OrderWalaContext.tblCategories.Where(cat => cat.IsActive && cat.IsDeleted == false && cat.LanguageId == languageId).ToList().ToDTOs();
+                return (from category in OrderWalaContext.tblCategories
+                        join languageWiseCategories in OrderWalaContext.tblLanguageWiseCategories on category.CategoryId equals languageWiseCategories.CategoryId
+                        where category.IsActive == true
+                                && category.IsDeleted == false
+                                && languageWiseCategories.LanguageId == languageId
+                        select new tblCategoryDTO
+                        {
+                            CategoryId = category.CategoryId,
+                            IsActive = category.IsActive,
+                            IsDeleted = category.IsDeleted,
+                            Logo = category.Logo,
+                            CategoryName = languageWiseCategories.CategoryName,
+                            Description = languageWiseCategories.Description,
+                            LanguageId = languageWiseCategories.LanguageId
+                        }).ToList();
             }
         }
 
@@ -46,22 +60,21 @@ namespace OrderWala.DAL
             using (var OrderWalaContext = new OrderWalaEntities())
             {
                 return (from subCategory in OrderWalaContext.tblSubCategories
-                        join mainCategory in OrderWalaContext.tblCategories on subCategory.CategoryId equals mainCategory.CategoryId
+                        join languageWiseSubCategories in OrderWalaContext.tblLanguageWiseSubCategories on subCategory.SubCategoryId equals languageWiseSubCategories.SubCategoryId
                         where subCategory.IsActive == true
                                 && subCategory.IsDeleted == false
-                                && subCategory.LanguageId == languageId
+                                && languageWiseSubCategories.LanguageId == languageId
                                 && subCategory.CategoryId == mainCategoryId
                         select new tblSubCategoryDTO
                         {
                             SubCategoryId = subCategory.SubCategoryId,
-                            SubCategoryName = subCategory.SubCategoryName,
+                            SubCategoryName = languageWiseSubCategories.SubCategoryName,
                             CategoryId = subCategory.CategoryId,
-                            Description = subCategory.Description,
+                            Description = languageWiseSubCategories.Description,
                             IsActive = subCategory.IsActive,
                             IsDeleted = subCategory.IsDeleted,
-                            LanguageId = subCategory.LanguageId,
+                            LanguageId = languageWiseSubCategories.LanguageId,
                             Logo = subCategory.Logo,
-                            //MainCategoryName = mainCategory.CategoryName
                         }).ToList();
             }
         }
@@ -75,7 +88,7 @@ namespace OrderWala.DAL
             using (var OrderWalaContext = new OrderWalaEntities())
             {
                 return (from product in OrderWalaContext.tblProducts
-                        join subCategory in OrderWalaContext.tblSubCategories on product.SubCategoryId equals subCategory.SubCategoryId
+                        join languageWiseSubCategories in OrderWalaContext.tblLanguageWiseSubCategories on product.SubCategoryId equals languageWiseSubCategories.SubCategoryId
                         join languageWiseProduct in OrderWalaContext.tblLanguageWiseProducts on product.ProductId equals languageWiseProduct.ProductId
                         join productPrice in OrderWalaContext.tblProductPrices on product.ProductId equals productPrice.ProductId
                         join quantityType in OrderWalaContext.tblQuantityTypes on product.QuantityTypeId equals quantityType.QuantityTypeId
@@ -99,6 +112,7 @@ namespace OrderWala.DAL
                             NewPrice = productPrice.NewPrice ?? 0,
                             QuantityTypeName = quantityType.TypeName,
                             Logo = product.Logo,
+                            SubCategoryName = languageWiseSubCategories.SubCategoryName
                         }).ToList();
             }
         }
@@ -112,11 +126,11 @@ namespace OrderWala.DAL
             using (var OrderWalaContext = new OrderWalaEntities())
             {
                 return (from product in OrderWalaContext.tblProducts
-                        join subCategory in OrderWalaContext.tblSubCategories on product.SubCategoryId equals subCategory.SubCategoryId
+                        join languageWiseSubCategories in OrderWalaContext.tblLanguageWiseSubCategories on product.SubCategoryId equals languageWiseSubCategories.SubCategoryId
                         join languageWiseProduct in OrderWalaContext.tblLanguageWiseProducts on product.ProductId equals languageWiseProduct.ProductId
                         join productPrice in OrderWalaContext.tblProductPrices on product.ProductId equals productPrice.ProductId
                         join quantityType in OrderWalaContext.tblQuantityTypes on product.QuantityTypeId equals quantityType.QuantityTypeId
-                        where product.ProductId == productId 
+                        where product.ProductId == productId
                                 && product.IsActive == true
                                 && product.IsDeleted == false
                                 && languageWiseProduct.LanguageId == languageId
@@ -136,6 +150,7 @@ namespace OrderWala.DAL
                             NewPrice = productPrice.NewPrice ?? 0,
                             QuantityTypeName = quantityType.TypeName,
                             Logo = product.Logo,
+                            SubCategoryName = languageWiseSubCategories.SubCategoryName
                         }).FirstOrDefault();
             }
         }

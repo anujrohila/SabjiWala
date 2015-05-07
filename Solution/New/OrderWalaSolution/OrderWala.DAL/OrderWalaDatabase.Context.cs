@@ -34,7 +34,9 @@ namespace OrderWala.DAL
         public DbSet<tblDeliveryCharge> tblDeliveryCharges { get; set; }
         public DbSet<tblDeviceType> tblDeviceTypes { get; set; }
         public DbSet<tblLanguage> tblLanguages { get; set; }
+        public DbSet<tblLanguageWiseCategory> tblLanguageWiseCategories { get; set; }
         public DbSet<tblLanguageWiseProduct> tblLanguageWiseProducts { get; set; }
+        public DbSet<tblLanguageWiseSubCategory> tblLanguageWiseSubCategories { get; set; }
         public DbSet<tblLogin> tblLogins { get; set; }
         public DbSet<tblOrder> tblOrders { get; set; }
         public DbSet<tblOrderItem> tblOrderItems { get; set; }

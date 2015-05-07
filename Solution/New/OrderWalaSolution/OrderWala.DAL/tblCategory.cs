@@ -15,9 +15,6 @@ namespace OrderWala.DAL
     public partial class tblCategory
     {
         public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
-        public int LanguageId { get; set; }
-        public string Description { get; set; }
         public string Logo { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }

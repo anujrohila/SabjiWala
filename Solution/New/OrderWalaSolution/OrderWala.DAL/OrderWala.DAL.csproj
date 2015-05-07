@@ -55,7 +55,9 @@
     <Compile Include="Assemblers\tblDeliveryChargeAssembler.cs" />
     <Compile Include="Assemblers\tblDeviceTypeAssembler.cs" />
     <Compile Include="Assemblers\tblLanguageAssembler.cs" />
+    <Compile Include="Assemblers\tblLanguageWiseCategoryAssembler.cs" />
     <Compile Include="Assemblers\tblLanguageWiseProductAssembler.cs" />
+    <Compile Include="Assemblers\tblLanguageWiseSubCategoryAssembler.cs" />
     <Compile Include="Assemblers\tblLoginAssembler.cs" />
     <Compile Include="Assemblers\tblOrderAssembler.cs" />
     <Compile Include="Assemblers\tblOrderItemAssembler.cs" />
@@ -117,7 +119,13 @@
     <Compile Include="tblLanguage.cs">
       <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="tblLanguageWiseCategory.cs">
+      <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
+    </Compile>
     <Compile Include="tblLanguageWiseProduct.cs">
+      <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblLanguageWiseSubCategory.cs">
       <DependentUpon>OrderWalaDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="tblLogin.cs">
