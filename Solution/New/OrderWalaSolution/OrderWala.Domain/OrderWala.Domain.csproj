@@ -65,7 +65,9 @@
     <Compile Include="DTO\tblDeliveryChargeDTO.cs" />
     <Compile Include="DTO\tblDeviceTypeDTO.cs" />
     <Compile Include="DTO\tblLanguageDTO.cs" />
+    <Compile Include="DTO\tblLanguageWiseCategoryDTO.cs" />
     <Compile Include="DTO\tblLanguageWiseProductDTO.cs" />
+    <Compile Include="DTO\tblLanguageWiseSubCategoryDTO.cs" />
     <Compile Include="DTO\tblLoginDTO.cs" />
     <Compile Include="DTO\tblOrderDTO.cs" />
     <Compile Include="DTO\tblOrderItemDTO.cs" />

@@ -14,30 +14,34 @@ using System.Text;
 namespace OrderWala.Domain
 {
     [DataContract()]
-    public partial class tblSubCategoryDTO
+    public partial class tblLanguageWiseCategoryDTO
     {
         [DataMember()]
-        public Int32 SubCategoryId { get; set; }
+        public Int32 RowId { get; set; }
 
         [DataMember()]
         public Int32 CategoryId { get; set; }
 
         [DataMember()]
-        public String Logo { get; set; }
-
-        [DataMember()]
-        public Boolean IsActive { get; set; }
-
-        [DataMember()]
-        public Boolean IsDeleted { get; set; }
-
-        [DataMember()]
-        public String SubCategoryName { get; set; }
+        public String CategoryName { get; set; }
 
         [DataMember()]
         public String Description { get; set; }
 
         [DataMember()]
         public Int32 LanguageId { get; set; }
+
+        public tblLanguageWiseCategoryDTO()
+        {
+        }
+
+        public tblLanguageWiseCategoryDTO(Int32 rowId, Int32 categoryId, String categoryName, String description, Int32 languageId)
+        {
+			this.RowId = rowId;
+			this.CategoryId = categoryId;
+			this.CategoryName = categoryName;
+			this.Description = description;
+			this.LanguageId = languageId;
+        }
     }
 }

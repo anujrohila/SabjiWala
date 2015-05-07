@@ -54,5 +54,8 @@ namespace OrderWala.Domain
 
         [DataMember()]
         public string Logo { get; set; }
+
+        [DataMember]
+        public string SubCategoryName { get; set; }
     }
 }
