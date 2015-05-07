@@ -28,13 +28,17 @@ namespace OrderWala.Domain
         [DataMember()]
         public Boolean IsDeleted { get; set; }
 
-        [DataMember()]
+   
         public String CategoryName { get; set; }
 
-        [DataMember()]
+
         public String Description { get; set; }
 
-        [DataMember()]
+ 
         public Int32 LanguageId { get; set; }
+
+
+
+        
     }
 }
