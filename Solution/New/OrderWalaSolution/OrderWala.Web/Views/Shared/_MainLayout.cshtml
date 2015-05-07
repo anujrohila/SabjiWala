@@ -85,7 +85,7 @@
                     <a href="index.html" class="navbar-brand">
                         <img src="~/Images/logo.png" alt="Nifty Logo" class="brand-icon">
                         <div class="brand-title">
-                            <span class="brand-text">Nifty</span>
+                            <span class="brand-text">OrderWala</span>
                         </div>
                     </a>
                 </div>
@@ -636,7 +636,7 @@
 
                                     <!--Menu list item-->
                                     <li class="active-link">
-                                        <a href="index.html">
+                                        <a href="@Url.Action("Index","Home")">
                                             <i class="fa fa-dashboard"></i>
                                             <span class="menu-title">
                                                 <strong>Dashboard</strong>
@@ -663,8 +663,9 @@
                                             <li><a href="@Url.Action("ListAllAdvertise","Advertise")">Advertise</a></li>
                                               <li><a href="@Url.Action("ListAllDeliveryCharge","DeliveryCharge")">DeliveryCharge</a></li>
                                             <li><a href="@Url.Action("ListAllDeviceType","DeviceType")">DeviceType</a></li>
-                                             <li><a href="@Url.Action("ListAllLogin","Login")">User</a></li>
-                                           
+                                             <li><a href="@Url.Action("ListAllLanguage","Language")">Language</a></li>
+                                            <li><a href="@Url.Action("Save","Login")">User</a></li>                                            
+                                            <li><a href="@Url.Action("ListAllCustomer","Customer")">Customer</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -680,7 +681,7 @@
                                         <ul class="collapse">
                                             <li><a href="@Url.Action("ListAllCategory","Category")">Category</a></li>
                                             <li><a href="@Url.Action("ListAllSubCategory","SubCategory")">SubCategory</a></li>
-                                            <li><a href="layouts-offcanvas-navigation.html">Product</a></li>
+                                            <li><a href="@Url.Action("ListAllProduct","Product")">Product</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -694,7 +695,7 @@
 
                                         <!--Submenu-->
                                         <ul class="collapse">
-                                            <li><a href="layouts-collapsed-navigation.html">Order Details</a></li>
+                                            <li><a href="@Url.Action("ListAllOrder","Order")">Order Details</a></li>
                                             <li><a href="layouts-offcanvas-navigation.html">Daily Order Details</a></li>
                                         </ul>
                                     </li>

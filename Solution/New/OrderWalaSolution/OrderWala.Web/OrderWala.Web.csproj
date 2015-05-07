@@ -196,7 +196,10 @@
     <Compile Include="Controllers\DeliveryChargeController.cs" />
     <Compile Include="Controllers\DeviceTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\StateController.cs" />
     <Compile Include="Controllers\SubCategoryController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -465,16 +468,21 @@
     <Content Include="Views\DeviceType\ListAllDeviceType.cshtml" />
     <Content Include="Views\SubCategory\ListAllSubCategory.cshtml" />
     <Content Include="Views\SubCategory\SubCategorySave.cshtml" />
-
-    <Content Include="Views\Login\ListAllLogin.cshtml" />
     <Content Include="Views\Login\Save.cshtml" />
-
     <Content Include="Views\Customer\CustomerSave.cshtml" />
     <Content Include="Views\Customer\ListAllCustomer.cshtml" />
-
+    <Content Include="Views\Order\ListAllOrder.cshtml" />
+    <Content Include="Views\Order\ListAllOrderItem.cshtml" />
+    <Content Include="Views\Language\Save.cshtml" />
+    <Content Include="Views\Language\ListAllLanguage.cshtml" />
+    <Content Include="Views\Product\ListAllProduct.cshtml" />
+    <Content Include="Views\Product\ProductSave.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\Document\Category\" />
+    <Folder Include="Images\Document\Product\" />
+    <Folder Include="Images\Document\Subcategory\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

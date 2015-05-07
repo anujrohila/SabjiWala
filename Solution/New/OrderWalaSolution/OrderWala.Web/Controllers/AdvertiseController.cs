@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using OrderWala.DAL;
 using OrderWala.Domain;
 using OrderWala.Web;
+using OrderWala.Domain.Resource;
 
 namespace OrderWala.Web.Controllers
 {
@@ -61,11 +62,11 @@ namespace OrderWala.Web.Controllers
 
                 if (returnValue == 1)
                 {
-                    ModelState.AddModelError("AdvertisementName", "Advertisement Name Already Exist");
+                    ModelState.AddModelError("AdvertisementName", OrderWalaResource.valDuplicateAdvertise);
                 }
                 else if (returnValue == 2)
                 {
-                    ModelState.AddModelError("AdvertisementName", "Error");
+                    ModelState.AddModelError("AdvertisementName", OrderWalaResource.lblError);
                 }
                 else
                 {
@@ -90,9 +91,9 @@ namespace OrderWala.Web.Controllers
             var result = AdvertiseRepository.AdvertiseDelete(ID);
             if (result == true)
             {
-                return Json(new { Success = true, Message = "Delete Succusfully!" });
+                return Json(new { Success = true, OrderWalaResource.msgDeleteSuccessfully});
             }
-            return Json(new { Success = false, Message = "Delete Fail!" });
+            return Json(new { Success = false, OrderWalaResource.msgDeleteFail });
         
         }
 

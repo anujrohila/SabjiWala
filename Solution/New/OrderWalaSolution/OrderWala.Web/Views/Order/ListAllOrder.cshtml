@@ -1,41 +1,36 @@
-﻿@model List<OrderWala.Domain.tblCustomerDTO>
+﻿@model List<OrderWala.Domain.tblOrderDTO>
 @{
-    ViewBag.Title = "ListAllCustomer";
+    ViewBag.Title = "ListAllOrder";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
-}
 
+}
+	<!--FooTable [ OPTIONAL ]-->
 <link href="~/Content/plugins/datatables/media/css/dataTables.bootstrap.css" rel="stylesheet">
 <link href="~/Content/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css" rel="stylesheet">
 
 <div id="page-content">
+
 <div class="panel">
     <div class="panel-heading">
-        <h3 class="panel-title">Customer Master</h3>
+        <h3 class="panel-title">Order Master</h3>
     </div>
 
     <!-- Foo Table - Add & Remove Rows -->
     <!--===================================================-->
     <div class="panel-body">
-        <div class="pad-btm form-inline">
-            <div class="row">
-                <div class="col-sm-6 text-xs-center">
-                    <div class="form-group">
-                        <a id="demo-btn-addrow" class="btn btn-purple btn-labeled fa fa-plus" href="@Url.Action("CustomerSave", "Customer")">Add New Customer</a>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
+       
          <table id="demo-dt-basic" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
-
-
-                    <th >First Name</th>
-                    <th >Last Name</th>
-                    <th >Email Addres</th>
-                    <th >Total OrderAmt</th>
-                    <th >Total Receive Amt</th>
+                    <th >OrderID</th>
+                    <th >Order Date-Time</th>
+                    <th >Order Status </th>
+                    <th >Order Amount</th>
+                    <th >Customer Name</th>
+                    <th >Delivery Charges </th>
+                    <th >Other Charges</th>
+                    <th >Customer Message</th>
+                    <th >Over Message</th>
 
                     <th align="center">Action</th>
                 </tr>
@@ -45,20 +40,23 @@
 
                 @foreach (var item in Model)
                 {
-                                          
                     <tr class="footable-even" style="display: table-row;">
-                        <td >@item.FirstName</td>
-                        <td >@item.LastName</td>
-                        <td >@item.EmailAddress</td>
-                        <td >@item.TotalOrderAmount</td>
-                        <td >@item.RecievedAmount</td>
+                        <td >@item.OrderId</td>
+                        <td >@item.OrderDateTime</td>
+                        <td >@item.OrderStatus</td>
+                        <td >@item.OrderAmount</td>
+                        <td >@item.CustomerName</td>
+                        <td >@item.DeliveryCharges</td>
+                        <td >@item.OtherCharges</td>
+                        <td >@item.CustomerMessage</td>
+                        <td >@item.OverMessage</td>
+                      
                         <td >
-                            <a href="@Url.Action("CustomerSave", "Customer", new { id = item.CustomerId })" style="color:white"><i class="fa fa-lg fa-pencil-square-o" style="background-color: green; padding: 5px;"></i></a>
-                            <a class="demo-delete-row btn btn-danger btn-xs btn-icon fa fa-times" style="margin-left:10px;" onclick="DeleteCustomer(@item.CustomerId,this)"></a>
+                            <a href="@Url.Action("ListAllOrderItem", "Order", new { id = item.OrderId })" style="color:white"><i class="fa fa-lg fa-pencil-square-o" style="background-color: green; padding: 5px;"></i></a>
+                            <a class="demo-delete-row btn btn-danger btn-xs btn-icon fa fa-times" style="margin-left:10px;" onclick="orderDelete(@item.OrderId,this)"></a>
                         </td>
 
                     </tr>
-                     
                 }
             </tbody>
            
@@ -68,24 +66,21 @@
     <!-- End Foo Table - Add & Remove Rows -->
     </div>
 </div>
-<script src="~/Content/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+
+<!--FooTable [ OPTIONAL ]-->
+	 <script src="~/Content/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/Content/plugins/datatables/media/js/jquery.dataTables.js"></script>
     <script src="~/Content/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
     <script src="~/Content/js/demo/tables-datatables.js"></script>
 
 
-
-
-
 <script type="text/javascript">
 
 
-    function DeleteCustomer(id, thd) {
+    function orderDelete(id, thd) {
         var confirmResult = confirm("Are you Sure Delete Record ?");
-        var callUrl = $("#webUrl").val() + "Customer/CustomerDelete";
-
-
-        var dataToSend = { id: id };
+        var callUrl = $("#webUrl").val() + "Order/OrderDelete";
+        var dataToSend = { ID: id };
         if (confirmResult) {
             $.ajax({
                 url: callUrl,
@@ -108,4 +103,3 @@
         }
     }
 </script>
-

@@ -4,11 +4,9 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>DeliveryChargeSave</h2>
 
-<div id="page-title">
-    <h1 class="page-header text-overflow">General Elements</h1>
-</div>
+
+<div id="page-content">
 
 <div class="panel">
     <div class="panel-heading">
@@ -59,14 +57,14 @@
             <div class="row">
                 <div class="col-sm-9 col-sm-offset-3">
                     <button class="btn btn-success btn-labeled fa fa-save fa-lg" type="submit">Save</button>
-                    <button class="btn btn-danger btn-labeled fa fa-repeat fa-lg" type="reset">Cancel</button>
+                     <a href="@Url.Action("ListAllDeliveryCharge", "DeliveryCharge")"> <button class="btn btn-danger btn-labeled fa fa-repeat fa-lg" type="reset">Back To List</button></a>
                 </div>
             </div>
         </div>
     }
     <!--===================================================-->
     <!--End Input Size-->
-
+    </div>
 
 </div>
 

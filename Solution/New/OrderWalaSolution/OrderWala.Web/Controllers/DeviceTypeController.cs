@@ -7,6 +7,8 @@ using OrderWala.Domain;
 using OrderWala.Web;
 using OrderWala.DAL;
 using OrderWala.DAL.Repositories;
+using OrderWala.Domain.Resource;
+
 
 namespace OrderWala.Web.Controllers
 {
@@ -43,11 +45,11 @@ namespace OrderWala.Web.Controllers
 
                 if (returnValue == 1)
                 {
-                    ModelState.AddModelError("DeviceType", "State Name Already Exist");
+                    ModelState.AddModelError("DeviceType", OrderWalaResource.valDuplicateDeviceName);
                 }
                 else if (returnValue == 2)
                 {
-                    ModelState.AddModelError("DeviceType", "Error");
+                    ModelState.AddModelError("DeviceType", OrderWalaResource.lblError);
                 }
                 else
                 {
@@ -68,9 +70,9 @@ namespace OrderWala.Web.Controllers
             var returnvalue = DeviceRepository.DeviceDelete(id);
             if (returnvalue == true)
             {
-                return Json(new { Success = true, Message = "Delete Succusfully!" });
+                return Json(new { Success = true, OrderWalaResource.msgDeleteSuccessfully });
             }
-            return Json(new { Success = false, Message = "Delete Fail!" });
+            return Json(new { Success = false, OrderWalaResource.msgDeleteFail});
         }
 
 

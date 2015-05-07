@@ -9,13 +9,11 @@
  
 
 
-<div id="page-title">
-    <h1 class="page-header text-overflow">User Master</h1>
-</div>
+<div id="page-content">
 
 <div class="panel">
     <div class="panel-heading">
-        <h3 class="panel-title"></h3>
+        <h3 class="panel-title">User</h3>
     </div>
    
     
@@ -51,7 +49,7 @@
              <div class="form-group">
                 <label class="col-sm-3 control-label" for="demo-is-inputsmall">Select User Type</label>
                 <div class="col-sm-5">
-                   @Html.DropDownListFor(Model => Model.UserTypeId, new SelectList(ViewBag.user, "UserTypeId", "TypeName"), "--select User Type--", new { @class="btn dropdown-toggle btn-default btn-md"})
+                   @Html.DropDownListFor(Model => Model.UserTypeId, new SelectList(ViewBag.user, "UserTypeId", "TypeName"), "--select User Type--", new { @class="btn dropdown-toggle btn-default btn-md form-control"})
                 </div>
             </div>
             
@@ -59,10 +57,8 @@
         <div class="panel-footer">
             <div class="row">
                 <div class="col-sm-9 col-sm-offset-3">
-                    <button class="btn btn-success btn-labeled fa fa-save fa-lg" type="submit">Save</button>
-
-                    
-                   <a href="@Url.Action("ListAllLogin","Login")"><button class="btn btn-success  btn-labeled fa fa-repeat fa-lg" type="button">Cancel</button></a>
+                    <button class="btn btn-success btn-labeled fa fa-save fa-lg" type="submit">Save</button>                 
+                
                     
                     
                 </div>
@@ -72,5 +68,5 @@
     <!--===================================================-->
     <!--End Input Size-->
 
-
+    </div>
 </div>

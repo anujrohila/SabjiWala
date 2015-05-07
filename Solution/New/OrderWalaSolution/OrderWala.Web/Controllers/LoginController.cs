@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using OrderWala.Domain;
 using OrderWala.DAL;
-using OrderWala.Domain;
 
 namespace OrderWala.Web.Controllers
 {

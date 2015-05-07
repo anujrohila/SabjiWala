@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using OrderWala.Domain;
 using OrderWala.DAL;
 using OrderWala.Web;
+using OrderWala.Domain.Resource;
 
 namespace OrderWala.Web.Controllers
 {
@@ -58,11 +59,11 @@ namespace OrderWala.Web.Controllers
 
                 if (returnValue == 1)
                 {
-                    ModelState.AddModelError("StateName", "State Name Already Exist");
+                    ModelState.AddModelError("AreaName", OrderWalaResource.valDuplicateArea);
                 }
                 else if (returnValue == 2)
                 {
-                    ModelState.AddModelError("StateName", "Error");
+                    ModelState.AddModelError("AreaName", OrderWalaResource.lblError);
                 }
                 else
                 {
@@ -71,6 +72,7 @@ namespace OrderWala.Web.Controllers
             }
             return View(tblareadto);
         }
+
 
         public void getstate()
         {
@@ -89,14 +91,12 @@ namespace OrderWala.Web.Controllers
             var result = (from s in Qualitylist
                           select new
                           {
+                             
                               CityName = s.CityName,
                               CityId = s.CityId
-                          }).ToList()
-;
+                          }).ToList();
 
-            return Json(result, JsonRequestBehavior.AllowGet);
-
-            
+            return Json(result, JsonRequestBehavior.AllowGet);            
         
         }
 
@@ -110,12 +110,9 @@ namespace OrderWala.Web.Controllers
             var result = MasterRepository.AreaDelete(ID);
             if (result == true)
             {
-                return Json(new { Success = true, Message = "Delete Succusfully!" });
+                return Json(new { Success = true, OrderWalaResource.msgDeleteSuccessfully });
             }
-            return Json(new { Success = false, Message = "Delete Fail!" });
-
-
-
+            return Json(new { Success = false, OrderWalaResource.msgDeleteFail });
         
         }
 

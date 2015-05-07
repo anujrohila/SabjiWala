@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using OrderWala.Domain;
 using OrderWala.DAL;
-
+using OrderWala.Domain.Resource;
 
 namespace OrderWala.Web.Controllers
 {
@@ -45,7 +45,7 @@ namespace OrderWala.Web.Controllers
                 }
                 else if (returnValue == 2)
                 {
-                    ModelState.AddModelError("DeliveryCharge", "Error");
+                    ModelState.AddModelError("DeliveryCharge", OrderWalaResource.lblError);
                 }
                 else
                 {
@@ -62,9 +62,9 @@ namespace OrderWala.Web.Controllers
             var result = DeliveryChargeRepository.DeliveryChargeDeletedata(id);
             if (result == true)
             {
-                return Json(new { Success = true, Message = "Delete Succusfully!" });
+                return Json(new { Success = true, OrderWalaResource.msgDeleteSuccessfully });
             }
-            return Json(new { Success = false, Message = "Delete Fail!" });
+            return Json(new { Success = false, OrderWalaResource.msgDeleteFail});
         }
 
 

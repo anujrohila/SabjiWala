@@ -7,6 +7,7 @@ using OrderWala.DAL.Repositories;
 using OrderWala.Domain;
 using OrderWala.DAL;
 using System.IO;
+using OrderWala.Domain.Resource;
 
 namespace OrderWala.Web.Controllers
 {
@@ -17,7 +18,7 @@ namespace OrderWala.Web.Controllers
         public ActionResult ListAllSubCategory()
         {
             var SubCategoryRepository = new SubCategoryRepository();
-            var returnValue = SubCategoryRepository.GetAllSubCategory();
+            var returnValue = SubCategoryRepository.GetAllCategory();
             return View(returnValue);
         }
 
@@ -58,7 +59,7 @@ namespace OrderWala.Web.Controllers
 
                     string imagename = Path.GetFileName(file.FileName);
                     var guid = DateTime.Now.ToString("ddmmyyyyhhmmss"); //Guid.NewGuid().ToString();
-                    string path = Path.Combine(Server.MapPath("~/Images/"), guid + imagename);
+                    string path = Path.Combine(Server.MapPath("~/Images/Document/Subcategory/"), guid + imagename);
                     file.SaveAs(path);
                     string f1 = path.Substring(path.LastIndexOf("\\"));
                     string[] split = f1.Split('\\');
@@ -72,11 +73,11 @@ namespace OrderWala.Web.Controllers
 
                     if (returnValue == 1)
                     {
-                        ModelState.AddModelError("SubCategoryName", "State Name Already Exist");
+                        ModelState.AddModelError("SubCategoryName", OrderWalaResource.valDuplicateSubCategory);
                     }
                     else if (returnValue == 2)
                     {
-                        ModelState.AddModelError("SubCategoryName", "Error");
+                        ModelState.AddModelError("SubCategoryName", OrderWalaResource.lblError);
                     }
                     else
                     {
@@ -87,5 +88,18 @@ namespace OrderWala.Web.Controllers
             return View(tblSubCategoryDTO);
         }
 
+
+        [HttpPost]
+        public JsonResult SubCategoryDelete(int id = 0)
+        {
+            var SubCategoryRepository = new SubCategoryRepository();
+            var result = SubCategoryRepository.SubCategoryDelete(id);
+            if (result == true)
+            {
+                return Json(new { Success = true, OrderWalaResource.msgDeleteSuccessfully });
+            }
+            return Json(new { Success = false, OrderWalaResource.msgDeleteFail });
+
+        }
     }
 }

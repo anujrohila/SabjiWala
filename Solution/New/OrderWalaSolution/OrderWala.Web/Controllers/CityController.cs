@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using OrderWala.DAL;
 using OrderWala.Domain;
 using OrderWala.Web;
+using OrderWala.Domain.Resource;
 
 namespace OrderWala.Web.Controllers
 {
@@ -48,11 +49,11 @@ namespace OrderWala.Web.Controllers
 
                 if (returnValue == 1)
                 {
-                    ModelState.AddModelError("CityName", "City Name Already Exist");
+                    ModelState.AddModelError("CityName", OrderWalaResource.valDuplicateCity);
                 }
                 else if (returnValue == 2)
                 {
-                    ModelState.AddModelError("CityName", "Error");
+                    ModelState.AddModelError("CityName", OrderWalaResource.lblError);
                 }
                 else
                 {
@@ -92,14 +93,11 @@ namespace OrderWala.Web.Controllers
             var result = MasterRepository.citydelete(ID);
             if (result == true)
             {
-                return Json(new { Success = true, Message = "Delete Succusfully!" });
+                return Json(new { Success = true, OrderWalaResource.msgDeleteSuccessfully});
             }
-            return Json(new { Success = false, Message = "Delete Fail!" });
-
-
-           
-            
+            return Json(new { Success = false, OrderWalaResource.msgDeleteFail});                    
         
         }
+
     }
 }

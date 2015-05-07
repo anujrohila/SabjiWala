@@ -44,7 +44,7 @@ namespace OrderWala.Web.Controllers
 
                     string imagename = Path.GetFileName(file.FileName);
                     var guid = DateTime.Now.ToString("ddmmyyyyhhmmss"); //Guid.NewGuid().ToString();
-                    string path = Path.Combine(Server.MapPath("~/Images/"), guid + imagename);
+                    string path = Path.Combine(Server.MapPath("~/Images/Document/Category/"), guid + imagename);
                     file.SaveAs(path);
                     string f1 = path.Substring(path.LastIndexOf("\\"));
                     string[] split = f1.Split('\\');
@@ -57,7 +57,7 @@ namespace OrderWala.Web.Controllers
 
                     if (returnValue == 1)
                     {
-                        ModelState.AddModelError("CategoryName", OrderWalaResource.valDuplicateState);
+                        ModelState.AddModelError("CategoryName", OrderWalaResource.valDuplicateCategory);
                     }
                     else if (returnValue == 2)
                     {
@@ -88,9 +88,9 @@ namespace OrderWala.Web.Controllers
             var result = CategoryRepository.CategoryDelete(id);
             if (result == true)
             {
-                return Json(new { Success = true, Message = "Delete Succusfully!" });
+                return Json(new { Success = true, OrderWalaResource.msgDeleteSuccessfully});
             }
-            return Json(new { Success = false, Message = "Delete Fail!" });
+            return Json(new { Success = false, OrderWalaResource.msgDeleteFail});
 
         }
 

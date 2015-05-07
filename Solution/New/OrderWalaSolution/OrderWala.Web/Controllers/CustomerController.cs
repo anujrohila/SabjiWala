@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using OrderWala.DAL;
 using OrderWala.Domain;
+using OrderWala.Domain.Resource;
 
 namespace OrderWala.Web.Controllers
 {
@@ -48,11 +49,11 @@ namespace OrderWala.Web.Controllers
 
                 if (returnValue == 1)
                 {
-                    ModelState.AddModelError("MobileNo", "User Name Already Exist");
+                    ModelState.AddModelError("MobileNo", OrderWalaResource.valDuplicateUserName);
                 }
                 else if (returnValue == 2)
                 {
-                    ModelState.AddModelError("MobileNo", "Error");
+                    ModelState.AddModelError("MobileNo", OrderWalaResource.lblError);
                 }
                 else
                 {
@@ -107,9 +108,9 @@ namespace OrderWala.Web.Controllers
             var result = CustomerRepository.CustomerDelete(id);
             if (result == true)
             {
-                return Json(new { Success = true, Message = "Delete Succusfully!" });
+                return Json(new { Success = true, OrderWalaResource.msgDeleteSuccessfully });
             }
-            return Json(new { Success = false, Message = "Delete Fail!" });
+            return Json(new { Success = false, OrderWalaResource.msgDeleteFail});
 
         }
 
