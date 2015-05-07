@@ -398,6 +398,17 @@
     <Content Include="Images\bg-img\thumbs\bg-img-6.jpg" />
     <Content Include="Images\bg-img\thumbs\bg-img-7.jpg" />
     <Content Include="Images\bg-img\thumbs\bg-trns.jpg" />
+    <Content Include="Images\Document\Category\07322015123237Fotolia_41247912_Subscription_Monthly_XXL.jpg" />
+    <Content Include="Images\Document\Category\07322015123244Fotolia_41247912_Subscription_Monthly_XXL.jpg" />
+    <Content Include="Images\Document\Category\07342015123418Fruit.jpg" />
+    <Content Include="Images\Document\Product\07352015123543Vegetables.jpg" />
+    <Content Include="Images\Document\Subcategory\07292015122915brinjal.jpg" />
+    <Content Include="Images\Document\Subcategory\072920151229279be4bebe4cd3472e786c966fad0bb706dcacfd98.jpg" />
+    <Content Include="Images\Document\Subcategory\073020151230069be4bebe4cd3472e786c966fad0bb706dcacfd98.jpg" />
+    <Content Include="Images\Document\Subcategory\07332015123351543668-capsicum.jpg" />
+    <Content Include="Images\Document\Subcategory\07392015123917vegetables.jpg" />
+    <Content Include="Images\Document\Subcategory\07402015124039premier-1.jpg" />
+    <Content Include="Images\Document\Subcategory\07412015124117Celery %281%29.jpg" />
     <Content Include="Images\flags\france.png" />
     <Content Include="Images\flags\germany.png" />
     <Content Include="Images\flags\italy.png" />
@@ -478,12 +489,7 @@
     <Content Include="Views\Product\ListAllProduct.cshtml" />
     <Content Include="Views\Product\ProductSave.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Images\Document\Category\" />
-    <Folder Include="Images\Document\Product\" />
-    <Folder Include="Images\Document\Subcategory\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
