@@ -30,7 +30,7 @@ namespace OrderWala.DAL.Repositories
 
                 if (tblSubCategoryDTO.SubCategoryId == 0)
                 {
-                    tblSubCategoryDTO.LanguageId = 1;
+                   // tblSubCategoryDTO.LanguageId = 1;
                     tblSubCategoryDTO.IsActive= true;
                     tblSubCategoryDTO.IsDeleted = true;
                     OrderWalaContext.tblSubCategories.Add(tblSubCategoryDTO.ToEntity());
@@ -38,9 +38,9 @@ namespace OrderWala.DAL.Repositories
                 else
                 {
                     var subcatdata = OrderWalaContext.tblSubCategories.Where(dt => dt.SubCategoryId == tblSubCategoryDTO.SubCategoryId).FirstOrDefault();
-                    subcatdata.SubCategoryName = tblSubCategoryDTO.SubCategoryName;
+                   // subcatdata.SubCategoryName = tblSubCategoryDTO.SubCategoryName;
                     subcatdata.Logo = tblSubCategoryDTO.Logo;
-                    subcatdata.Description = tblSubCategoryDTO.Description;
+                    //subcatdata.Description = tblSubCategoryDTO.Description;
                 }
 
                 if (OrderWalaContext.SaveChanges() > 0)
@@ -66,13 +66,51 @@ namespace OrderWala.DAL.Repositories
         {
             using (var orderwalacontext = new OrderWalaEntities())
             {
-                var SubCatCount = orderwalacontext.tblSubCategories.Where(dt => string.Compare(dt.SubCategoryName, SubCategoryName) == 0 && dt.SubCategoryId != SubCategoryId).ToList();
+                var SubCatCount = orderwalacontext.tblLanguageWiseSubCategories.Where(dt => string.Compare(dt.SubCategoryName, SubCategoryName) == 0 && dt.SubCategoryId != SubCategoryId).ToList();
 
                 return SubCatCount.Count > 0 ? true : false;
             }
         }
 
-       
+
+
+
+        public List<tblSubCategoryDTO> GetAllCategory()
+        {
+            using (var OrderWalaContext = new OrderWalaEntities())
+            {
+                return (from subcate in OrderWalaContext.tblSubCategories
+                        join catgory in OrderWalaContext.tblCategories on subcate.CategoryId equals catgory.CategoryId
+                        select new tblSubCategoryDTO
+                        {
+                            SubCategoryId = subcate.SubCategoryId,
+                            //SubCategoryName = subcate.SubCategoryName,
+                           // CategoryName = catgory.CategoryName,
+                            //Description = subcate.Description,
+                            Logo = subcate.Logo
+
+
+                        }).ToList();
+            }
+            
+        }
+
+        public bool SubCategoryDelete(int ID)
+        {
+            using (var OrderWalaContext = new OrderWalaEntities())
+            {
+                var SubCategory = OrderWalaContext.tblSubCategories.Where(st => st.SubCategoryId == ID).FirstOrDefault();
+                OrderWalaContext.tblSubCategories.Remove(SubCategory);
+                if (OrderWalaContext.SaveChanges() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
 
     }
 }

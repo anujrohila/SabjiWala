@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using OrderWala.DAL;
 using OrderWala.Domain;
 
-namespace OrderWala.DAL.Repositories
+namespace OrderWala.DAL
 {
     public class DeviceRepository
     {

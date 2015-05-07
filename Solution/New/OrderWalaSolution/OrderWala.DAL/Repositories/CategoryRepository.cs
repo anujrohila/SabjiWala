@@ -9,7 +9,7 @@ using System.IO;
 using System.Data;
 using System.Web;
 
-namespace OrderWala.DAL.Repositories
+namespace OrderWala.DAL
 {
     public class CategoryRepository
     {
@@ -17,7 +17,7 @@ namespace OrderWala.DAL.Repositories
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
-                if (IsDuplicateCategory(CategoryDTO.CategoryName, CategoryDTO.CategoryId))
+                if (IsDuplicateCategory(CategoryDTO.CategoryName,CategoryDTO.CategoryId))
                 {
                     return 1;
                 }
@@ -30,9 +30,9 @@ namespace OrderWala.DAL.Repositories
                 else
                 {
                     var categorydata = OrderWalaContext.tblCategories.Where(ct => ct.CategoryId == CategoryDTO.CategoryId).FirstOrDefault();
-                    categorydata.CategoryName = CategoryDTO.CategoryName;
+                   // categorydata.CategoryName = CategoryDTO.CategoryName;
                     categorydata.Logo = CategoryDTO.Logo;
-                    categorydata.Description = CategoryDTO.Description;
+                   // categorydata.Description = CategoryDTO.Description;
                 }
 
                 if (OrderWalaContext.SaveChanges() > 0)
@@ -70,7 +70,7 @@ namespace OrderWala.DAL.Repositories
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
-                var CAtegoryCount = OrderWalaContext.tblCategories.Where(ct => string.Compare(ct.CategoryName, CategoryName) == 0 && ct.CategoryId != CategoryId).ToList();
+                var CAtegoryCount = OrderWalaContext.tblLanguageWiseCategories.Where(ct => string.Compare(ct.CategoryName, CategoryName) == 0 && ct.CategoryId != CategoryId).ToList();
 
                 return CAtegoryCount.Count > 0 ? true : false;
             }
