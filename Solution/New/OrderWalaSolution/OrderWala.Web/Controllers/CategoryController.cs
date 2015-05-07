@@ -8,6 +8,7 @@ using OrderWala.Web;
 using OrderWala.Domain;
 using OrderWala.DAL.Repositories;
 using System.IO;
+using OrderWala.Domain.Resource;
 
 namespace OrderWala.Web.Controllers
 {
@@ -56,11 +57,11 @@ namespace OrderWala.Web.Controllers
 
                     if (returnValue == 1)
                     {
-                        ModelState.AddModelError("CategoryName", "State Name Already Exist");
+                        ModelState.AddModelError("CategoryName", OrderWalaResource.valDuplicateState);
                     }
                     else if (returnValue == 2)
                     {
-                        ModelState.AddModelError("CategoryName", "Error");
+                        ModelState.AddModelError("CategoryName", OrderWalaResource.lblError);
                     }
                     else
                     {

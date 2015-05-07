@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lblError" xml:space="preserve">
+    <value>Error</value>
+  </data>
   <data name="lblLogin" xml:space="preserve">
     <value>Login</value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="msgRegisterSuccessfullly" xml:space="preserve">
     <value>Registration done successfully.</value>
+  </data>
+  <data name="valDuplicateState" xml:space="preserve">
+    <value>State name already exist.</value>
   </data>
   <data name="valInvalidEmail" xml:space="preserve">
     <value>Please enter valid email address.</value>
