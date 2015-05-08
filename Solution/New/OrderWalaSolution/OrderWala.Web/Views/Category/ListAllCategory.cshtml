@@ -1,4 +1,4 @@
-﻿@model List<OrderWala.Domain.tblCategoryDTO>
+﻿@model List<OrderWala.Domain.tblLanguageWiseCategoryDTO>
 @{
     ViewBag.Title = "ListAllCategory";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -48,9 +48,10 @@
                             <td>@item.Description</td>
                             <td>
                                 <img src="http://localhost/OrderWala.Web/Images/Document/Category/@item.Logo" height="100" width="100" /></td>
+                            
                             <td>
-                                <a href="@Url.Action("Save", "Category", new { id = item.CategoryId })" style="color:white"><i class="fa fa-lg fa-pencil-square-o" style="background-color: green; padding: 5px;"></i></a>
-                                <a class="demo-delete-row btn btn-danger btn-xs btn-icon fa fa-times" style="margin-left:10px;" onclick="DeleteState(@item.CategoryId,this)"></a>
+                                <a href="@Url.Action("Save", "Category", new { id = item.RowId })" style="color:white"><i class="fa fa-lg fa-pencil-square-o" style="background-color: green; padding: 5px;"></i></a>
+                                <a class="demo-delete-row btn btn-danger btn-xs btn-icon fa fa-times" style="margin-left:10px;" onclick="Deletecategory(@item.CategoryId,this)"></a>
                             </td>
 
 
@@ -75,9 +76,11 @@
 <script type="text/javascript">
 
 
-    function DeleteState(id, thd) {
+    function Deletecategory(id, thd) {
         var confirmResult = confirm("Are you Sure Delete Record ?");
         var callUrl = $("#webUrl").val() + "Category/CategoryDelete";
+
+
         var dataToSend = { id: id };
         if (confirmResult) {
             $.ajax({
@@ -101,5 +104,6 @@
         }
     }
 </script>
+
 
 

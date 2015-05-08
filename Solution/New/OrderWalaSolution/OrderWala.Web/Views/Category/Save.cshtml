@@ -1,4 +1,4 @@
-﻿@model OrderWala.Domain.tblCategoryDTO
+﻿@model OrderWala.Domain.tblLanguageWiseCategoryDTO
 @{
     ViewBag.Title = "Save";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -18,6 +18,7 @@
         {
       
             @Html.HiddenFor(Model => Model.CategoryId)
+            @Html.HiddenFor(Model => Model.RowId)
       
             <div class="panel-body">
                 @Html.ValidationSummary(true)
@@ -30,9 +31,9 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="demo-is-inputsmall">Category Name</label>
                     <div class="col-sm-5">
-                        @Html.HiddenFor(Model => Model.LanguageId)
-                        @Html.HiddenFor(Model => Model.IsActive)
-                        @Html.HiddenFor(Model => Model.IsDeleted)
+              
+                        @* @Html.HiddenFor(Model => Model.IsActive)
+                        @Html.HiddenFor(Model => Model.IsDeleted)*@
 
                         @Html.TextBoxFor(model => model.CategoryName, new { @class = "form-control input-sm", placeholder = "" })
                         @*<input type="text" placeholder=".input-sm" class="form-control input-sm" id="demo-is-inputsmall">*@
@@ -48,15 +49,25 @@
                     </div>
                 </div>
 
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="demo-is-inputsmall">Language</label>
+                    <div class="col-sm-5">
+                        @Html.DropDownListFor(Model => Model.LanguageId, new SelectList(ViewBag.Lang, "LanguageId", "LanguageName"), "--select Language--", new { @class = "btn dropdown-toggle btn-default btn-md form-control" })
+
+                    </div>
+                </div>
+
+
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="demo-is-inputsmall">Logo</label>
                     <div class="col-sm-5">
                         <input type="file" name="file" id="file" />
                         @{
-            if (TempData["msg"] != null)
-            { 
-                            <text>@TempData["msg"].ToString()</text>
-            }
+                            if (TempData["msg"] != null)
+                            { 
+                                            <text>@TempData["msg"].ToString()</text>
+                            }
                         }
                     </div>
                 </div>

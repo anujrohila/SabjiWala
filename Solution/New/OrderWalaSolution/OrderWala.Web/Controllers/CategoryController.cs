@@ -15,22 +15,30 @@ namespace OrderWala.Web.Controllers
     public class CategoryController : Controller
     {
 
+        public void getLanguage()
+        {
+            OrderWalaEntities db = new OrderWalaEntities();
+            ViewBag.Lang = db.tblLanguages.ToList<tblLanguage>();
+        }
+
         [HttpGet]
         public ActionResult Save(int id = 0)
         {
+            getLanguage();
             var CategoryRepository = new CategoryRepository();
             if (id > 0)
             {
                 var categorydata = CategoryRepository.GetCAtegoryById(id);
                 return View(categorydata);
             }
-            return View(new tblCategoryDTO());
+            return View(new tblLanguageWiseCategoryDTO());
 
         }
 
         [HttpPost]
-        public ActionResult Save(tblCategoryDTO tblcategorydto, HttpPostedFileBase file)
+        public ActionResult Save(tblLanguageWiseCategoryDTO tblcategorydto, HttpPostedFileBase file)
         {
+            getLanguage();
             if (ModelState.IsValid)
             {
                 if (file == null)
@@ -41,7 +49,6 @@ namespace OrderWala.Web.Controllers
                 {
 
                     var CategoryRepository = new CategoryRepository();
-
                     string imagename = Path.GetFileName(file.FileName);
                     var guid = DateTime.Now.ToString("ddmmyyyyhhmmss"); //Guid.NewGuid().ToString();
                     string path = Path.Combine(Server.MapPath("~/Images/Document/Category/"), guid + imagename);
@@ -50,11 +57,9 @@ namespace OrderWala.Web.Controllers
                     string[] split = f1.Split('\\');
                     string newpath = split[1];
                     string imgpath = newpath.ToString();
-
                     tblcategorydto.Logo = imgpath.ToString();
+
                     var returnValue = CategoryRepository.CategorySave(tblcategorydto);
-
-
                     if (returnValue == 1)
                     {
                         ModelState.AddModelError("CategoryName", OrderWalaResource.valDuplicateCategory);
@@ -77,9 +82,9 @@ namespace OrderWala.Web.Controllers
         {
             var CategoryRepository = new CategoryRepository();
             var returnValue = CategoryRepository.GetAllCategory();
-
             return View(returnValue);
         }
+
 
         [HttpPost]
         public JsonResult CategoryDelete(int id = 0)

@@ -1,4 +1,4 @@
-﻿@model List<OrderWala.Domain.tblProductDTO>
+﻿@model List<OrderWala.Domain.tblLanguageWiseProductDTO>
 @{
     ViewBag.Title = "ListAllProduct";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -9,7 +9,7 @@
 <div id="page-content">
 <div class="panel">
     <div class="panel-heading">
-        <h3 class="panel-title">Customer Master</h3>
+        <h3 class="panel-title">Product Master</h3>
     </div>
 
     <!-- Foo Table - Add & Remove Rows -->
@@ -34,6 +34,7 @@
                     <th >SubCategoryName</th>
                     <th >ProductName</th>
                     <th >Description</th>
+                    <th >Quantity Type</th>
                     <th> Logo </th>
 
                     <th align="center">Action</th>
@@ -46,14 +47,15 @@
                 {
                                           
                     <tr class="footable-even" style="display: table-row;">
-                        <td >@item.CategoryName</td>
-                        <td >@item.SubCategoryName</td>
+                        <td >@item.categoryname</td>
+                        <td >@item.Subcategoryname</td>
                         <td >@item.ProductName</td>
                         <td >@item.Description</td>
                         <td><img src="http://localhost/OrderWala.Web/Images/Document/Product/@item.Logo" height="100" width="100" /></td>
+                        <td>@item.Quantity</td>
                         <td >
                             <a href="@Url.Action("ProductSave", "Product", new { id = item.ProductId })" style="color:white"><i class="fa fa-lg fa-pencil-square-o" style="background-color: green; padding: 5px;"></i></a>
-                            <a class="demo-delete-row btn btn-danger btn-xs btn-icon fa fa-times" style="margin-left:10px;" onclick="DeleteCustomer(@item.ProductId,this)"></a>
+                            <a class="demo-delete-row btn btn-danger btn-xs btn-icon fa fa-times" style="margin-left:10px;" onclick="DeleteProduct(@item.ProductId,this)"></a>
                         </td>
 
                     </tr>
@@ -79,9 +81,9 @@
 <script type="text/javascript">
 
 
-    function DeleteCustomer(id, thd) {
+    function DeleteProduct(id, thd) {
         var confirmResult = confirm("Are you Sure Delete Record ?");
-        var callUrl = $("#webUrl").val() + "Customer/CustomerDelete";
+        var callUrl = $("#webUrl").val() + "Product/CustomerDelete";
 
 
         var dataToSend = { id: id };

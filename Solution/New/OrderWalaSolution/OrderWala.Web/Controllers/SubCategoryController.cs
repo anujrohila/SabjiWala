@@ -18,14 +18,15 @@ namespace OrderWala.Web.Controllers
         public ActionResult ListAllSubCategory()
         {
             var SubCategoryRepository = new SubCategoryRepository();
-            var returnValue = SubCategoryRepository.GetAllCategory();
+            var returnValue = SubCategoryRepository.GetAllSubCategory();
             return View(returnValue);
         }
 
         public void getcat()
         {
             OrderWalaEntities db = new OrderWalaEntities();
-            ViewBag.categorydata = db.tblCategories.ToList<tblCategory>();
+            ViewBag.categorydata = db.tblLanguageWiseCategories.ToList<tblLanguageWiseCategory>();
+            ViewBag.Lang = db.tblLanguages.ToList<tblLanguage>();
         }
 
         [HttpGet]
@@ -41,12 +42,14 @@ namespace OrderWala.Web.Controllers
                 var Subdata = SubCategoryRepository.GetSubCategoryById(id);
                 return View(Subdata);
             }
-            return View(new tblSubCategoryDTO());
+            return View(new tblLanguageWiseSubCategoryDTO());
         }
 
         [HttpPost]
-        public ActionResult SubCategorySave(tblSubCategoryDTO tblSubCategoryDTO, HttpPostedFileBase file)
+        public ActionResult SubCategorySave(tblLanguageWiseSubCategoryDTO tblSubCategoryDTO, HttpPostedFileBase file)
         {
+            getcat();
+
             if (ModelState.IsValid)
             {
                 if (file == null)
@@ -65,7 +68,7 @@ namespace OrderWala.Web.Controllers
                     string[] split = f1.Split('\\');
                     string newpath = split[1];
                     string imgpath = newpath.ToString();
-
+                   
                     tblSubCategoryDTO.Logo = imgpath.ToString();
 
 

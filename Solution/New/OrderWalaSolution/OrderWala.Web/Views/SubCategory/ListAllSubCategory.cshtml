@@ -1,4 +1,4 @@
-﻿@model List<OrderWala.Domain.tblSubCategoryDTO>
+﻿@model List<OrderWala.Domain.tblLanguageWiseSubCategoryDTO>
 @{
     ViewBag.Title = "ListAllSubCategory";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -43,7 +43,7 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td >@item.CategoryName</td>                       
+                        <td >@item.Categoryname</td>                       
                         <td >@item.SubCategoryName</td>
                          <td>@item.Description</td>
                        <td><img src="http://localhost/OrderWala.Web/Images/Document/Subcategory/@item.Logo" height="100" width="100" /></td>
@@ -62,7 +62,7 @@
     <!-- End Foo Table - Add & Remove Rows -->
 
 </div>
-
+</div>
  <script src="~/Content/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/Content/plugins/datatables/media/js/jquery.dataTables.js"></script>
     <script src="~/Content/plugins/datatables/media/js/dataTables.bootstrap.js"></script>
