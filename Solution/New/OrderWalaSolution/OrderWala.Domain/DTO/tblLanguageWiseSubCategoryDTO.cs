@@ -31,6 +31,11 @@ namespace OrderWala.Domain
         [DataMember()]
         public Int32 LanguageId { get; set; }
 
+        public String Logo { get; set; }
+
+        public Int32 CategoryId { get; set; }
+        public String Categoryname { get; set; }
+
         public tblLanguageWiseSubCategoryDTO()
         {
         }

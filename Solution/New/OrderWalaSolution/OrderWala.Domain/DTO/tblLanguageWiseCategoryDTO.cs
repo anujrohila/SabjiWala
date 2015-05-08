@@ -31,6 +31,9 @@ namespace OrderWala.Domain
         [DataMember()]
         public Int32 LanguageId { get; set; }
 
+
+        public String Logo { get; set; }
+
         public tblLanguageWiseCategoryDTO()
         {
         }

@@ -23,6 +23,10 @@ namespace OrderWala.Domain
         public Int32 SubCategoryID { get; set; }
         public Int32 QuantityID { get; set; }
 
+        public String categoryname { get; set; }
+        public String Subcategoryname { get; set; }
+        public String Quantity { get; set; }
+        public String Logo { get; set; }
 
         [DataMember()]
         public Nullable<Int32> ProductId { get; set; }

@@ -22,6 +22,8 @@ namespace OrderWala.Domain
         [DataMember()]
         public Int32 CategoryId { get; set; }
 
+        public String CategoryName { get; set; }
+
         [DataMember()]
         public String Logo { get; set; }
 
