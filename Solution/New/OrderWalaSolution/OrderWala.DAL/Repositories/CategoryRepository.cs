@@ -13,28 +13,31 @@ namespace OrderWala.DAL
 {
     public class CategoryRepository
     {
-        public int CategorySave(tblCategoryDTO CategoryDTO)
+        public int CategorySave(tblLanguageWiseCategoryDTO CategoryDTO)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
-                if (IsDuplicateCategory(CategoryDTO.CategoryName,CategoryDTO.CategoryId))
+                if (IsDuplicateCategory(CategoryDTO.CategoryName, CategoryDTO.CategoryId))
                 {
                     return 1;
                 }
 
                 if (CategoryDTO.CategoryId == 0)
                 {
-                     CategoryDTO.Logo = CategoryDTO.Logo;
-                     OrderWalaContext.tblCategories.Add(CategoryDTO.ToEntity());
+                    tblCategory tblcategory = new tblCategory();
+                    tblcategory.IsActive = true;
+                    tblcategory.Logo = CategoryDTO.Logo;
+                    OrderWalaContext.tblCategories.Add(tblcategory);
+                    if (OrderWalaContext.SaveChanges() > 0)
+                    {
+                        tblLanguageWiseCategory tbllngwiseCategory = new tblLanguageWiseCategory();
+                        tbllngwiseCategory.CategoryId = tblcategory.CategoryId;
+                        tbllngwiseCategory.CategoryName = CategoryDTO.CategoryName;
+                        tbllngwiseCategory.Description = CategoryDTO.Description;
+                        tbllngwiseCategory.LanguageId = CategoryDTO.LanguageId;
+                        OrderWalaContext.tblLanguageWiseCategories.Add(tbllngwiseCategory);
+                    }
                 }
-                else
-                {
-                    var categorydata = OrderWalaContext.tblCategories.Where(ct => ct.CategoryId == CategoryDTO.CategoryId).FirstOrDefault();
-                   // categorydata.CategoryName = CategoryDTO.CategoryName;
-                    categorydata.Logo = CategoryDTO.Logo;
-                   // categorydata.Description = CategoryDTO.Description;
-                }
-
                 if (OrderWalaContext.SaveChanges() > 0)
                 {
                     return 0;
@@ -46,27 +49,28 @@ namespace OrderWala.DAL
             }
         }
 
-        
 
-
-
-
-
-
-
-
-
-
-        public List<tblCategoryDTO> GetAllCategory()
+        public List<tblLanguageWiseCategoryDTO> GetAllCategory()
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
-                return OrderWalaContext.tblCategories.ToList().ToDTOs();
+                return (from lngcategory in OrderWalaContext.tblLanguageWiseCategories
+                        join catgory in OrderWalaContext.tblCategories on lngcategory.CategoryId equals catgory.CategoryId
+                       
+                        select new tblLanguageWiseCategoryDTO
+                        {
+                            CategoryId = catgory.CategoryId,
+                            CategoryName = lngcategory.CategoryName,
+                            Description = lngcategory.Description,
+                            Logo = catgory.Logo
+
+                        }).ToList();
+                
             }
         }
 
 
-        public bool IsDuplicateCategory(string CategoryName , int CategoryId)
+        public bool IsDuplicateCategory(string CategoryName, int CategoryId)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
@@ -86,12 +90,14 @@ namespace OrderWala.DAL
         }
 
 
-        public bool CategoryDelete(int ID)
+        public bool CategoryDelete(int RowID)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
-                var Category = OrderWalaContext.tblCategories.Where(st => st.CategoryId == ID).FirstOrDefault();
-                OrderWalaContext.tblCategories.Remove(Category);
+                var lgwisecategory = OrderWalaContext.tblLanguageWiseCategories.Where(lg => lg.RowId == RowID).FirstOrDefault();
+                var category = OrderWalaContext.tblCategories.Where(ct => ct.CategoryId == lgwisecategory.CategoryId).FirstOrDefault();              
+                OrderWalaContext.tblLanguageWiseCategories.Remove(lgwisecategory);
+                OrderWalaContext.tblCategories.Remove(category);               
                 if (OrderWalaContext.SaveChanges() > 0)
                 {
                     return true;

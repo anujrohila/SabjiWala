@@ -9,40 +9,34 @@ using OrderWala.DAL;
 namespace OrderWala.DAL.Repositories
 {
     public class SubCategoryRepository
-    {
-        public List<tblSubCategoryDTO> GetAllSubCategory()
+    {           
+        public int SubCategorySavedata(tblLanguageWiseSubCategoryDTO tblSubCategoryDTO)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
-                return OrderWalaContext.tblSubCategories.ToList().ToDTOs();
-            }
-        }
-
-
-        public int SubCategorySavedata(tblSubCategoryDTO tblSubCategoryDTO)
-        {
-            using (var OrderWalaContext = new OrderWalaEntities())
-            {
-                if (IsDuplicateDevice(tblSubCategoryDTO.SubCategoryName, tblSubCategoryDTO.SubCategoryId))
+                if (IsDuplicateSubcategory(tblSubCategoryDTO.SubCategoryName, tblSubCategoryDTO.SubCategoryId))
                 {
                     return 1;
                 }
 
                 if (tblSubCategoryDTO.SubCategoryId == 0)
                 {
-                   // tblSubCategoryDTO.LanguageId = 1;
-                    tblSubCategoryDTO.IsActive= true;
-                    tblSubCategoryDTO.IsDeleted = true;
-                    OrderWalaContext.tblSubCategories.Add(tblSubCategoryDTO.ToEntity());
-                }
-                else
-                {
-                    var subcatdata = OrderWalaContext.tblSubCategories.Where(dt => dt.SubCategoryId == tblSubCategoryDTO.SubCategoryId).FirstOrDefault();
-                   // subcatdata.SubCategoryName = tblSubCategoryDTO.SubCategoryName;
-                    subcatdata.Logo = tblSubCategoryDTO.Logo;
-                    //subcatdata.Description = tblSubCategoryDTO.Description;
-                }
+                    tblSubCategory tblsubcategory = new tblSubCategory();
+                    tblsubcategory.IsActive = true;
+                    tblsubcategory.Logo = tblSubCategoryDTO.Logo;
+                    tblsubcategory.CategoryId = tblSubCategoryDTO.CategoryId;
+                    OrderWalaContext.tblSubCategories.Add(tblsubcategory);
 
+                    if (OrderWalaContext.SaveChanges() > 0)
+                    {
+                        tblLanguageWiseSubCategory lngwisesubcategory = new tblLanguageWiseSubCategory();
+                        lngwisesubcategory.SubCategoryId = tblsubcategory.SubCategoryId;
+                        lngwisesubcategory.Description = tblSubCategoryDTO.Description;
+                        lngwisesubcategory.LanguageId = tblSubCategoryDTO.LanguageId;
+                        lngwisesubcategory.SubCategoryName = tblSubCategoryDTO.SubCategoryName;
+                        OrderWalaContext.tblLanguageWiseSubCategories.Add(lngwisesubcategory);
+                    }
+                }
                 if (OrderWalaContext.SaveChanges() > 0)
                 {
                     return 0;
@@ -62,33 +56,30 @@ namespace OrderWala.DAL.Repositories
             }
         }
 
-        public bool IsDuplicateDevice(string SubCategoryName, int SubCategoryId)
+        public bool IsDuplicateSubcategory(string SubCategoryName, int SubCategoryId)
         {
             using (var orderwalacontext = new OrderWalaEntities())
             {
                 var SubCatCount = orderwalacontext.tblLanguageWiseSubCategories.Where(dt => string.Compare(dt.SubCategoryName, SubCategoryName) == 0 && dt.SubCategoryId != SubCategoryId).ToList();
-
                 return SubCatCount.Count > 0 ? true : false;
             }
         }
 
-
-
-
-        public List<tblSubCategoryDTO> GetAllCategory()
+        
+        public List<tblLanguageWiseSubCategoryDTO> GetAllSubCategory()
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
-                return (from subcate in OrderWalaContext.tblSubCategories
-                        join catgory in OrderWalaContext.tblCategories on subcate.CategoryId equals catgory.CategoryId
-                        select new tblSubCategoryDTO
+                return (from lngsubcategory in OrderWalaContext.tblLanguageWiseSubCategories
+                        join subcatgory in OrderWalaContext.tblSubCategories on lngsubcategory.SubCategoryId equals subcatgory.SubCategoryId
+                        join category in OrderWalaContext.tblLanguageWiseCategories on subcatgory.CategoryId equals category.CategoryId
+                                             
+                        select new tblLanguageWiseSubCategoryDTO
                         {
-                            SubCategoryId = subcate.SubCategoryId,
-                            //SubCategoryName = subcate.SubCategoryName,
-                           // CategoryName = catgory.CategoryName,
-                            //Description = subcate.Description,
-                            Logo = subcate.Logo
-
+                           Categoryname = category.CategoryName,
+                           SubCategoryName = lngsubcategory.SubCategoryName,
+                           Description = lngsubcategory.Description,
+                           Logo = subcatgory.Logo
 
                         }).ToList();
             }
@@ -99,7 +90,9 @@ namespace OrderWala.DAL.Repositories
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
-                var SubCategory = OrderWalaContext.tblSubCategories.Where(st => st.SubCategoryId == ID).FirstOrDefault();
+                var lngwisesubcategory = OrderWalaContext.tblLanguageWiseSubCategories.Where(lg => lg.RowId == ID).FirstOrDefault();
+                var SubCategory = OrderWalaContext.tblSubCategories.Where(st => st.SubCategoryId == lngwisesubcategory.SubCategoryId).FirstOrDefault();
+                OrderWalaContext.tblLanguageWiseSubCategories.Remove(lngwisesubcategory);
                 OrderWalaContext.tblSubCategories.Remove(SubCategory);
                 if (OrderWalaContext.SaveChanges() > 0)
                 {
