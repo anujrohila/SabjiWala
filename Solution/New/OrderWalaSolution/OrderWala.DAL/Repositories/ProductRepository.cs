@@ -26,7 +26,8 @@ namespace OrderWala.DAL
                         join Quantity in OrderWalaContext.tblQuantityTypes on product.QuantityTypeId equals Quantity.QuantityTypeId
                         select new tblLanguageWiseProductDTO
                         {
-                           ProductId = lngwiseProduct.ProductId,  
+                           RowId = lngwiseProduct.RowId,
+                           ProductId = product.ProductId,  
                            categoryname =  catgory.CategoryName,
                            Subcategoryname = subcatgory.SubCategoryName,
                            Quantity = Quantity.TypeName,
@@ -70,27 +71,24 @@ namespace OrderWala.DAL
         /// </summary>
         /// <param name="tblProductDTO"></param>
         /// <returns></returns>
-        public int ProductSave(tblLanguageWiseProductDTO tblProductDTO)
+        public int ProductSave(tblProductDTO tblProductDTO)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
-                if(IsDuplicateProduct(tblProductDTO.ProductName, tblProductDTO.ProductId ?? 0))
+                if(IsDuplicateProduct(tblProductDTO.ProductName, tblProductDTO.ProductId))
                 {
                     return 1;
                 }
 
                 if (tblProductDTO.ProductId == 0)
                 {
-
                     tblProduct product = new tblProduct();
-
-                    product.CategoryId = tblProductDTO.CategoryID;
-                    product.SubCategoryId = tblProductDTO.SubCategoryID;
-                    product.QuantityTypeId = tblProductDTO.QuantityID;
+                    product.CategoryId = tblProductDTO.CategoryId;
+                    product.SubCategoryId = tblProductDTO.SubCategoryId;
+                    product.QuantityTypeId = tblProductDTO.QuantityTypeId;
                     product.Logo = tblProductDTO.Logo;
                     product.IsActive = true;
                     OrderWalaContext.tblProducts.Add(product);
-
                     if (OrderWalaContext.SaveChanges() > 0)
                     {
                         tblLanguageWiseProduct LangWiseProduct = new tblLanguageWiseProduct();
@@ -99,9 +97,7 @@ namespace OrderWala.DAL
                         LangWiseProduct.LanguageId = tblProductDTO.LanguageId;
                         LangWiseProduct.Description = tblProductDTO.Description;
                         OrderWalaContext.tblLanguageWiseProducts.Add(LangWiseProduct);
-                    }
-
-                   
+                    }                                       
                 }               
 
                 if (OrderWalaContext.SaveChanges() > 0)
@@ -111,6 +107,30 @@ namespace OrderWala.DAL
                 else
                 {
                     return 2;
+                }
+            }
+        }
+
+        /// <summary>
+        /// product delete
+        /// </summary>
+        /// <param name="RowID"></param>
+        /// <returns></returns>
+        public bool   ProductDelete(int RowID)
+        {
+            using (var OrderWalaContext = new OrderWalaEntities())
+            {
+                var lgwiseproduct = OrderWalaContext.tblLanguageWiseProducts.Where(lg => lg.RowId == RowID).FirstOrDefault();
+                var product = OrderWalaContext.tblProducts.Where(ct => ct.ProductId == lgwiseproduct.ProductId).FirstOrDefault();
+                OrderWalaContext.tblLanguageWiseProducts.Remove(lgwiseproduct);
+                OrderWalaContext.tblProducts.Remove(product);
+                if (OrderWalaContext.SaveChanges() > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
         }

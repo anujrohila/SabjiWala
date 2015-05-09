@@ -13,7 +13,7 @@ namespace OrderWala.DAL
 {
     public class CategoryRepository
     {
-        public int CategorySave(tblLanguageWiseCategoryDTO CategoryDTO)
+        public int CategorySave(tblCategoryDTO CategoryDTO)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
@@ -59,13 +59,13 @@ namespace OrderWala.DAL
                        
                         select new tblLanguageWiseCategoryDTO
                         {
+                            RowId = lngcategory.RowId,
                             CategoryId = catgory.CategoryId,
                             CategoryName = lngcategory.CategoryName,
                             Description = lngcategory.Description,
                             Logo = catgory.Logo
 
-                        }).ToList();
-                
+                        }).ToList();                
             }
         }
 
@@ -81,14 +81,13 @@ namespace OrderWala.DAL
         }
 
 
-        public tblCategoryDTO GetCAtegoryById(int CategoryId)
+        public tblCategoryDTO GetCAtegoryById(int categoryid)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
-                return OrderWalaContext.tblCategories.Where(ct => ct.CategoryId == CategoryId).FirstOrDefault().ToDTO();
+                return OrderWalaContext.tblCategories.Where(ct => ct.CategoryId == categoryid).FirstOrDefault().ToDTO();
             }
         }
-
 
         public bool CategoryDelete(int RowID)
         {

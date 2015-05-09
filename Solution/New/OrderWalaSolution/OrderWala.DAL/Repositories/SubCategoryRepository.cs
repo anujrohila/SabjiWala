@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using OrderWala.Domain;
 using OrderWala.DAL;
 
-namespace OrderWala.DAL.Repositories
+namespace OrderWala.DAL
 {
     public class SubCategoryRepository
     {           
-        public int SubCategorySavedata(tblLanguageWiseSubCategoryDTO tblSubCategoryDTO)
+        public int SubCategorySavedata(tblSubCategoryDTO tblSubCategoryDTO)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
@@ -48,11 +48,11 @@ namespace OrderWala.DAL.Repositories
             }
         }
 
-        public tblSubCategoryDTO GetSubCategoryById(int SubCategoryId)
+        public tblSubCategoryDTO GetSubCategoryById(int subcategoryId)
         {
             using (var OrderWalaContext = new OrderWalaEntities())
             {
-                return OrderWalaContext.tblSubCategories.Where(ct => ct.SubCategoryId == SubCategoryId).FirstOrDefault().ToDTO();
+                return OrderWalaContext.tblSubCategories.Where(ct => ct.SubCategoryId == subcategoryId).FirstOrDefault().ToDTO();
             }
         }
 
@@ -76,6 +76,8 @@ namespace OrderWala.DAL.Repositories
                                              
                         select new tblLanguageWiseSubCategoryDTO
                         {
+                            RowId = lngsubcategory.RowId,
+                            SubCategoryId = subcatgory.SubCategoryId,
                            Categoryname = category.CategoryName,
                            SubCategoryName = lngsubcategory.SubCategoryName,
                            Description = lngsubcategory.Description,

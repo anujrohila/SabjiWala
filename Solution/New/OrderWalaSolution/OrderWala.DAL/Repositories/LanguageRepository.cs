@@ -90,6 +90,8 @@ namespace OrderWala.DAL
         }
 
 
+
+
        /// <summary>
        /// 
        /// </summary>
@@ -112,6 +114,16 @@ namespace OrderWala.DAL
             }
         }
 
-
+       /// <summary>
+       /// 
+       /// </summary>
+       /// <returns></returns>
+        public List<tblQuantityTypeDTO> GetAllQuantity()
+        {
+            using (var OrderWalaContext = new OrderWalaEntities())
+            {
+                return OrderWalaContext.tblQuantityTypes.ToList().ToDTOs();
+            }
+        }
     }
 }

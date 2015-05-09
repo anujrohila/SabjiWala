@@ -68,7 +68,7 @@ namespace OrderWala.DAL
                         select new tblSubCategoryDTO
                         {
                             SubCategoryId = subCategory.SubCategoryId,
-                            CategoryName = languageWiseSubCategories.SubCategoryName,
+                            SubCategoryName = languageWiseSubCategories.SubCategoryName,
                             CategoryId = subCategory.CategoryId,
                             Description = languageWiseSubCategories.Description,
                             IsActive = subCategory.IsActive,
