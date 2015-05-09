@@ -47,11 +47,10 @@
                             <td>@item.CategoryName</td>
                             <td>@item.Description</td>
                             <td>
-                                <img src="http://localhost/OrderWala.Web/Images/Document/Category/@item.Logo" height="100" width="100" /></td>
-                            
+                                <img src="http://localhost/OrderWala.Web/Images/Document/Category/@item.Logo" height="100" width="100" /></td>                            
                             <td>
                                 <a href="@Url.Action("Save", "Category", new { id = item.RowId })" style="color:white"><i class="fa fa-lg fa-pencil-square-o" style="background-color: green; padding: 5px;"></i></a>
-                                <a class="demo-delete-row btn btn-danger btn-xs btn-icon fa fa-times" style="margin-left:10px;" onclick="Deletecategory(@item.CategoryId,this)"></a>
+                                <a class="demo-delete-row btn btn-danger btn-xs btn-icon fa fa-times" style="margin-left:10px;" onclick="Deletecategory(@item.RowId,this)"></a>
                             </td>
 
 

@@ -19,9 +19,7 @@ namespace OrderWala.Web.Controllers
         {
             var AdvertiseRepository = new AdvertiseRepository();
             var returnvalue = AdvertiseRepository.GetAllAdvertisement();
-
-            return View(returnvalue);
-        
+            return View(returnvalue);        
         }
 
         /// <summary>

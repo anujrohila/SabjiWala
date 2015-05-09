@@ -15,30 +15,32 @@ namespace OrderWala.Web.Controllers
     public class CategoryController : Controller
     {
 
-        public void getLanguage()
-        {
-            OrderWalaEntities db = new OrderWalaEntities();
-            ViewBag.Lang = db.tblLanguages.ToList<tblLanguage>();
-        }
+        //public void getLanguage()
+        //{
+        //    OrderWalaEntities db = new OrderWalaEntities();
+        //    ViewBag.Lang = db.tblLanguages.ToList<tblLanguage>();
+        //}
 
         [HttpGet]
         public ActionResult Save(int id = 0)
         {
-            getLanguage();
+           // getLanguage();
+            var categorydto = new tblCategoryDTO();
             var CategoryRepository = new CategoryRepository();
+             var languageRepository = new LanguageRepository();
             if (id > 0)
             {
-                var categorydata = CategoryRepository.GetCAtegoryById(id);
-                return View(categorydata);
+                categorydto = CategoryRepository.GetCAtegoryById(id);
+                
             }
-            return View(new tblLanguageWiseCategoryDTO());
-
+            categorydto.LanguageList = languageRepository.GetAllLanguage();
+            return View(categorydto);
         }
 
         [HttpPost]
-        public ActionResult Save(tblLanguageWiseCategoryDTO tblcategorydto, HttpPostedFileBase file)
+        public ActionResult Save(tblCategoryDTO tblcategorydto, HttpPostedFileBase file)
         {
-            getLanguage();
+           // getLanguage();
             if (ModelState.IsValid)
             {
                 if (file == null)
@@ -98,17 +100,6 @@ namespace OrderWala.Web.Controllers
             return Json(new { Success = false, OrderWalaResource.msgDeleteFail});
 
         }
-
-
-        //[HttpPost, ActionName("CategoryDelete")]
-        //public ActionResult CategoryDeletedata(int id)
-        //{
-        //    var CategoryRepository = new CategoryRepository();
-        //    var returnvalue = CategoryRepository.CategoryDelete(id);
-
-        //    return RedirectToAction("ListAllCategory", "Category");
-        //}
-
-
+                           
     }
 }

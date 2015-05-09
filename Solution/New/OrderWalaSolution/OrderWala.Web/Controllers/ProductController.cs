@@ -20,12 +20,7 @@ namespace OrderWala.Web.Controllers
             return View();
         }
 
-        public void getLanguage()
-        {
-            OrderWalaEntities db = new OrderWalaEntities();
-            ViewBag.Lang = db.tblLanguages.ToList<tblLanguage>();
-            ViewBag.QtyType = db.tblQuantityTypes.ToList<tblQuantityType>();
-        }
+       
 
         [HttpGet]
         public ActionResult ListAllProduct()
@@ -38,27 +33,24 @@ namespace OrderWala.Web.Controllers
         [HttpGet]
         public ActionResult ProductSave(int id = 0)
         {
-            getLanguage();
-            getCategory();
-            var ProductRepository = new ProductRepository();
-            
+            var tblProductDTO = new tblProductDTO();
+            var productRepository = new ProductRepository();
+            var categoryRepository = new CategoryRepository();
+            var languageRepository = new LanguageRepository();
             if (id > 0)
             {
-                getLanguage();
-                getCategory();
-                var ProductData = ProductRepository.GetProductById(id);
-                return View(ProductData);
+               tblProductDTO = productRepository.GetProductById(id);
             }
-            return View(new tblLanguageWiseProductDTO());
+            tblProductDTO.categorylist = categoryRepository.GetAllCategory();
+            tblProductDTO.LanguageList = languageRepository.GetAllLanguage();
+            tblProductDTO.QunatityList = languageRepository.GetAllQuantity();
+            return View(tblProductDTO);
         }
 
         [HttpPost]
-        public ActionResult ProductSave(tblLanguageWiseProductDTO tblProduct, HttpPostedFileBase file)
-        {
-           
-            getLanguage();
-            getCategory();
-            if (ModelState.IsValid)
+        public ActionResult ProductSave(tblProductDTO tblProduct, HttpPostedFileBase file)
+        {          
+           if (ModelState.IsValid)
             {
                 if (file == null)
                 {
@@ -96,31 +88,35 @@ namespace OrderWala.Web.Controllers
             }
             return View(tblProduct);
         }
+              
 
-
-
-        public void getCategory()
+        public JsonResult getSubCategory(int mainCategoryId)
         {
-            OrderWalaEntities db = new OrderWalaEntities();                    
-            ViewBag.Category = db.tblLanguageWiseCategories.ToList<tblLanguageWiseCategory>();
-           
-        }
-
-        public JsonResult getSubCategory(int Id)
-        {
-            OrderWalaEntities db = new OrderWalaEntities();
-            var subcate = db.tblSubCategories.Where(i => i.CategoryId == Id).FirstOrDefault();
-            var Qualitylist = db.tblLanguageWiseSubCategories.Where(q => q.SubCategoryId ==subcate.SubCategoryId );
-            var result = (from s in Qualitylist
-                          select new
-                          {
-                             SubCategoryName = s.SubCategoryName,
-                             SubCategoryId = s.SubCategoryId
-                          }).ToList();
-
+            //var subcate = db.tblSubCategories.Where(i => i.CategoryId == mainCategoryId).FirstOrDefault();
+            //var Qualitylist = db.tblLanguageWiseSubCategories.Where(q => q.SubCategoryId == subcate.SubCategoryId );
+            //var result = (from s in Qualitylist
+            //               select new  tblSubCategoryDTO
+            //              {
+            //                 SubCategoryName = s.SubCategoryName,
+            //                 SubCategoryId = s.SubCategoryId
+                            
+            //              }).ToList();
+            var masterRepository = new MasterRepository();
+            var result = masterRepository.GetProductSubCategoryList(mainCategoryId, 1);
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+        
 
-
+        [HttpPost]
+        public JsonResult ProductDelete(int id = 0)
+        {
+            var ProductRepository = new ProductRepository();
+            var result = ProductRepository.ProductDelete(id);
+            if (result == true)
+            {
+                return Json(new { Success = true, OrderWalaResource.msgDeleteSuccessfully });
+            }
+            return Json(new { Success = false, OrderWalaResource.msgDeleteFail });
 
         }
     }

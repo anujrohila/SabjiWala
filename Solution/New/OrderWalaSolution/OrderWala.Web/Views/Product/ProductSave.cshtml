@@ -1,135 +1,117 @@
-﻿@model OrderWala.Domain.tblLanguageWiseProductDTO
+﻿@model OrderWala.Domain.tblProductDTO
 @{
     ViewBag.Title = "ProductSave";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-
 <div id="page-content">
-<div class="panel">
-    <div class="panel-heading">
-        <h3 class="panel-title">Customer Master</h3>
-    </div>
-   
-    
-    <!--Input Size-->
-    <!--===================================================-->
-  @using (Html.BeginForm("ProductSave", "Product", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
-    {
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Product Master</h3>
+        </div>
+
+
+        <!--Input Size-->
+        <!--===================================================-->
+        @using (Html.BeginForm("ProductSave", "Product", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
+        {
       
-      @Html.HiddenFor(Model => Model.ProductId)
-      @Html.HiddenFor(model => model.RowId)
+            @Html.HiddenFor(model => model.ProductId)
+            @Html.HiddenFor(model => model.RowId)
       
-        <div class="panel-body">
-            @Html.ValidationSummary(true)
-            <div class="form-group">
-                <div class="text-danger">
-                    @Html.ValidationSummary()
-                </div>
-            </div>
-          
-            <div class="form-group">
-                <label class="col-sm-3 control-label" for="demo-is-inputsmall">Category</label>
-                <div class="col-sm-5">
-                <select id="CategoryId" name="CategoryId" onchange="loadCategory()" style="width: 100%" class="form-control">
+            <div class="panel-body">
+                @Html.ValidationSummary(true)
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="demo-is-inputsmall">Category</label>
+                    <div class="col-sm-5">
+                        <select id="CategoryId" name="CategoryId" onchange="loadCategory()" style="width: 100%" class="form-control">
                             <option value="0">----------Select category--------</option>
-                            @foreach (var items in ViewBag.Category)
+                             @foreach (var item in Model.categorylist)
                             { 
-                                <option value="@items.CategoryId">@items.CategoryName</option>
+                                <option value="@item.CategoryId">@item.CategoryName</option>
                             }
                         </select>
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label class="col-sm-3 control-label" for="demo-is-inputsmall">SubCategory</label>
-                <div class="col-sm-5">
-                 <select id="SubCategoryId" name="SubCategoryId" style="width: 100%" class="form-control">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="demo-is-inputsmall">SubCategory</label>
+                    <div class="col-sm-5">
+                        <select id="SubCategoryId" name="SubCategoryId" style="width: 100%" class="form-control">
                             <option value="0">---------Select SubCategory--------</option>
                         </select>
 
+                    </div>
                 </div>
-            </div>
 
-
-             <div class="form-group">
-                <label class="col-sm-3 control-label" for="demo-is-inputsmall">Quantity Type</label>
-                <div class="col-sm-5">
-                    @Html.DropDownListFor(Model => Model.QuantityID, new SelectList(ViewBag.QtyType, "QuantityTypeId", "TypeName"), "--select Quantity Type--", new { @class="btn dropdown-toggle btn-default btn-md form-control"})
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="demo-is-inputsmall">Quantity Type</label>
+                    <div class="col-sm-5">
+                        @Html.DropDownListFor(model => model.QuantityTypeId, new SelectList(Model.QunatityList, "QuantityTypeId", "TypeName"), "--select Quantity Type--", new { @class = "btn dropdown-toggle btn-default btn-md form-control" })
+                    </div>
                 </div>
-            </div>
 
-
-           
-
-            <div class="form-group">
-                <label class="col-sm-3 control-label" for="demo-is-inputsmall">Product Name</label>
-                <div class="col-sm-5">
-                    @Html.TextBoxFor(model => model.ProductName, new { @class ="form-control input-sm", placeholder ="" })
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="demo-is-inputsmall">Product Name</label>
+                    <div class="col-sm-5">
+                        @Html.TextBoxFor(model => model.ProductName, new { @class = "form-control input-sm", placeholder = "" })
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label class="col-sm-3 control-label" for="demo-is-inputsmall">Description</label>
-                <div class="col-sm-5">
-                    @Html.TextBoxFor(model => model.Description, new { @class ="form-control input-sm", placeholder ="" })
-                   
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="demo-is-inputsmall">Description</label>
+                    <div class="col-sm-5">
+                        @Html.TextBoxFor(model => model.Description, new { @class = "form-control input-sm", placeholder = "" })
+                    </div>
                 </div>
-            </div>
 
-            
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="demo-is-inputsmall">Language</label>
+                    <div class="col-sm-5">
+                        @Html.DropDownListFor(model => model.LanguageId, new SelectList(Model.LanguageList, "LanguageId", "LanguageName"), "--select Language--", new { @class = "btn dropdown-toggle btn-default btn-md form-control" })
 
-            <div class="form-group">
-                <label class="col-sm-3 control-label" for="demo-is-inputsmall">Language</label>
-                <div class="col-sm-5">
-                @Html.DropDownListFor(Model => Model.LanguageId, new SelectList(ViewBag.Lang, "LanguageId", "LanguageName"), "--select Language--", new { @class="btn dropdown-toggle btn-default btn-md form-control"})
-                
+                    </div>
                 </div>
-            </div>
 
-            
-            <div class="form-group">
-                <label class="col-sm-3 control-label" for="demo-is-inputsmall">Logo</label>
-                <div class="col-sm-5">
-                   <input type="file" name="file" id="file" />
-                   @{
-                        if (TempData["msg"] != null)
-                        { 
-                            <text>@TempData["msg"].ToString()</text>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label" for="demo-is-inputsmall">Logo</label>
+                    <div class="col-sm-5">
+                        <input type="file" name="file" id="file" />
+                        @{
+                            if (TempData["msg"] != null)
+                            { 
+                                            <text>@TempData["msg"].ToString()</text>
+                            }
                         }
-                    }
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <button class="btn btn-success btn-labeled fa fa-save fa-lg" type="submit">Save</button>
+                        <a href="@Url.Action("ListAllProduct", "Product")">
+                            <button class="btn btn-danger btn-labeled fa fa-repeat fa-lg" type="button">Back To List</button></a>
+                    </div>
                 </div>
             </div>
-
-            
-
-            
-            
-        </div>
-        <div class="panel-footer">
-            <div class="row">
-                <div class="col-sm-9 col-sm-offset-3">
-                    <button class="btn btn-success btn-labeled fa fa-save fa-lg" type="submit">Save</button>
-                    <a href="@Url.Action("ListAllProduct","Product")"><button class="btn btn-danger btn-labeled fa fa-repeat fa-lg" type="button">Back TO List</button></a>
-                </div>
-            </div>
-        </div>
-    }
-    <!--===================================================-->
-    <!--End Input Size-->
+        }
+        <!--===================================================-->
+        <!--End Input Size-->
     </div>
 
 </div>
 
 <script type="text/javascript">
     $(document).ready(function () {
-
     });
     function loadCategory() {
         var id = $("#CategoryId").val();
 
         var callUrl = "http://localhost/OrderWala.Web/Product/getSubCategory";
-        var dataToSend = { Id: id }
+        var dataToSend = { mainCategoryId: id }
         $.ajax({
             url: callUrl,
             type: "GET",
@@ -139,7 +121,7 @@
             cache: false,
             success: function (data) {
                 $('#SubCategoryId').html('');
-                $('#SubCategoryId').append($('<option></option>').val(0).html("---------Select City--------"));
+                $('#SubCategoryId').append($('<option></option>').val(0).html("---------Select subcategory--------"));
 
                 $.each(data, function (id, option) {
                     $('#SubCategoryId').append($('<option></option>').val(option.SubCategoryId).html(option.SubCategoryName));

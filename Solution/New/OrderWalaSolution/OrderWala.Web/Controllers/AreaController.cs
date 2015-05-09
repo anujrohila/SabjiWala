@@ -85,8 +85,6 @@ namespace OrderWala.Web.Controllers
         {
             OrderWalaEntities db = new OrderWalaEntities();
 
-            //var MasterRepository = new MasterRepository();
-
             var Qualitylist = db.tblCities.Where(i => i.StateId == Id);
             var result = (from s in Qualitylist
                           select new

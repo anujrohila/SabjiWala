@@ -1,4 +1,4 @@
-﻿@model OrderWala.Domain.tblLanguageWiseCategoryDTO
+﻿@model OrderWala.Domain.tblCategoryDTO
 @{
     ViewBag.Title = "Save";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -17,8 +17,8 @@
         @using (Html.BeginForm("Save", "Category", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
         {
       
-            @Html.HiddenFor(Model => Model.CategoryId)
-            @Html.HiddenFor(Model => Model.RowId)
+            @Html.HiddenFor(model => model.CategoryId)
+            @Html.HiddenFor(model => model.RowId)
       
             <div class="panel-body">
                 @Html.ValidationSummary(true)
@@ -30,13 +30,8 @@
 
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="demo-is-inputsmall">Category Name</label>
-                    <div class="col-sm-5">
-              
-                        @* @Html.HiddenFor(Model => Model.IsActive)
-                        @Html.HiddenFor(Model => Model.IsDeleted)*@
-
-                        @Html.TextBoxFor(model => model.CategoryName, new { @class = "form-control input-sm", placeholder = "" })
-                        @*<input type="text" placeholder=".input-sm" class="form-control input-sm" id="demo-is-inputsmall">*@
+                    <div class="col-sm-5">           
+                          @Html.TextBoxFor(model => model.CategoryName, new { @class = "form-control input-sm", placeholder = "" })                       
                     </div>
                 </div>
 
@@ -44,8 +39,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="demo-is-inputsmall">Description</label>
                     <div class="col-sm-5">
-                        @Html.TextBoxFor(model => model.Description, new { @class = "form-control input-sm", placeholder = "" })
-                        @*<input type="text" placeholder=".input-sm" class="form-control input-sm" id="demo-is-inputsmall">*@
+                        @Html.TextBoxFor(model => model.Description, new { @class = "form-control input-sm", placeholder = "" })                      
                     </div>
                 </div>
 
@@ -53,8 +47,7 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="demo-is-inputsmall">Language</label>
                     <div class="col-sm-5">
-                        @Html.DropDownListFor(Model => Model.LanguageId, new SelectList(ViewBag.Lang, "LanguageId", "LanguageName"), "--select Language--", new { @class = "btn dropdown-toggle btn-default btn-md form-control" })
-
+                        @Html.DropDownListFor(model => model.LanguageId, new SelectList(Model.LanguageList, "LanguageId", "LanguageName"), "--select Language--", new { @class = "btn dropdown-toggle btn-default btn-md form-control" })
                     </div>
                 </div>
 

@@ -22,33 +22,34 @@ namespace OrderWala.Web.Controllers
             return View(returnValue);
         }
 
-        public void getcat()
-        {
-            OrderWalaEntities db = new OrderWalaEntities();
-            ViewBag.categorydata = db.tblLanguageWiseCategories.ToList<tblLanguageWiseCategory>();
-            ViewBag.Lang = db.tblLanguages.ToList<tblLanguage>();
-        }
+        //public void getcat()
+        //{
+        //    OrderWalaEntities db = new OrderWalaEntities();
+        //    ViewBag.categorydata = db.tblLanguageWiseCategories.ToList<tblLanguageWiseCategory>();
+        //    ViewBag.Lang = db.tblLanguages.ToList<tblLanguage>();
+        //}
 
         [HttpGet]
         public ActionResult SubCategorySave(int id = 0)
         {
-
-            var SubCategoryRepository = new SubCategoryRepository();
-
-            getcat();
-
+            var tblsubcategorydto = new tblSubCategoryDTO();
+            var subCategoryRepository = new SubCategoryRepository();
+            var categoryRepository = new CategoryRepository();
+            var languageRepository = new LanguageRepository();
+           // getcat();
             if (id > 0)
-            {
-                var Subdata = SubCategoryRepository.GetSubCategoryById(id);
-                return View(Subdata);
+            {               
+                 tblsubcategorydto = subCategoryRepository.GetSubCategoryById(id);                
             }
-            return View(new tblLanguageWiseSubCategoryDTO());
+            tblsubcategorydto.categorylist = categoryRepository.GetAllCategory();
+            tblsubcategorydto.LanguageList = languageRepository.GetAllLanguage();
+            return View(tblsubcategorydto);
         }
 
         [HttpPost]
-        public ActionResult SubCategorySave(tblLanguageWiseSubCategoryDTO tblSubCategoryDTO, HttpPostedFileBase file)
+        public ActionResult SubCategorySave(tblSubCategoryDTO tblSubCategoryDTO, HttpPostedFileBase file)
         {
-            getcat();
+          //  getcat();
 
             if (ModelState.IsValid)
             {
