@@ -16,6 +16,13 @@ namespace OrderWala.Domain
     [DataContract()]
     public partial class tblSubCategoryDTO
     {
+
+        public tblSubCategoryDTO()
+        {
+            categorylist = new List<tblLanguageWiseCategoryDTO>();         
+            LanguageList = new List<tblLanguageDTO>();
+        }
+
         [DataMember()]
         public Int32 SubCategoryId { get; set; }
 
@@ -41,5 +48,11 @@ namespace OrderWala.Domain
 
         [DataMember()]
         public Int32 LanguageId { get; set; }
+
+        public Int32 RowId { get; set; }  
+
+        public List<tblLanguageWiseCategoryDTO> categorylist { get; set; }
+
+         public List<tblLanguageDTO> LanguageList { get; set; }
     }
 }

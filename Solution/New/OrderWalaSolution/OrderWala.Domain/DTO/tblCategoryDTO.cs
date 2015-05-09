@@ -16,6 +16,11 @@ namespace OrderWala.Domain
     [DataContract()]
     public partial class tblCategoryDTO
     {
+        public tblCategoryDTO()
+        {
+            LanguageList = new List<tblLanguageDTO>();
+        }
+
         [DataMember()]
         public Int32 CategoryId { get; set; }
 
@@ -36,9 +41,10 @@ namespace OrderWala.Domain
 
  
         public Int32 LanguageId { get; set; }
+        
+        public Int32 RowId { get; set; }
 
-
-
+        public List<tblLanguageDTO> LanguageList { get; set; }
         
     }
 }

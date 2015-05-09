@@ -16,6 +16,12 @@ namespace OrderWala.Domain
     [DataContract()]
     public partial class tblLanguageWiseProductDTO
     {
+
+        public tblLanguageWiseProductDTO()
+        {
+           
+        }
+
         [DataMember()]
         public Int32 RowId { get; set; }
 
@@ -42,17 +48,7 @@ namespace OrderWala.Domain
         [DataMember()]
         public String Description { get; set; }
 
-        public tblLanguageWiseProductDTO()
-        {
-        }
+        
 
-        public tblLanguageWiseProductDTO(Int32 rowId, Nullable<Int32> productId, Nullable<Int32> languageId, String productName, String description)
-        {
-			this.RowId = rowId;
-			this.ProductId = productId;
-			this.LanguageId = languageId;
-			this.ProductName = productName;
-			this.Description = description;
-        }
     }
 }

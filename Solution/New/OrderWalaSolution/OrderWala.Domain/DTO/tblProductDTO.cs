@@ -17,6 +17,14 @@ namespace OrderWala.Domain
     [DataContract()]
     public partial class tblProductDTO
     {
+
+        public tblProductDTO()
+        {
+            categorylist = new List<tblLanguageWiseCategoryDTO>();
+            QunatityList = new List<tblQuantityTypeDTO>();
+            LanguageList = new List<tblLanguageDTO>();
+        }
+
         [DataMember()]
         public Int32 ProductId { get; set; }
 
@@ -44,6 +52,8 @@ namespace OrderWala.Domain
         [DataMember()]
         public String Logo { get; set; }
 
+        public Int32 RowId { get; set; }  
+
         public Nullable<Int32> LanguageId { get; set; }
        
         public Nullable<Int32> CityId { get; set; }
@@ -65,21 +75,11 @@ namespace OrderWala.Domain
         public tblLanguageWiseProductDTO lngwiseProduct { get; set; }
 
 
-        public tblProductDTO()
-        {
-        }
+        public List<tblLanguageWiseCategoryDTO> categorylist { get; set; }
 
-        public tblProductDTO(Int32 productId, Int32 subCategoryId, Int32 categoryId, Int32 quantityTypeId, Boolean isActive, Boolean isDeleted, String logo)
-        {
-			this.ProductId = productId;
-			this.SubCategoryId = subCategoryId;
-			this.CategoryId = categoryId;
-			this.QuantityTypeId = quantityTypeId;
-			this.IsActive = isActive;
-			this.IsDeleted = isDeleted;
-			this.Logo = logo;
-        }
+        public List<tblQuantityTypeDTO> QunatityList { get; set; }
 
+        public List<tblLanguageDTO> LanguageList { get; set; }
       
     }
 }
