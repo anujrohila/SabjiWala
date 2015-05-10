@@ -314,6 +314,50 @@ namespace OrderWala.Service.Service
             return customerPaymentListResponse;
         }
 
+        public ServiceLoginResponse ForgotPassword(string userName)
+        {
+            var serviceLoginResponse = new ServiceLoginResponse();
+            serviceLoginResponse.ModelMessage = new List<ModelMessage>();
+            try
+            {
+                bool isValid = true;
+                if (string.IsNullOrWhiteSpace(userName))
+                {
+                    serviceLoginResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.valRequiredUserName });
+                    isValid = false;
+                }
+                if (string.IsNullOrWhiteSpace(password))
+                {
+                    serviceLoginResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.valRequiredPassword });
+                    isValid = false;
+                }
+                if (isValid)
+                {
+                    var accountRepository = new AccountRepository();
+                    serviceLoginResponse.UserDetailResponse = accountRepository.Login(userName, Encryption.EncryptToBase64(password));
+                    if (serviceLoginResponse.UserDetailResponse.UserId == 0)
+                    {
+                        serviceLoginResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.valInvalidLoginDetail });
+                        serviceLoginResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
+                    }
+                    else
+                    {
+                        serviceLoginResponse.ServiceResponseStatus = ServiceResponseStatus.Success;
+                    }
+                }
+                else
+                {
+                    serviceLoginResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
+                }
+            }
+            catch (Exception)
+            {
+                serviceLoginResponse.ModelMessage.Add(new ModelMessage { Message = OrderWalaResource.msgErrorInTransaction });
+                serviceLoginResponse.ServiceResponseStatus = ServiceResponseStatus.Error;
+            }
+            return serviceLoginResponse;
+        }
+
         #endregion
 
         #region [Private Method]
